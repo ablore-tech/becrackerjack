@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('vertical_id')->references('id')->on('verticals')->onDelete('cascade');
             $table->foreignId('board_id')->nullable()->references('id')->on('boards')->onDelete('cascade');
-            $table->foreignId('class_id')->nullable()->references('id')->on('classes')->onDelete('cascade');
+            $table->foreignId('school_class_id')->nullable()->references('id')->on('school_classes')->onDelete('cascade');
             $table->foreignId('subject_id')->nullable()->references('id')->on('subjects')->onDelete('cascade');
             $table->foreignId('university_id')->nullable()->references('id')->on('universities')->onDelete('cascade');
             $table->json('days')->nullable();

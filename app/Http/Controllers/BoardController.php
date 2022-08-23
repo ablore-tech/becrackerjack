@@ -35,7 +35,11 @@ class BoardController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Board::create([
+            'name' => $request->name
+        ]);
+
+        return back();
     }
 
     /**
@@ -80,6 +84,8 @@ class BoardController extends Controller
      */
     public function destroy(Board $board)
     {
-        //
+        $board->delete();
+
+        return back();
     }
 }

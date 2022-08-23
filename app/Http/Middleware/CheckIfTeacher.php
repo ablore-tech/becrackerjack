@@ -16,7 +16,7 @@ class CheckIfTeacher
      */
     public function handle(Request $request, Closure $next)
     {
-        if($request->user()->roles->first()->name === "teacher")
+        if(!($request->user()->roles->first()->name === "teacher"))
         {
             abort(403, 'User is not teacher');
         }

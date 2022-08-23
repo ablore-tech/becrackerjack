@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Subject;
 use Illuminate\Http\Request;
+use Mockery\Matcher\Subset;
 
 class SubjectController extends Controller
 {
@@ -35,7 +36,11 @@ class SubjectController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Subject::create([
+            'name' => $request->name
+        ]);
+
+        return back();
     }
 
     /**
@@ -80,6 +85,8 @@ class SubjectController extends Controller
      */
     public function destroy(Subject $subject)
     {
-        //
+        $subject->delete();
+
+        return back();
     }
 }

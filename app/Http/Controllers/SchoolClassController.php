@@ -35,7 +35,11 @@ class SchoolClassController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        SchoolClass::create([
+            'name' => $request->name
+        ]);
+
+        return back();
     }
 
     /**
@@ -80,6 +84,8 @@ class SchoolClassController extends Controller
      */
     public function destroy(SchoolClass $schoolClass)
     {
-        //
+        $schoolClass->delete();
+
+        return back();
     }
 }
