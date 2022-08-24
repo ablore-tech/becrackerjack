@@ -493,7 +493,7 @@
                                                                                 <td>
                                                                                     <div class="d-flex gap-2">
                                                                                         <div class="edit">
-                                                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModalBoard">Edit</button>
+                                                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-board="{'id': {{$board->id}}, 'name': {{ $board->name}} }" data-bs-target="#editModalBoard">Edit</button>
                                                                                         </div>
                                                                                         <div class="remove">
                                                                                             <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal"
@@ -608,7 +608,7 @@
                                                                                 <td>
                                                                                     <div class="d-flex gap-2">
                                                                                         <div class="edit">
-                                                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModalClass">Edit</button>
+                                                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-board="{'id': {{$class->id}}, 'name': {{ $class->name}} }" data-bs-target="#editModalClass">Edit</button>
                                                                                         </div>
                                                                                         <div class="remove">
                                                                                             <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal"
@@ -705,7 +705,7 @@
                                                                                             <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal"
                                                                                             data-subject="{'id': {{$subject->id}}, 'name': {{ $subject->name}} }" 
                                                                                          
-                                                                                            data-bs-target="#showModalSubject">Edit</button>
+                                                                                            data-bs-target="#editModalSubject">Edit</button>
                                                                                         </div>
                                                                                         <div class="remove">
                                                                                             <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" 
@@ -796,6 +796,46 @@
                         </div>
                     </div>
 
+                    <div class="modal fade" id="editModalBoard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-light p-3">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+                                </div>
+                                @php
+                                    $board_id = 0;
+                                    $board_name = '';
+                                    if(isset($board)) {
+                                        $board_id = $board->id;
+                                        $board_name = $board->name;
+                                    }
+                                @endphp
+                                <form method="POST" action="{{ route('board.update', $board_id) }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="modal-body">
+    
+                                        <div class="mb-3" id="modal-id" style="display: none;">
+                                            <label for="id-field" class="form-label">ID</label>
+                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
+                                        </div>
+    
+                                        <div class="mb-3">
+                                            <label for="customername-field" class="form-label">Board Name</label>
+                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Board Name" required value="{{ $board_name}}"/>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="hstack gap-2 justify-content-end">
+                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-success" id="add-btn">Update </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="modal fade zoomIn" id="deleteModalBoard" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -828,11 +868,6 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
-
 
                     <div class="modal fade" id="showModalClass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -868,6 +903,47 @@
                         </div>
                     </div>
 
+
+                    <div class="modal fade" id="editModalClass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-light p-3">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+                                </div>
+                                @php
+                                    $class_id = 0;
+                                    $class_name = '';
+                                    if(isset($class)) {
+                                        $class_id = $class->id;
+                                        $class_name = $class->name;
+                                    }
+                                @endphp
+                                <form method="POST" action="{{ route('school-class.update', $class_id) }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="modal-body">
+    
+                                        <div class="mb-3" id="modal-id" style="display: none;">
+                                            <label for="id-field" class="form-label">ID</label>
+                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
+                                        </div>
+    
+                                        <div class="mb-3">
+                                            <label for="customername-field" class="form-label">Board Name</label>
+                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Class Name" required value="{{ $class_name}}"/>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="hstack gap-2 justify-content-end">
+                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-success" id="add-btn">Update </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="modal fade zoomIn" id="deleteModalClass" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -936,8 +1012,49 @@
                         </div>
                     </div>
 
+                    <div class="modal fade" id="editModalSubject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered">
+                            <div class="modal-content">
+                                <div class="modal-header bg-light p-3">
+                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
+                                </div>
+                                @php
+                                    $subject_id = 0;
+                                    $subject_name = '';
+                                    if(isset($subject)) {
+                                        $subject_id = $subject->id;
+                                        $subject_name = $subject->name;
+                                    }
+                                @endphp
+                                <form method="POST" action="{{ route('subject.update', $subject_id) }}">
+                                    @csrf
+                                    @method('PUT')
+                                    <div class="modal-body">
+    
+                                        <div class="mb-3" id="modal-id" style="display: none;">
+                                            <label for="id-field" class="form-label">ID</label>
+                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
+                                        </div>
+    
+                                        <div class="mb-3">
+                                            <label for="customername-field" class="form-label">Board Name</label>
+                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Subject Name" required value="{{ $subject_name}}"/>
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <div class="hstack gap-2 justify-content-end">
+                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-success" id="add-btn">Update </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
 
                     <div class="modal fade zoomIn" id="deleteModalSubject" tabindex="-1" aria-hidden="true">
+
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">

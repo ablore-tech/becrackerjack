@@ -73,7 +73,11 @@ class SchoolClassController extends Controller
      */
     public function update(Request $request, SchoolClass $schoolClass)
     {
-        //
+        $schoolClass->update([
+            'name' => $request->name
+        ]);
+
+        return back();
     }
 
     /**

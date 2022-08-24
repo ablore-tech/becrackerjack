@@ -73,7 +73,11 @@ class BoardController extends Controller
      */
     public function update(Request $request, Board $board)
     {
-        //
+        $board->update([
+            'name' => $request->name
+        ]);
+
+        return back();
     }
 
     /**

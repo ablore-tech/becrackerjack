@@ -74,7 +74,11 @@ class SubjectController extends Controller
      */
     public function update(Request $request, Subject $subject)
     {
-        //
+        $subject->update([
+            'name' => $request->name
+        ]);
+
+        return back();
     }
 
     /**
