@@ -22,7 +22,7 @@
                     <div class="text-center mt-sm-4 mb-5 text-white-50">
                         <div>
                             <a class="d-inline-block auth-logo">
-                                <img src="/images/logo-light.png" alt="" height="20">
+                                <img src="/images/logo-light.png" alt="" height="50">
                             </a>
                         </div>
                     </div>
@@ -36,8 +36,8 @@
 
                         <div class="card-body p-4">
                             <div class="text-center mt-2">
-                                <h5 class="text-primary">Welcome Back!</h5>
-                                <p class="text-muted">Sign in to continue to BCJ.</p>
+                                <h5 class="text-primary">Welcome Back !</h5>
+                                <p class="text-muted">Sign in to continue to Be Cracker Jack.</p>
                             </div>
                             <div class="p-2 mt-4">
                                 <form method="POST" action="{{ route('teacher.send-otp') }}">
@@ -58,7 +58,7 @@
                                     </div>
 
                                     <div class="mt-4">
-                                    <button type="submit" class="btn btn-primary w-100">
+                                    <button type="submit" class="btn bttn w-100" >
                                         {{ __('Login') }}
                                     </button>
                                     </div>
