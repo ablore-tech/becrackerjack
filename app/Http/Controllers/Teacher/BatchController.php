@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
+use App\Models\Board;
+use App\Models\SchoolClass;
+use App\Models\Subject;
 use Illuminate\Http\Request;
 
 class BatchController extends Controller
@@ -24,7 +27,10 @@ class BatchController extends Controller
      */
     public function create()
     {
-        return view('teacher.batch.add');
+        $boards = Board::all();
+        $schoolClasses = SchoolClass::all();
+        $subjects = Subject::all();
+        return view('teacher.batch.add', compact(['boards', 'schoolClasses', 'subjects']));
     }
 
     /**
@@ -35,7 +41,7 @@ class BatchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**

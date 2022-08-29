@@ -58,7 +58,7 @@
                                     </div>
 
                                     <div class="mt-4">
-                                    <button type="submit" class="btn bttn w-100" >
+                                    <button type="submit" class="btn btn-primary w-100" >
                                         {{ __('Login') }}
                                     </button>
                                     </div>

@@ -8,22 +8,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
-    <!-- App favicon -->
-    <link rel="shortcut icon" href="{{ asset('images/favicon.ico')}}">
+ <!-- App favicon -->
+ <link rel="shortcut icon" href="{{ asset('images/favicon.ico')}}">
 
     <!-- plugin css -->
     <link href="{{ asset('libs/jsvectormap/css/jsvectormap.min.css')}}" rel="stylesheet" type="text/css" />
 
-    <!-- Layout config Js -->
-    <script src="{{ asset('js/layout.js')}}"></script>
-    <!-- Bootstrap Css -->
-    <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-    <!-- Icons Css -->
-    <link href="{{ asset('css/icons.min.css')}}" rel="stylesheet" type="text/css" />
-    <!-- App Css-->
-    <link href="{{ asset('css/app.min.css')}}" rel="stylesheet" type="text/css" />
-    <!-- custom Css-->
-    <link href="{{ asset('css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+      <!-- Layout config Js -->
+      <script src="{{ asset('js/layout.js')}}"></script>
+      <!-- Bootstrap Css -->
+      <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+      <!-- Icons Css -->
+      <link href="{{ asset('css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+      <!-- App Css-->
+      <link href="{{ asset('css/app.min.css')}}" rel="stylesheet" type="text/css" />
+      <!-- custom Css-->
+      <link href="{{ asset('css/custom.min.css')}}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -227,20 +227,18 @@
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Profile</span></a>
 
-
-                                <a class="dropdown-item" href="pages-faqs.html"><i
-                                        class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Help</span></a>
                                 <div class="dropdown-divider"></div>
 
-                                <a class="dropdown-item" href="pages-profile-settings.html"><span
-                                        class="badge bg-soft-success text-success mt-1 float-end">New</span><i
-                                        class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Settings</span></a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                    document.getElementById('logout-form').submit();">
+                                        <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle" data-key="t-logout">{{ __('Logout') }}</span>
+                                </a>
 
-                                <a class="dropdown-item" href="auth-logout-basic.html"><i
-                                        class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle" data-key="t-logout">Logout</span></a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -283,21 +281,21 @@
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarDashboards" role="button" aria-expanded="false"
+                            <a class="nav-link menu-link" href="{{route('teacher.dashboard')}}" role="button" aria-expanded="false"
                                 aria-controls="sidebarDashboards">
                                 <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Home</span>
                             </a>
 
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarDashboards" role="button" aria-expanded="false"
+                            <a class="nav-link menu-link" href="{{ route('teacher.batch.create')}}" role="button" aria-expanded="false"
                                 aria-controls="sidebarDashboards">
                                 <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Add new batch</span>
                             </a>
 
                         </li> <!-- end Dashboard Menu -->
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="my_batches.html" data-bs-toggle="collapse" role="button"
+                            <a class="nav-link menu-link" href="{{ route('teacher.batch.index')}}" data-bs-toggle="collapse" role="button"
                                 aria-expanded="false" aria-controls="sidebarApps">
                                 <i class="ri-apps-2-line"></i> <span data-key="t-apps">My Batches</span>
                             </a>
@@ -680,13 +678,6 @@
                 <div class="container-fluid">
 
 
-
-
-
-
-
-
-
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
@@ -694,7 +685,7 @@
                                     <h4 class="card-title mb-0">Vertical nav Steps</h4>
                                 </div><!-- end card header -->
                                 <div class="card-body form-steps">
-                                    <form class="vertical-navs-step">
+                                    <form class="vertical-navs-step" action="{{ route('teacher.batch.store')}}" method="POST">
                                         <div class="row gy-5">
                                             <div class="col-lg-4">
                                                 <div class="nav flex-column custom-nav nav-pills" role="tablist"
@@ -759,8 +750,8 @@
                                                                         id="choices-single-default">
                                                                         <option value="">Select Vertical</option>
 
-                                                                        <option value="Choice2">College</option>
-                                                                        <option value="Choice3">Advance</option>
+                                                                        <!-- <option value="college">College</option>
+                                                                        <option value="Choice3">Advance</option> -->
                                                                         <option value="Choice1">School</option>
 
                                                                     </select>
@@ -1088,7 +1079,7 @@
                                                                     data-previous="v-pills-bill-address-tab"><i
                                                                         class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>
                                                                     Back to Add Slot</button>
-                                                                <button type="button"
+                                                                <button type="submit"
                                                                     class="btn btn-success btn-label right ms-auto nexttab nexttab"
                                                                     data-nexttab="v-pills-finish-tab"><i
                                                                         class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>
@@ -1184,13 +1175,13 @@
 
 
 
-    <!-- JAVASCRIPT -->
-    <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{ asset('libs/simplebar/simplebar.min.js')}}"></script>
-    <script src="{{ asset('libs/node-waves/waves.min.js')}}"></script>
-    <script src="{{ asset('libs/feather-icons/feather.min.js')}}"></script>
-    <script src="{{ asset('js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
-    <script src="{{ asset('js/plugins.js')}}"></script>
+  <!-- JAVASCRIPT -->
+  <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+  <script src="{{ asset('libs/simplebar/simplebar.min.js')}}"></script>
+  <script src="{{ asset('libs/node-waves/waves.min.js')}}"></script>
+  <script src="{{ asset('libs/feather-icons/feather.min.js')}}"></script>
+  <script src="{{ asset('js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
+  <script src="{{ asset('js/plugins.js')}}"></script>
 
     <!-- apexcharts -->
     <script src="{{ asset('libs/apexcharts/apexcharts.min.js')}}"></script>
@@ -1210,10 +1201,11 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 
-        <script src="{{asset('js/pages/form-pickers.init.js')}}"></script>
+        <script src="{{ asset('js/pages/form-pickers.init.js')}}"></script>
 
 
-
+<!-- form wizard init -->
+<script src="{{ asset('js/pages/form-wizard.init.js')}}"></script>
     <script>
 
         $(function () {
