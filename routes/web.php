@@ -6,6 +6,7 @@ use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Teacher\BatchController;
 use App\Http\Controllers\Teacher\DashboardController;
 use App\Http\Controllers\Teacher\LoginController;
+use App\Http\Controllers\Teacher\TeacherController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -42,4 +43,6 @@ Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
     Route::resource('school-class', SchoolClassController::class);
     Route::resource('board', BoardController::class);
     Route::resource('subject', SubjectController::class);
+    Route::resource('teacher', TeacherController::class);
+    Route::post('teacher/update-status/{teacher}', [TeacherController::class, 'updateStatus'])->name('update-status');
 });
