@@ -25,6 +25,8 @@
       <!-- custom Css-->
       <link href="{{ asset('css/custom.min.css')}}" rel="stylesheet" type="text/css" />
 
+      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
 </head>
 
 <body>
@@ -227,18 +229,20 @@
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Profile</span></a>
 
+
+                                <a class="dropdown-item" href="pages-faqs.html"><i
+                                        class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle">Help</span></a>
                                 <div class="dropdown-divider"></div>
 
-                                <a class="dropdown-item" href="{{ route('logout') }}"
-                                    onclick="event.preventDefault();
-                                                    document.getElementById('logout-form').submit();">
-                                        <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle" data-key="t-logout">{{ __('Logout') }}</span>
-                                </a>
+                                <a class="dropdown-item" href="pages-profile-settings.html"><span
+                                        class="badge bg-soft-success text-success mt-1 float-end">New</span><i
+                                        class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle">Settings</span></a>
 
-                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                    @csrf
-                                </form>
+                                <a class="dropdown-item" href="auth-logout-basic.html"><i
+                                        class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
+                                        class="align-middle" data-key="t-logout">Logout</span></a>
                             </div>
                         </div>
                     </div>
@@ -295,316 +299,10 @@
 
                         </li> <!-- end Dashboard Menu -->
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="{{ route('teacher.batch.index')}}" data-bs-toggle="collapse" role="button"
+                            <a class="nav-link menu-link" href="{{ route('teacher.batch.index')}}" role="button"
                                 aria-expanded="false" aria-controls="sidebarApps">
-                                <i class="ri-apps-2-line"></i> <span data-key="t-apps">My Batches</span>
+                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">My Batches</span>
                             </a>
-                            <div class="collapse menu-dropdown" id="sidebarApps">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="apps-calendar.html" class="nav-link" data-key="t-calendar"> Calendar
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="apps-chat.html" class="nav-link" data-key="t-chat"> Chat </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#sidebarEmail" class="nav-link" data-bs-toggle="collapse" role="button"
-                                            aria-expanded="false" aria-controls="sidebarEmail" data-key="t-email">
-                                            Email
-                                        </a>
-                                        <div class="collapse menu-dropdown" id="sidebarEmail">
-                                            <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a href="apps-mailbox.html" class="nav-link" data-key="t-mailbox">
-                                                        Mailbox </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="#sidebaremailTemplates" class="nav-link"
-                                                        data-bs-toggle="collapse" role="button" aria-expanded="false"
-                                                        aria-controls="sidebaremailTemplates"
-                                                        data-key="t-email-templates">
-                                                        Email Templates <span class="badge badge-pill bg-danger"
-                                                            data-key="t-new">New</span>
-                                                    </a>
-                                                    <div class="collapse menu-dropdown" id="sidebaremailTemplates">
-                                                        <ul class="nav nav-sm flex-column">
-                                                            <li class="nav-item">
-                                                                <a href="apps-email-basic.html" class="nav-link"
-                                                                    data-key="t-basic-action"> Basic Action </a>
-                                                            </li>
-                                                            <li class="nav-item">
-                                                                <a href="apps-email-ecommerce.html" class="nav-link"
-                                                                    data-key="t-ecommerce-action"> Ecommerce Action </a>
-                                                            </li>
-                                                        </ul>
-                                                    </div>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#sidebarEcommerce" class="nav-link" data-bs-toggle="collapse"
-                                            role="button" aria-expanded="false" aria-controls="sidebarEcommerce"
-                                            data-key="t-ecommerce">
-                                            Ecommerce
-                                        </a>
-                                        <div class="collapse menu-dropdown" id="sidebarEcommerce">
-                                            <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-products.html" class="nav-link"
-                                                        data-key="t-products"> Products </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-product-details.html" class="nav-link"
-                                                        data-key="t-product-Details"> Product Details </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-add-product.html" class="nav-link"
-                                                        data-key="t-create-product"> Create Product </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-orders.html" class="nav-link"
-                                                        data-key="t-orders">
-                                                        Orders </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-order-details.html" class="nav-link"
-                                                        data-key="t-order-details"> Order Details </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-customers.html" class="nav-link"
-                                                        data-key="t-customers"> Customers </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-cart.html" class="nav-link"
-                                                        data-key="t-shopping-cart"> Shopping Cart </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-checkout.html" class="nav-link"
-                                                        data-key="t-checkout"> Checkout </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-sellers.html" class="nav-link"
-                                                        data-key="t-sellers">
-                                                        Sellers </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-ecommerce-seller-details.html" class="nav-link"
-                                                        data-key="t-sellers-details"> Seller Details </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#sidebarProjects" class="nav-link" data-bs-toggle="collapse"
-                                            role="button" aria-expanded="false" aria-controls="sidebarProjects"
-                                            data-key="t-projects">
-                                            Projects
-                                        </a>
-                                        <div class="collapse menu-dropdown" id="sidebarProjects">
-                                            <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a href="apps-projects-list.html" class="nav-link"
-                                                        data-key="t-list"> List
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-projects-overview.html" class="nav-link"
-                                                        data-key="t-overview"> Overview </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-projects-create.html" class="nav-link"
-                                                        data-key="t-create-project"> Create Project </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#sidebarTasks" class="nav-link" data-bs-toggle="collapse" role="button"
-                                            aria-expanded="false" aria-controls="sidebarTasks" data-key="t-tasks"> Tasks
-                                        </a>
-                                        <div class="collapse menu-dropdown" id="sidebarTasks">
-                                            <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a href="apps-tasks-kanban.html" class="nav-link"
-                                                        data-key="t-kanbanboard">
-                                                        Kanban Board </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-tasks-list-view.html" class="nav-link"
-                                                        data-key="t-list-view">
-                                                        List View </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-tasks-details.html" class="nav-link"
-                                                        data-key="t-task-details"> Task Details </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#sidebarCRM" class="nav-link" data-bs-toggle="collapse" role="button"
-                                            aria-expanded="false" aria-controls="sidebarCRM" data-key="t-crm"> CRM
-                                        </a>
-                                        <div class="collapse menu-dropdown" id="sidebarCRM">
-                                            <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a href="apps-crm-contacts.html" class="nav-link"
-                                                        data-key="t-contacts">
-                                                        Contacts </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-crm-companies.html" class="nav-link"
-                                                        data-key="t-companies">
-                                                        Companies </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-crm-deals.html" class="nav-link" data-key="t-deals">
-                                                        Deals
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-crm-leads.html" class="nav-link" data-key="t-leads">
-                                                        Leads
-                                                    </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#sidebarCrypto" class="nav-link" data-bs-toggle="collapse"
-                                            role="button" aria-expanded="false" aria-controls="sidebarCrypto"
-                                            data-key="t-crypto"> Crypto
-                                        </a>
-                                        <div class="collapse menu-dropdown" id="sidebarCrypto">
-                                            <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a href="apps-crypto-transactions.html" class="nav-link"
-                                                        data-key="t-transactions"> Transactions </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-crypto-buy-sell.html" class="nav-link"
-                                                        data-key="t-buy-sell">
-                                                        Buy & Sell </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-crypto-orders.html" class="nav-link"
-                                                        data-key="t-orders">
-                                                        Orders </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-crypto-wallet.html" class="nav-link"
-                                                        data-key="t-my-wallet">
-                                                        My Wallet </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-crypto-ico.html" class="nav-link"
-                                                        data-key="t-ico-list"> ICO
-                                                        List </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-crypto-kyc.html" class="nav-link"
-                                                        data-key="t-kyc-application"> KYC Application </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#sidebarInvoices" class="nav-link" data-bs-toggle="collapse"
-                                            role="button" aria-expanded="false" aria-controls="sidebarInvoices"
-                                            data-key="t-invoices">
-                                            Invoices
-                                        </a>
-                                        <div class="collapse menu-dropdown" id="sidebarInvoices">
-                                            <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a href="apps-invoices-list.html" class="nav-link"
-                                                        data-key="t-list-view">
-                                                        List View </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-invoices-details.html" class="nav-link"
-                                                        data-key="t-details">
-                                                        Details </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-invoices-create.html" class="nav-link"
-                                                        data-key="t-create-invoice"> Create Invoice </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#sidebarTickets" class="nav-link" data-bs-toggle="collapse"
-                                            role="button" aria-expanded="false" aria-controls="sidebarTickets"
-                                            data-key="t-supprt-tickets">
-                                            Support Tickets
-                                        </a>
-                                        <div class="collapse menu-dropdown" id="sidebarTickets">
-                                            <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a href="apps-tickets-list.html" class="nav-link"
-                                                        data-key="t-list-view">
-                                                        List View </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-tickets-details.html" class="nav-link"
-                                                        data-key="t-ticket-details"> Ticket Details </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="#sidebarnft" class="nav-link" data-bs-toggle="collapse" role="button"
-                                            aria-expanded="false" aria-controls="sidebarnft"
-                                            data-key="t-nft-marketplace">
-                                            NFT Marketplace <span class="badge badge-pill bg-danger"
-                                                data-key="t-new">New</span>
-                                        </a>
-                                        <div class="collapse menu-dropdown" id="sidebarnft">
-                                            <ul class="nav nav-sm flex-column">
-                                                <li class="nav-item">
-                                                    <a href="apps-nft-marketplace.html" class="nav-link"
-                                                        data-key="t-marketplace"> Marketplace </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-nft-explore.html" class="nav-link"
-                                                        data-key="t-explore-now"> Explore Now </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-nft-auction.html" class="nav-link"
-                                                        data-key="t-live-auction"> Live Auction </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-nft-item-details.html" class="nav-link"
-                                                        data-key="t-item-details"> Item Details </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-nft-collections.html" class="nav-link"
-                                                        data-key="t-collections"> Collections </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-nft-creators.html" class="nav-link"
-                                                        data-key="t-creators"> Creators </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-nft-ranking.html" class="nav-link"
-                                                        data-key="t-ranking"> Ranking </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-nft-wallet.html" class="nav-link"
-                                                        data-key="t-wallet-connect"> Wallet Connect </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a href="apps-nft-create.html" class="nav-link"
-                                                        data-key="t-create-nft"> Create NFT </a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </li>
-                                </ul>
-                            </div>
                         </li>
 
                         <li class="nav-item">
@@ -678,6 +376,13 @@
                 <div class="container-fluid">
 
 
+
+
+
+
+
+
+
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="card">
@@ -686,6 +391,7 @@
                                 </div><!-- end card header -->
                                 <div class="card-body form-steps">
                                     <form class="vertical-navs-step" action="{{ route('teacher.batch.store')}}" method="POST">
+                                        @csrf
                                         <div class="row gy-5">
                                             <div class="col-lg-4">
                                                 <div class="nav flex-column custom-nav nav-pills" role="tablist"
@@ -750,7 +456,7 @@
                                                                         id="choices-single-default">
                                                                         <option value="">Select Vertical</option>
 
-                                                                        <!-- <option value="college">College</option>
+                                                                        <!-- <option value="Choice2">College</option>
                                                                         <option value="Choice3">Advance</option> -->
                                                                         <option value="Choice1">School</option>
 
@@ -766,16 +472,15 @@
 
                                                                                 <select class="form-control"
                                                                                     data-choices
-                                                                                    name="choices-single-default"
+                                                                                    name="board"
                                                                                     id="choices-single-default">
                                                                                     <option value="">Select Board
                                                                                     </option>
-                                                                                    <option value="Choice 1">CBSE
-                                                                                    </option>
-                                                                                    <option value="Choice 2">ICSE
-                                                                                    </option>
-                                                                                    <option value="Choice 3">Other
-                                                                                    </option>
+                                                                                    @if($boards)
+                                                                                        @foreach($boards as $board)
+                                                                                            <option value="{{$board->id}}">{{ $board->name}}</option>
+                                                                                        @endforeach
+                                                                                    @endif
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -788,16 +493,15 @@
 
                                                                                 <select class="form-control"
                                                                                     data-choices
-                                                                                    name="choices-single-default"
+                                                                                    name="school_class"
                                                                                     id="choices-single-default">
                                                                                     <option value="">Select Class
                                                                                     </option>
-                                                                                    <option value="Choice 1">Class 1
-                                                                                    </option>
-                                                                                    <option value="Choice 2">Class 2
-                                                                                    </option>
-                                                                                    <option value="Choice 3">Class 3
-                                                                                    </option>
+                                                                                    @if($schoolClasses)
+                                                                                        @foreach($schoolClasses as $schoolClass)
+                                                                                            <option value="{{$schoolClass->id}}">{{ $schoolClass->name}}</option>
+                                                                                        @endforeach
+                                                                                    @endif
                                                                                 </select>
                                                                             </div>
                                                                         </div>
@@ -808,50 +512,20 @@
                                                                                     for="choices-multiple-remove-button"
                                                                                     class="form-label text-muted">Please
                                                                                     Select Subjects</label>
-                                                                                <p class="text-muted">(You can choose
-                                                                                    multiple subjects)</p>
-                                                                                <select class="form-control"
-                                                                                    id="choices-multiple-remove-button"
-                                                                                    data-choices data-choices-removeItem
-                                                                                    name="choices-multiple-remove-button"
-                                                                                    multiple>
-                                                                                    <option value="Choice 1" selected>
-                                                                                        Subject 1</option>
-                                                                                    <option value="Choice 2">Subject 2
-                                                                                    </option>
-                                                                                    <option value="Choice 3">Subject 3
-                                                                                    </option>
-                                                                                    <option value="Choice 4">Subject 4
-                                                                                    </option>
-                                                                                </select>
-                                                                            </div>
-                                                                        </div>
-                                                                    </div>
-                                                                    <div class="row c2">
-                                                                        <div class="col-lg-6 col-md-6">
-                                                                            <div class="mb-3">
-                                                                                <label for="choices-single-default"
-                                                                                    class="form-label text-muted">Please
-                                                                                    Select University</label>
-
-                                                                                <select class="form-control"
+                                                                                    <select class="form-control"
                                                                                     data-choices
-                                                                                    name="choices-single-default"
+                                                                                    name="subject"
                                                                                     id="choices-single-default">
-                                                                                    <option value="">Select University
+                                                                                    <option value="">Select Subject
                                                                                     </option>
-                                                                                    <option value="Choice 1">University
-                                                                                        1</option>
-                                                                                    <option value="Choice 2">University
-                                                                                        2</option>
-                                                                                    <option value="Choice 3">University
-                                                                                        3</option>
+                                                                                    @if($subjects)
+                                                                                        @foreach($subjects as $subject)
+                                                                                            <option value="{{$subject->id}}">{{ $subject->name}}</option>
+                                                                                        @endforeach
+                                                                                    @endif
                                                                                 </select>
                                                                             </div>
                                                                         </div>
-                                                                    </div>
-                                                                    <div class="row c3">
-                                                                        asdfghjjklqwerrttyyuio
                                                                     </div>
 
                                                                 </div>
@@ -881,14 +555,12 @@
 
                                                                         <div class="form-check mb-3">
                                                                             <input class="form-check-input"
-                                                                                type="checkbox" id="formCheck1" checked>
+                                                                                type="checkbox" id="formCheck1" name="days[]" checked value="1">
                                                                             <label class="form-check-label"
                                                                                 for="formCheck1">
                                                                                 Monday
                                                                             </label>
                                                                         </div>
-
-
                                                                     </div>
                                                                     <div class="col-md-4">
 
@@ -896,7 +568,7 @@
                                                                         <!-- Custom Checkboxes Color -->
                                                                         <div class="form-check mb-3">
                                                                             <input class="form-check-input"
-                                                                                type="checkbox" id="formCheck2" checked>
+                                                                                type="checkbox" id="formCheck2" name="days[]" checked value="2">
                                                                             <label class="form-check-label"
                                                                                 for="formCheck2">
                                                                                 Tuesday
@@ -911,7 +583,7 @@
                                                                         <!-- Custom Checkboxes Color -->
                                                                         <div class="form-check mb-3">
                                                                             <input class="form-check-input"
-                                                                                type="checkbox" id="formCheck3" checked>
+                                                                                type="checkbox" id="formCheck3" name="days[]" checked value="3">
                                                                             <label class="form-check-label"
                                                                                 for="formCheck3">
                                                                                 Wednesday
@@ -927,7 +599,7 @@
                                                                         <!-- Custom Checkboxes Color -->
                                                                         <div class="form-check mb-3">
                                                                             <input class="form-check-input"
-                                                                                type="checkbox" id="formCheck4" checked>
+                                                                                type="checkbox" id="formCheck4" name="days[]" checked value="4">
                                                                             <label class="form-check-label"
                                                                                 for="formCheck4">
                                                                                 Thrusday
@@ -944,7 +616,7 @@
                                                                         <!-- Custom Checkboxes Color -->
                                                                         <div class="form-check mb-3">
                                                                             <input class="form-check-input"
-                                                                                type="checkbox" id="formCheck5" checked>
+                                                                                type="checkbox" id="formCheck5" name="days[]" checked value="5">
                                                                             <label class="form-check-label"
                                                                                 for="formCheck5">
                                                                                 Friday
@@ -960,7 +632,7 @@
                                                                         <!-- Custom Checkboxes Color -->
                                                                         <div class="form-check mb-3">
                                                                             <input class="form-check-input"
-                                                                                type="checkbox" id="formCheck6" checked>
+                                                                                type="checkbox" id="formCheck6" name="days[]" checked value="6">
                                                                             <label class="form-check-label"
                                                                                 for="formCheck6">
                                                                                 Saturday
@@ -974,7 +646,7 @@
                                                                         <!-- Custom Checkboxes Color -->
                                                                         <div class="form-check mb-3">
                                                                             <input class="form-check-input"
-                                                                                type="checkbox" id="formCheck7" checked>
+                                                                                type="checkbox" id="formCheck7" name="days[]" checked value="7">
                                                                             <label class="form-check-label"
                                                                                 for="formCheck7">
                                                                                 Sunday
@@ -1003,9 +675,7 @@
                                                                                 Time</label>
                                                                             <p class="text-muted">Select Timing For Your
                                                                                 Batch</p>
-                                                                            <input type="text" class="form-control"
-                                                                                data-provider="timepickr"
-                                                                                data-time-inline="08:00">
+                                                                            <input type="text" class="form-control" id="from_time" name="from_time">
                                                                         </div>
                                                                     </div>
                                                                     <!-- end col -->
@@ -1022,9 +692,8 @@
                                                                                 Time</label>
                                                                             <p class="text-muted">Select Timing For Your
                                                                                 Batch</p>
-                                                                            <input type="text" class="form-control"
-                                                                                data-provider="timepickr"
-                                                                                data-time-inline="11:00">
+                                                                    
+                                                                                <input type="text" class="form-control" id="to_time" name="to_time">
                                                                         </div>
                                                                     </div>
                                                                     <!-- end col -->
@@ -1068,7 +737,7 @@
                                                                 <div class="input-group">
                                                                     <span class="input-group-text">₹</span>
                                                                     <input type="text" class="form-control"
-                                                                        aria-label="Amount (to the nearest dollar)">
+                                                                        aria-label="Amount (to the nearest dollar)" name="amount">
                                                                     <span class="input-group-text">/ hour</span>
                                                                 </div>
                                                             </div>
@@ -1099,8 +768,8 @@
                                                                         style="width:120px;height:120px"></lord-icon>
                                                                 </div>
                                                                 <h5>Sucessfully Added a New Batch !</h5>
-                                                                <p class="text-muted">You Will receive an order
-                                                                    confirmation email with details of your batch.</p>
+                                                                <!-- <p class="text-muted">You Will receive an order
+                                                                    confirmation email with details of your batch.</p> -->
                                                             </div>
                                                         </div>
                                                         <!-- end tab pane -->
@@ -1206,6 +875,8 @@
 
 <!-- form wizard init -->
 <script src="{{ asset('js/pages/form-wizard.init.js')}}"></script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.js"></script>
     <script>
 
         $(function () {
@@ -1220,14 +891,26 @@
                 if (value == "Choice1") {
                     $(".c1").show();
                 }
-                if (value == "Choice2") {
-                    $(".c2").show();
-                }
-                if (value == "Choice3") {
-                    $(".c3").show();
-                }
+                // if (value == "Choice2") {
+                //     $(".c2").show();
+                // }
+                // if (value == "Choice3") {
+                //     $(".c3").show();
+                // }
             });
             hidestuff();
+        });
+
+        $("#from_time").timepicker({
+            timeFormat: 'h:mm p',
+            interval:15,
+            defaultTime: '12'
+        });
+
+        $("#to_time").timepicker({
+            timeFormat: 'h:mm p',
+            interval:15,
+            defaultTime: '12'
         });
     </script>
 </body>
