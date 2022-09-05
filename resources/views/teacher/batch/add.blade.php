@@ -8,24 +8,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
- <!-- App favicon -->
- <link rel="shortcut icon" href="{{ asset('images/favicon.ico')}}">
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico')}}">
 
     <!-- plugin css -->
     <link href="{{ asset('libs/jsvectormap/css/jsvectormap.min.css')}}" rel="stylesheet" type="text/css" />
 
-      <!-- Layout config Js -->
-      <script src="{{ asset('js/layout.js')}}"></script>
-      <!-- Bootstrap Css -->
-      <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
-      <!-- Icons Css -->
-      <link href="{{ asset('css/icons.min.css')}}" rel="stylesheet" type="text/css" />
-      <!-- App Css-->
-      <link href="{{ asset('css/app.min.css')}}" rel="stylesheet" type="text/css" />
-      <!-- custom Css-->
-      <link href="{{ asset('css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Layout config Js -->
+    <script src="{{ asset('js/layout.js')}}"></script>
+    <!-- Bootstrap Css -->
+    <link href="{{ asset('css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- Icons Css -->
+    <link href="{{ asset('css/icons.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- App Css-->
+    <link href="{{ asset('css/app.min.css')}}" rel="stylesheet" type="text/css" />
+    <!-- custom Css-->
+    <link href="{{ asset('css/custom.min.css')}}" rel="stylesheet" type="text/css" />
 
-      <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/timepicker/1.3.5/jquery.timepicker.min.css">
+
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
 
 </head>
 
@@ -390,8 +393,7 @@
                                     <h4 class="card-title mb-0">Vertical nav Steps</h4>
                                 </div><!-- end card header -->
                                 <div class="card-body form-steps">
-                                    <form class="vertical-navs-step" action="{{ route('teacher.batch.store')}}" method="POST">
-                                        @csrf
+                                    <form class="vertical-navs-step" method="POST">
                                         <div class="row gy-5">
                                             <div class="col-lg-4">
                                                 <div class="nav flex-column custom-nav nav-pills" role="tablist"
@@ -749,7 +751,7 @@
                                                                         class="ri-arrow-left-line label-icon align-middle fs-16 me-2"></i>
                                                                     Back to Add Slot</button>
                                                                 <button type="submit"
-                                                                    class="btn btn-success btn-label right ms-auto nexttab nexttab"
+                                                                    class="btn btn-success btn-label right ms-auto nexttab nexttab btn-add-batch"
                                                                     data-nexttab="v-pills-finish-tab"><i
                                                                         class="ri-arrow-right-line label-icon align-middle fs-16 ms-2"></i>
                                                                     Publish</button>
@@ -911,6 +913,46 @@
             timeFormat: 'h:mm p',
             interval:15,
             defaultTime: '12'
+        });
+
+        $(".btn-add-batch").click(function(e) {
+
+            e.preventDefault();
+            debugger;
+            // console.log($("input[name='days[]']").val());
+            let board = $("select[name=board]").val();            
+            let school_class = $("select[name=school_class]").val();
+            let subject = $("select[name=subject]").val();
+            // let days = $("select[name='days[]']").val();
+            let days=$('input[name="days[]"]:checked').map(function () {
+                        return this.value; // $(this).val()
+                    }).get();
+            // $("input[name='days']:checked").each(function(){
+            //                 days += $(this).val() + ", "
+            //             });
+            let from_time = $("input[name=from_time]").val();
+            let to_time = $("input[name=to_time]").val();
+            let amount = $("input[name=amount]").val();
+
+            $.ajax({
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                type:'POST',
+                url:"{{ route('teacher.batch.store') }}",
+                data:{
+                    board:board,
+                    school_class:school_class,
+                    subject:subject,
+                    days:days,
+                    from_time:from_time,
+                    to_time:to_time,
+                    amount:amount
+                },
+                success:function(data){
+                    alert(data.success);
+                }
+            });
         });
     </script>
 </body>
