@@ -106,18 +106,6 @@
                                     </a>
 
                                     <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ri-lifebuoy-line align-middle fs-18 text-muted me-2"></i>
-                                        <span>Help Center</span>
-                                    </a>
-
-                                    <!-- item-->
-                                    <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                        <i class="ri-user-settings-line align-middle fs-18 text-muted me-2"></i>
-                                        <span>My account settings</span>
-                                    </a>
-
-                                    <!-- item-->
                                     <div class="dropdown-header mt-2">
                                         <h6 class="text-overflow text-muted mb-2 text-uppercase">Members</h6>
                                     </div>
@@ -232,20 +220,18 @@
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Profile</span></a>
 
-
-                                <a class="dropdown-item" href="pages-faqs.html"><i
-                                        class="mdi mdi-lifebuoy text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Help</span></a>
                                 <div class="dropdown-divider"></div>
 
-                                <a class="dropdown-item" href="pages-profile-settings.html"><span
-                                        class="badge bg-soft-success text-success mt-1 float-end">New</span><i
-                                        class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Settings</span></a>
+                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                        onclick="event.preventDefault();
+                                            document.getElementById('logout-form').submit();">
+                                    <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
+                                    class="align-middle" data-key="t-logout">{{ __('Logout') }}</span>
+                                </a>
 
-                                <a class="dropdown-item" href="auth-logout-basic.html"><i
-                                        class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle" data-key="t-logout">Logout</span></a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                    @csrf
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -454,13 +440,13 @@
                                                                         below</label>
 
                                                                     <select class="form-control" data-choices
-                                                                        name="choices-single-default"
+                                                                        name="vertical"
                                                                         id="choices-single-default">
                                                                         <option value="">Select Vertical</option>
 
                                                                         <!-- <option value="Choice2">College</option>
                                                                         <option value="Choice3">Advance</option> -->
-                                                                        <option value="Choice1">School</option>
+                                                                        <option value="1">School</option>
 
                                                                     </select>
 
@@ -886,11 +872,11 @@
                 $(".c1,.c2,.c3").hide();
             }
 
-            $("select[name='choices-single-default']").change(function () {
+            $("select[name='vertical']").change(function () {
                 hidestuff();
 
                 var value = $(this).val();
-                if (value == "Choice1") {
+                if (value == "1") {
                     $(".c1").show();
                 }
                 // if (value == "Choice2") {
@@ -912,7 +898,7 @@
         $("#to_time").timepicker({
             timeFormat: 'h:mm p',
             interval:15,
-            defaultTime: '12'
+            defaultTime: '00'
         });
 
         $(".btn-add-batch").click(function(e) {
@@ -920,6 +906,7 @@
             e.preventDefault();
             debugger;
             // console.log($("input[name='days[]']").val());
+            let vertical = $("select[name=vertical]").val();
             let board = $("select[name=board]").val();            
             let school_class = $("select[name=school_class]").val();
             let subject = $("select[name=subject]").val();
@@ -941,6 +928,7 @@
                 type:'POST',
                 url:"{{ route('teacher.batch.store') }}",
                 data:{
+                    vertical:vertical,
                     board:board,
                     school_class:school_class,
                     subject:subject,

@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class Vertical extends Model
 {
     use HasFactory;
+
+    public $guarded = ['id', 'created_at', 'updated_at'];
 }

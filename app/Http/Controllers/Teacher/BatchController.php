@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Teacher;
 
 use App\Http\Controllers\Controller;
+use App\Models\Batch;
 use App\Models\Board;
 use App\Models\SchoolClass;
 use App\Models\Subject;
@@ -41,7 +42,18 @@ class BatchController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request->input('days'));
+        $batch = Batch::create([
+            'vertical_id' => $request->input('vertical'),
+            'board_id' => $request->input('board'),
+            'school_class_id' => $request->input('school_class'),
+            'subject_id' => $request->input('subject'),
+            'days' => json_encode($request->input('days')),
+            'start_time' => $request->input('from_time'),
+            'end_time' => $request->input('to_time'),
+            'price' => $request->input('amount')
+        ]);
+
+        return response()->json($batch);
     }
 
     /**
