@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>School</title>
+    <title>College</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -420,25 +420,19 @@
                     <div class="col-sm-12">
                         <div class="card">
                             <div class="card-body">
-                                <p class="text-muted">Add Board, Classes & Subjects</p>
+                                <p class="text-muted">Add Undergraduate and postgraduate</p>
                                 <!-- Nav tabs -->
                                 <ul class="nav nav-tabs mb-3" role="tablist">
                                     <li class="nav-item">
                                         <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab"
                                             aria-selected="false">
-                                            Board
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " data-bs-toggle="tab" href="#product1" role="tab"
-                                            aria-selected="false">
-                                            Classes
+                                            Under Graduate
                                         </a>
                                     </li>
                                     <li class="nav-item">
                                         <a class="nav-link" data-bs-toggle="tab" href="#messages" role="tab"
                                             aria-selected="false">
-                                            Subject
+                                            Post Graduate
                                         </a>
                                     </li>
                                    
@@ -450,7 +444,7 @@
                                             <div class="col-lg-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h4 class="card-title mb-0">Boards</h4>
+                                                        <h4 class="card-title mb-0">Under Graduate</h4>
                                                     </div><!-- end card header -->
                     
                                                     <div class="card-body">
@@ -458,18 +452,11 @@
                                                             <div class="row g-4 mb-3">
                                                                 <div class="col-sm-auto">
                                                                     <div>
-                                                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModalBoard"><i class="ri-add-line align-bottom me-1"></i> Add</button>
+                                                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" 
+                                                                        data-bs-target="#showModalBoard"><i class="ri-add-line align-bottom me-1"></i> Add</button>
                                                                         <!-- <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button> -->
                                                                     </div>
                                                                 </div>
-                                                                <!-- <div class="col-sm">
-                                                                    <div class="d-flex justify-content-sm-end">
-                                                                        <div class="search-box ms-2">
-                                                                            <input type="text" class="form-control search" placeholder="Search...">
-                                                                            <i class="ri-search-line search-icon"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div> -->
                                                             </div>
                     
                                                             <div class="table-responsive table-card mt-3 mb-1">
@@ -481,13 +468,15 @@
                                                                                     <input class="form-check-input" type="checkbox" id="checkAll" value="option">
                                                                                 </div>
                                                                             </th> -->
-                                                                            <th class="sort" data-sort="customer_name">Board Name</th>
+                                                                            <th class="sort" data-sort="customer_name">Subject Name</th>
                                                                          
+                                                                            <th class="sort" data-sort="customer_name">Subject Image</th>
+
                                                                             <th class="sort" data-sort="action">Action</th>
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody class="list form-check-all">
-                                                                        @foreach($boards as $board)
+                                                                        @foreach($underSubjects as $underSubject)
                                                                             <tr>
                                                                                 <!-- <th scope="row">
                                                                                     <div class="form-check">
@@ -495,138 +484,25 @@
                                                                                     </div>
                                                                                 </th> -->
                                                                                 <!-- <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td> -->
-                                                                                <td class="customer_name">{{ $board->name}}</td>
-                                                                                
+                                                                                <td class="customer_name">{{ $underSubject->name}}</td>
+                                                                                <td class="customer_name">
+                                                                                <img src="{{ asset('/storage'.$underSubject->image) }}" width="40" height="40">
+                                                                                </td>
                                                                                 <td>
                                                                                     <div class="d-flex gap-2">
                                                                                         <div class="edit">
-                                                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-board="{'id': {{$board->id}}, 'name': {{ $board->name}} }" data-bs-target="#editModalBoard">Edit</button>
+                                                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-underSubject="{'id': {{$underSubject->id}}, 'name': {{ $underSubject->name}} }" data-bs-target="#editModalBoard">Edit</button>
                                                                                         </div>
                                                                                         <div class="remove">
                                                                                             <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal"
-                                                                                            data-id = "{{ $board->id}}" data-bs-target="#deleteModalBoard">Remove</button>
+                                                                                            data-id = "{{ $underSubject->id}}" data-bs-target="#deleteModalBoard">Remove</button>
                                                                                         </div>
                                                                                     </div>
                                                                                 </td>
                                                                             </tr>
                                                                         @endforeach
 
-                                                                        @if($boards->isEmpty())
-                                                                            <tr>
-                                                                                <td><h5 class="mt-2">Sorry! No Result Found</h5>
-                                                                                </td>
-                                                                            </tr>
-                                                                        @endif
-                                                                    </tbody>
-                                                                </table>
-                                                                <!-- <div class="noresult" style="display: none">
-                                                                    <div class="text-center">
-                                                                        <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                                                        <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                                        <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
-                                                                    </div>
-                                                                </div> -->
-                                                            </div>
-                    
-                                                            <!-- <div class="d-flex justify-content-end">
-                                                                <div class="pagination-wrap hstack gap-2">
-                                                                    <a class="page-item pagination-prev disabled" href="#">
-                                                                        Previous
-                                                                    </a>
-                                                                    <ul class="pagination listjs-pagination mb-0"></ul>
-                                                                    <a class="page-item pagination-next" href="#">
-                                                                        Next
-                                                                    </a>
-                                                                </div>
-                                                            </div> -->
-                                                        </div>
-                                                    </div><!-- end card -->
-                                                </div>
-                                                <!-- end col -->
-                                            </div>
-                                            <!-- end col -->
-                                        </div>
-
-
-
-
-
-
-
-                                    </div>
-                                    <div class="tab-pane " id="product1" role="tabpanel">
-                                        
-
-
-
-
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4 class="card-title mb-0">Classes</h4>
-                                                    </div><!-- end card header -->
-                    
-                                                    <div class="card-body">
-                                                        <div id="customerList">
-                                                            <div class="row g-4 mb-3">
-                                                                <div class="col-sm-auto">
-                                                                    <div>
-                                                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModalClass"><i class="ri-add-line align-bottom me-1"></i> Add</button>
-                                                                        <!-- <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button> -->
-                                                                    </div>
-                                                                </div>
-                                                                <!-- <div class="col-sm">
-                                                                    <div class="d-flex justify-content-sm-end">
-                                                                        <div class="search-box ms-2">
-                                                                            <input type="text" class="form-control search" placeholder="Search...">
-                                                                            <i class="ri-search-line search-icon"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div> -->
-                                                            </div>
-                    
-                                                            <div class="table-responsive table-card mt-3 mb-1">
-                                                                <table class="table align-middle table-nowrap" id="customerTable">
-                                                                    <thead class="table-light">
-                                                                        <tr>
-                                                                            <!-- <th scope="col" style="width: 50px;">
-                                                                                <div class="form-check">
-                                                                                    <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                                                </div>
-                                                                            </th> -->
-                                                                            <th class="sort" data-sort="customer_name">Class Name</th>
-                                                                         
-                                                                            <th class="sort" data-sort="action">Action</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody class="list form-check-all">
-                                                                        @foreach($schoolClasses as $class)
-                                                                            <tr>
-                                                                                <!-- <th scope="row">
-                                                                                    <div class="form-check">
-                                                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                                                    </div>
-                                                                                </th>
-                                                                                <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td> -->
-                                                                                <td class="customer_name">{{ $class->name}}</td>
-                                                                                
-                                                                            
-                                                                                <td>
-                                                                                    <div class="d-flex gap-2">
-                                                                                        <div class="edit">
-                                                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-board="{'id': {{$class->id}}, 'name': {{ $class->name}} }" data-bs-target="#editModalClass">Edit</button>
-                                                                                        </div>
-                                                                                        <div class="remove">
-                                                                                            <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal"
-                                                                                            data-id = "{{ $class->id}}" data-bs-target="#deleteModalClass">Remove</button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        @endforeach
-
-                                                                        @if($schoolClasses->isEmpty())
+                                                                        @if($underSubjects->isEmpty())
                                                                             <tr>
                                                                                 <td><h5 class="mt-2">Sorry! No Result Found</h5>
                                                                                 </td>
@@ -635,18 +511,6 @@
                                                                     </tbody>
                                                                 </table>
                                                             </div>
-                    
-                                                            <!-- <div class="d-flex justify-content-end">
-                                                                <div class="pagination-wrap hstack gap-2">
-                                                                    <a class="page-item pagination-prev disabled" href="#">
-                                                                        Previous
-                                                                    </a>
-                                                                    <ul class="pagination listjs-pagination mb-0"></ul>
-                                                                    <a class="page-item pagination-next" href="#">
-                                                                        Next
-                                                                    </a>
-                                                                </div>
-                                                            </div> -->
                                                         </div>
                                                     </div><!-- end card -->
                                                 </div>
@@ -654,32 +518,13 @@
                                             </div>
                                             <!-- end col -->
                                         </div>
-
-
-
-
-
-
-
-
-
-
                                     </div>
                                     <div class="tab-pane" id="messages" role="tabpanel">
-                                      
-
-
-
-
-
-
-
-
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="card">
                                                     <div class="card-header">
-                                                        <h4 class="card-title mb-0">Subjects</h4>
+                                                        <h4 class="card-title mb-0">Post Graduate</h4>
                                                     </div><!-- end card header -->
                     
                                                     <div class="card-body">
@@ -687,7 +532,8 @@
                                                             <div class="row g-4 mb-3">
                                                                 <div class="col-sm-auto">
                                                                     <div>
-                                                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModalSubject"><i class="ri-add-line align-bottom me-1"></i> Add</button>
+                                                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" 
+                                                                        data-subject="{'graduation_type': {{$graduationTypes['postgraduate']}}" data-bs-target="#showModalSubject"><i class="ri-add-line align-bottom me-1"></i> Add</button>
                                                                         <!-- <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button> -->
                                                                     </div>
                                                                 </div>
@@ -705,23 +551,23 @@
                                                                         </tr>
                                                                     </thead>
                                                                     <tbody class="list form-check-all">
-                                                                        @foreach($subjects as $subject)
+                                                                        @foreach($postSubjects as $postSubject)
                                                                             <tr>
-                                                                                <td class="customer_name">{{ $subject->name}}</td>
+                                                                                <td class="customer_name">{{ $postSubject->name}}</td>
                                                                                 <td class="customer_name">
-                                                                                <img src="{{ asset('/storage'.$subject->image) }}" width="40" height="40">
+                                                                                <img src="{{ asset('/storage'.$postSubject->image) }}" width="40" height="40">
                                                                                 </td>  
                                                                                 <td>
                                                                                     <div class="d-flex gap-2">
                                                                                         <div class="edit">
                                                                                             <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal"
-                                                                                            data-subject="{'id': {{$subject->id}}, 'name': {{ $subject->name}} }" 
+                                                                                            data-subject="{'id': {{$postSubject->id}}, 'name': {{ $postSubject->name}} }" 
                                                                                          
                                                                                             data-bs-target="#editModalSubject">Edit</button>
                                                                                         </div>
                                                                                         <div class="remove">
                                                                                             <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" 
-                                                                                            data-id = "{{ $subject->id}}"
+                                                                                            data-id = "{{ $postSubject->id}}"
                                                                                             data-bs-target="#deleteModalSubject">Remove</button>
                                                                                         </div>
                                                                                     </div>
@@ -729,7 +575,7 @@
                                                                             </tr>
                                                                         @endforeach
 
-                                                                        @if($subjects->isEmpty())
+                                                                        @if($postSubjects->isEmpty())
                                                                             <tr>
                                                                                 <td><h5 class="mt-2">Sorry! No Result Found</h5>
                                                                                 </td>
@@ -745,20 +591,6 @@
                                             </div>
                                             <!-- end col -->
                                         </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                                     </div>
                                     <div class="tab-pane" id="settings" role="tabpanel">
                                         <h6>Settings</h6>
@@ -783,18 +615,23 @@
                                     <h5 class="modal-title" id="exampleModalLabel"></h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                                 </div>
-                                <form method="POST" action="{{ route('board.store') }}">
+                                <form method="POST" action="{{ route('college-subject.store') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-body">
-    
+                                    <input type="hidden" id="graduation_type" name="graduation_type" value={{ $graduationTypes['undergraduate']}} />
                                         <div class="mb-3" id="modal-id" style="display: none;">
                                             <label for="id-field" class="form-label">ID</label>
                                             <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
                                         </div>
     
                                         <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Board Name</label>
-                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Board Name" required />
+                                            <label for="customername-field" class="form-label">Subject Name</label>
+                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Subject Name" required />
+                                        </div>
+
+                                        <div class="mb-3">
+                                            <label for="customername-field" class="form-label">Subject Image</label>
+                                            <input type="file" id="image" name="image" class="form-control" placeholder="Enter Subject Name" required />
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -816,14 +653,14 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                                 </div>
                                 @php
-                                    $board_id = 0;
-                                    $board_name = '';
-                                    if(isset($board)) {
-                                        $board_id = $board->id;
-                                        $board_name = $board->name;
+                                    $id = 0;
+                                    $name = '';
+                                    if(isset($underSubject)) {
+                                        $id = $underSubject->id;
+                                        $name = $underSubject->name;
                                     }
                                 @endphp
-                                <form method="POST" action="{{ route('board.update', $board_id) }}">
+                                <form method="POST" action="{{ route('college-subject.update', $id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div class="modal-body">
@@ -834,8 +671,8 @@
                                         </div>
     
                                         <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Board Name</label>
-                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Board Name" required value="{{ $board_name}}"/>
+                                            <label for="customername-field" class="form-label">Subject Name</label>
+                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Board Name" required value="{{ $name}}"/>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -857,118 +694,10 @@
                                 </div>
                                 @php
                                     $test = 0;
-                                    if(isset($board))
-                                        $test = $board->id
+                                    if(isset($underSubject))
+                                        $test = $underSubject->id
                                 @endphp
-                                <form method="POST" action="{{ route('board.destroy', $test) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <div class="modal-body">
-                                        <div class="mt-2 text-center">
-                                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                                <h4>Are you Sure ?</h4>
-                                                <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal fade" id="showModalClass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-light p-3">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                                </div>
-                                <form method="POST" action="{{ route('school-class.store') }}">
-                                    @csrf
-                                    <div class="modal-body">
-    
-                                        <div class="mb-3" id="modal-id" style="display: none;">
-                                            <label for="id-field" class="form-label">ID</label>
-                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
-                                        </div>
-    
-                                        <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Class</label>
-                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Class" required />
-                                        </div>
-    
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="hstack gap-2 justify-content-end">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-success" id="add-btn">Add </button>
-                                            <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="modal fade" id="editModalClass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-light p-3">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                                </div>
-                                @php
-                                    $class_id = 0;
-                                    $class_name = '';
-                                    if(isset($class)) {
-                                        $class_id = $class->id;
-                                        $class_name = $class->name;
-                                    }
-                                @endphp
-                                <form method="POST" action="{{ route('school-class.update', $class_id) }}">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="modal-body">
-    
-                                        <div class="mb-3" id="modal-id" style="display: none;">
-                                            <label for="id-field" class="form-label">ID</label>
-                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
-                                        </div>
-    
-                                        <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Board Name</label>
-                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Class Name" required value="{{ $class_name}}"/>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="hstack gap-2 justify-content-end">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-success" id="add-btn">Update </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal fade zoomIn" id="deleteModalClass" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
-                                </div>
-                                @php
-                                    $test = 0;
-                                    if(isset($class))
-                                        $test = $class->id
-                                @endphp
-                                <form method="POST" action="{{ route('school-class.destroy', $test) }}">
+                                <form method="POST" action="{{ route('college-subject.destroy', $test) }}">
                                     @csrf
                                     @method('DELETE')
                                     <div class="modal-body">
@@ -997,10 +726,12 @@
                                     <h5 class="modal-title" id="exampleModalLabel"></h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                                 </div>
-                                <form method="POST" action="{{ route('subject.store') }}" enctype="multipart/form-data">
+
+                                <form method="POST" action="{{ route('college-subject.store') }}" enctype="multipart/form-data">
                                     @csrf
                                     <div class="modal-body">
-    
+                                    <input type="hidden" id="graduation_type" name="graduation_type" value={{ $graduationTypes['postgraduate']}} />
+
                                         <div class="mb-3" id="modal-id" style="display: none;">
                                             <label for="id-field" class="form-label">ID</label>
                                             <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
@@ -1044,7 +775,7 @@
                                         $subject_name = $subject->name;
                                     }
                                 @endphp
-                                <form method="POST" action="{{ route('subject.update', $subject_id) }}">
+                                <form method="POST" action="{{ route('college-subject.update', $subject_id) }}">
                                     @csrf
                                     @method('PUT')
                                     <div class="modal-body">
@@ -1082,7 +813,7 @@
                                     if(isset($subject))
                                         $test = $subject->id
                                 @endphp
-                                <form method="POST" action="{{ route('subject.destroy', $test) }}">
+                                <form method="POST" action="{{ route('college-subject.destroy', $test) }}">
                                     @csrf
                                     @method('DELETE')
                                     <div class="modal-body">
@@ -1103,13 +834,7 @@
                         </div>
                     </div>
 
-
-
-
-
-
-
-    
+   
                     <!-- Modal -->
                     <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
@@ -1133,16 +858,6 @@
                             </div>
                         </div>
                     </div>
-    
-
-
-
-
-
-
-
-
-
 
 
                 </div>

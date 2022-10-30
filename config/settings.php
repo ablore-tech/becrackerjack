@@ -16,6 +16,16 @@ return [
         7 => 'Sunday'
     ],
     'verticals' => [
-        'school' => 1
-    ]        
+        'school' => 1,
+        'college' => 2,
+        'advance' => 3
+    ],
+    'graduation_type' => [
+        'undergraduate' => 1,
+        'postgraduate' => 2
+    ],
+    'language_type' => [
+        'european' => 1,
+        'rest' => 2
+    ]
 ];

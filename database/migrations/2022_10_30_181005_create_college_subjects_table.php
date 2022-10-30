@@ -13,10 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('subjects', function (Blueprint $table) {
+        Schema::create('college_subjects', function (Blueprint $table) {
             $table->id();
             $table->string('name')->nullable();
             $table->text('image')->nullable();
+            $table->boolean('graduation_type')->nullable();
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('subjects');
+        Schema::dropIfExists('college_subjects');
     }
 };

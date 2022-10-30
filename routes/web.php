@@ -1,6 +1,9 @@
 <?php
 
 use App\Http\Controllers\BoardController;
+use App\Http\Controllers\CollegeController;
+use App\Http\Controllers\CollegeSubjectController;
+use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Teacher\BatchController;
@@ -8,6 +11,7 @@ use App\Http\Controllers\Teacher\DashboardController;
 use App\Http\Controllers\Teacher\LoginController;
 use App\Http\Controllers\Teacher\TeacherController;
 use Illuminate\Support\Facades\Route;
+use Spatie\Permission\Contracts\Role;
 
 /*
 |--------------------------------------------------------------------------
@@ -39,10 +43,13 @@ Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
 Auth::routes(['verify' => true]);
 
 Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('school-class', SchoolClassController::class);
     Route::resource('board', BoardController::class);
     Route::resource('subject', SubjectController::class);
     Route::resource('teacher', TeacherController::class);
     Route::post('teacher/update-status/{teacher}', [TeacherController::class, 'updateStatus'])->name('update-status');
+    Route::get('colleges', [CollegeController::class, 'index'])->name('colleges.index');
+    Route::resource('language', LanguageController::class);
+    Route::resource('college-subject', CollegeSubjectController::class);
 });

@@ -2,14 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Subject\StoreSubjectRequest;
-use App\Models\Subject;
+use App\Models\CollegeSubject;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
-use Mockery\Matcher\Subset;
 
-class SubjectController extends Controller
+class CollegeSubjectController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,7 +35,7 @@ class SubjectController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoreSubjectRequest $request)
+    public function store(Request $request)
     {
         $image = $request->file('image');
             // Make a image name based on user name and current timestamp
@@ -49,10 +47,11 @@ class SubjectController extends Controller
             // Upload image
             $this->uploadOne($image, $folder, 'public', $name);
             // Set user profile image path in database to filePath
-            
-        Subject::create([
+
+        CollegeSubject::create([
             'name' => $request->input('name'),
-            'image' => $filePath
+            'image' => $filePath,
+            'graduation_type' => $request->input('graduation_type')
         ]);
 
         return back();
@@ -61,21 +60,10 @@ class SubjectController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Subject  $subject
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Subject $subject)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Subject  $subject
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Subject $subject)
+    public function show($id)
     {
         //
     }
@@ -84,23 +72,12 @@ class SubjectController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Subject  $subject
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Subject $subject)
+    public function update(Request $request, CollegeSubject $college_subject)
     {
-        $image = $request->file('image');
-            // Make a image name based on user name and current timestamp
-            $name = Str::slug($request->input('name')) . '_' . time();
-            // Define folder path
-            $folder = '/uploads/images/';
-            // Make a file path where image will be stored [ folder path + file name + file extension]
-            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
-            // Upload image
-            $this->uploadOne($image, $folder, 'public', $name);
-            // Set user profile image path in database to filePath
-
-        $subject->update([
+        $college_subject->update([
             'name' => $request->name
         ]);
 
@@ -110,12 +87,12 @@ class SubjectController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Subject  $subject
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Subject $subject)
+    public function destroy(CollegeSubject $college_subject)
     {
-        $subject->delete();
+        $college_subject->delete();
 
         return back();
     }
