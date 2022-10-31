@@ -15,4 +15,11 @@ class CollegeController extends Controller
 
         return view('colleges', compact(['underSubjects', 'postSubjects', 'graduationTypes']));
     }
+
+    public function register()
+    {
+        $underSubjects = CollegeSubject::where('graduation_type', config('settings.graduation_type.undergraduate'))->get();
+        $postSubjects = CollegeSubject::where('graduation_type', config('settings.graduation_type.postgraduate'))->get();
+        return view('college.index', compact(['underSubjects', 'postSubjects']));
+    }
 }

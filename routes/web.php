@@ -43,6 +43,8 @@ Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
 
 Auth::routes(['verify' => true]);
 
+Route::get('register/college', [CollegeController::class, 'register']);
+
 Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('school-class', SchoolClassController::class);
