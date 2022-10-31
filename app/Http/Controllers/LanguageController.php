@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Language;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+use Illuminate\Http\UploadedFile;
 
 class LanguageController extends Controller
 {
@@ -34,7 +37,24 @@ class LanguageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $image = $request->file('image');
+            // Make a image name based on user name and current timestamp
+            $name = Str::slug($request->input('name')) . '_' . time();
+            // Define folder path
+            $folder = '/uploads/images/';
+            // Make a file path where image will be stored [ folder path + file name + file extension]
+            $filePath = $folder . $name . '.' . $image->getClientOriginalExtension();
+            // Upload image
+            $this->uploadOne($image, $folder, 'public', $name);
+            // Set user profile image path in database to filePath
+
+        Language::create([
+            'name' => $request->input('name'),
+            'image' => $filePath,
+            'language_type' => $request->input('language_type')
+        ]);
+
+        return back();
     }
 
     /**
@@ -66,19 +86,34 @@ class LanguageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Language $language)
     {
-        //
+        $language->update([
+            'name' => $request->name
+        ]);
+
+        return back();
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int  Language $language
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Language $language)
     {
-        //
+        $language->delete();
+
+        return back();
+    }
+
+    public function uploadOne(UploadedFile $uploadedFile, $folder = null, $disk = 'public', $filename = null)
+    {
+        $name = !is_null($filename) ? $filename : Str::random(25);
+
+        $file = $uploadedFile->storeAs($folder, $name . '.' . $uploadedFile->getClientOriginalExtension(), $disk);
+
+        return $file;
     }
 }

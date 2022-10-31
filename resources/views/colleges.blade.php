@@ -355,7 +355,7 @@
                                         <a href="{{ route('colleges.index')}}" class="nav-link" data-key="t-crm"> Colleges </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="index.html" class="nav-link" data-key="t-ecommerce"> Advance </a>
+                                        <a href="{{ route('advance.index')}}" class="nav-link" data-key="t-ecommerce"> Advance </a>
                                     </li>
 
 
@@ -561,7 +561,7 @@
                                                                                     <div class="d-flex gap-2">
                                                                                         <div class="edit">
                                                                                             <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal"
-                                                                                            data-subject="{'id': {{$postSubject->id}}, 'name': {{ $postSubject->name}} }" 
+                                                                                            data-postSubject="{'id': {{$postSubject->id}}, 'name': {{ $postSubject->name}} }" 
                                                                                          
                                                                                             data-bs-target="#editModalSubject">Edit</button>
                                                                                         </div>
@@ -770,9 +770,9 @@
                                 @php
                                     $subject_id = 0;
                                     $subject_name = '';
-                                    if(isset($subject)) {
-                                        $subject_id = $subject->id;
-                                        $subject_name = $subject->name;
+                                    if(isset($postSubject)) {
+                                        $subject_id = $postSubject->id;
+                                        $subject_name = $postSubject->name;
                                     }
                                 @endphp
                                 <form method="POST" action="{{ route('college-subject.update', $subject_id) }}">
@@ -810,8 +810,8 @@
                                 </div>
                                 @php
                                     $test = 0;
-                                    if(isset($subject))
-                                        $test = $subject->id
+                                    if(isset($postSubject))
+                                        $test = $postSubject->id
                                 @endphp
                                 <form method="POST" action="{{ route('college-subject.destroy', $test) }}">
                                     @csrf

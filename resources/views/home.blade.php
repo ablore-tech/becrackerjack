@@ -355,7 +355,7 @@
                                         <a href="{{ route('colleges.index')}}" class="nav-link" data-key="t-crm"> Colleges </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="index.html" class="nav-link" data-key="t-ecommerce"> Advance </a>
+                                        <a href="{{ route('advance.index')}}" class="nav-link" data-key="t-ecommerce"> Advance </a>
                                     </li>
 
 

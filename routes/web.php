@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdvanceController;
 use App\Http\Controllers\BoardController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\CollegeSubjectController;
@@ -52,4 +53,5 @@ Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
     Route::get('colleges', [CollegeController::class, 'index'])->name('colleges.index');
     Route::resource('language', LanguageController::class);
     Route::resource('college-subject', CollegeSubjectController::class);
+    Route::get('advance', [AdvanceController::class, 'index'])->name('advance.index');
 });
