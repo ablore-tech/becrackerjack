@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>College</title>
+    <title>Advance</title>
     <link rel="shortcut icon" href="{{ asset('images/favicon.ico')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
@@ -182,10 +182,10 @@
             <div class="col-sm-12">
                 <ul class="nav nav-pills justify-content-center">
                     <li class="nav-item"><a href="#subjects" data-bs-toggle="tab" class="active nav-link ">
-                            <div class="button-style grey-border">Undergraduate</div>
+                            <div class="button-style grey-border">European</div>
                         </a></li>
                     <li class="nav-item"> <a href="#classes" class="nav-link " data-bs-toggle="tab">
-                            <div class="button-style grey-border">Postgraduate</div>
+                            <div class="button-style grey-border">Rest of the world</div>
                         </a></li>
                 </ul>
             </div>
@@ -197,14 +197,14 @@
         <div class="tab-pane" id="classes">
             <div class="container text-center mb-5">
                 <div class="row">
-                    @foreach($postSubjects as $postSubject)
+                    @foreach($restLanguages as $restLanguage)
                         
                         <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
                             <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal1" data-subject-id="{{ $postSubject->id}}">
+                                data-bs-target="#exampleModal1" data-subject-id="{{ $restLanguage->id}}">
                                 <div class="col-sm-12 p-5 ">
-                                    <img src="{{ asset('/storage'.$postSubject->image) }}" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                    <p style="font-weight:500;">{{ $postSubject->name}}</p>
+                                    <img src="{{ asset('/storage'.$restLanguage->image) }}" class="img-fluid mb-3" style="width: 70px;" alt="">
+                                    <p style="font-weight:500;">{{ $restLanguage->name}}</p>
                                 </div>
                             </button>
                         </div>
@@ -217,14 +217,14 @@
         <div class="tab-pane active" id="subjects">
             <div class="container text-center mb-5">
                 <div class="row">
-                    @foreach($underSubjects as $underSubject)
+                    @foreach($europeanLanguages as $europeanLanguage)
                         
                         <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
                             <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal1" data-subject-id="{{ $underSubject->id}}">
+                                data-bs-target="#exampleModal1" data-subject-id="{{ $europeanLanguage->id}}">
                                 <div class="col-sm-12 p-5 ">
-                                    <img src="{{ asset('/storage'.$underSubject->image) }}" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                    <p style="font-weight:500;">{{ $underSubject->name}}</p>
+                                    <img src="{{ asset('/storage'.$europeanLanguage->image) }}" class="img-fluid mb-3" style="width: 70px;" alt="">
+                                    <p style="font-weight:500;">{{ $europeanLanguage->name}}</p>
                                 </div>
                             </button>
                         </div>
@@ -981,7 +981,7 @@
                                                 <div class="main">
                                                 <form method="POST" action="{{ route('leads.store') }}">
                                                         @csrf
-                                                        <input type="hidden" name="college_subject_id" id="college_subject_id" value="" />
+                                                        <input type="hidden" name="language_id" id="language_id" value="" />
                                                         <input type="hidden" name="vertical_id" id="vertical_id" value="{{ $vertical->id}}" />
                                                         <div class="mb-3">
                                                             <label for="name" class="form-label">Student's
@@ -1070,7 +1070,7 @@
             var subjectId = $(e.relatedTarget).data('subject-id');
 
             //populate the textbox
-            $(e.currentTarget).find('input[name="college_subject_id"]').val(subjectId);
+            $(e.currentTarget).find('input[name="language_id"]').val(subjectId);
         });
     </script>
 

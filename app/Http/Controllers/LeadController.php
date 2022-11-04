@@ -35,15 +35,16 @@ class LeadController extends Controller
      */
     public function store(Request $request)
     {
-        Lead::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'number' => $request->number,
-            'vertical_id' => $request->vertical_id, 
-            'college_subject_id' => $request->college_subject_id,
-            'is_parent' => $request->parent ? 1 : 0
-        ]);
+        $lead = new Lead();
+        $lead->name = $request->name;
+        $lead->email = $request->email;
+        $lead->number = $request->number;
+        $lead->is_parent = $request->parent ? 1 : 0;
+        $lead->vertical_id = $request->vertical_id;
+        $lead->college_subject_id = $request->college_subject_id ? $request->college_subject_id : null;
+        $lead->language_id = $request->language_id ? $request->language_id : null;
         
+        $lead->save();
         
         return back();
     }

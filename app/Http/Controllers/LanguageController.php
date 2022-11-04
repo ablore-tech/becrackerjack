@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Language;
+use App\Models\Vertical;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Illuminate\Http\UploadedFile;
@@ -115,5 +116,14 @@ class LanguageController extends Controller
         $file = $uploadedFile->storeAs($folder, $name . '.' . $uploadedFile->getClientOriginalExtension(), $disk);
 
         return $file;
+    }
+
+    public function register()
+    {
+        $europeanLanguages = Language::where('language_type', config('settings.language_type.european'))->get();
+        $restLanguages = Language::where('language_type', config('settings.language_type.rest'))->get();
+        $vertical = Vertical::where('name', 'Advance')->first();
+
+        return view('language.index', compact(['europeanLanguages', 'restLanguages', 'vertical']));
     }
 }

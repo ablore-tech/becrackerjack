@@ -21,6 +21,7 @@ return new class extends Migration
             $table->boolean('is_parent')->nullable();
             $table->foreignId('vertical_id')->nullable()->references('id')->on('verticals')->onDelete('cascade');
             $table->foreignId('college_subject_id')->nullable()->references('id')->on('college_subjects')->onDelete('cascade');
+            $table->foreignId('language_id')->nullable()->references('id')->on('languages')->onDelete('cascade');
             $table->timestamps();
         });
     }

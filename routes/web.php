@@ -7,6 +7,7 @@ use App\Http\Controllers\CollegeSubjectController;
 use App\Http\Controllers\LanguageController;
 use App\Http\Controllers\LeadController;
 use App\Http\Controllers\SchoolClassController;
+use App\Http\Controllers\SchoolController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Teacher\BatchController;
 use App\Http\Controllers\Teacher\DashboardController;
@@ -45,6 +46,8 @@ Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
 Auth::routes(['verify' => true]);
 
 Route::get('college', [CollegeController::class, 'register'])->name('college.view');
+Route::get('school', [SchoolController::class, 'register'])->name('school.view');
+Route::get('language', [LanguageController::class, 'register'])->name('language.view');
 Route::resource('leads', LeadController::class);
 
 Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
@@ -55,7 +58,9 @@ Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
     Route::resource('teacher', TeacherController::class);
     Route::post('teacher/update-status/{teacher}', [TeacherController::class, 'updateStatus'])->name('update-status');
     Route::get('colleges', [CollegeController::class, 'index'])->name('colleges.index');
-    Route::resource('language', LanguageController::class);
+    Route::resource('language', LanguageController::class)->only([
+        'store', 'update', 'destroy'
+    ]);
     Route::resource('college-subject', CollegeSubjectController::class);
     Route::get('advance', [AdvanceController::class, 'index'])->name('advance.index');
 });
