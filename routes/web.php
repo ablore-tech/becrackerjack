@@ -5,6 +5,7 @@ use App\Http\Controllers\BoardController;
 use App\Http\Controllers\CollegeController;
 use App\Http\Controllers\CollegeSubjectController;
 use App\Http\Controllers\LanguageController;
+use App\Http\Controllers\LeadController;
 use App\Http\Controllers\SchoolClassController;
 use App\Http\Controllers\SubjectController;
 use App\Http\Controllers\Teacher\BatchController;
@@ -43,7 +44,8 @@ Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
 
 Auth::routes(['verify' => true]);
 
-Route::get('register/college', [CollegeController::class, 'register']);
+Route::get('college', [CollegeController::class, 'register'])->name('college.view');
+Route::resource('leads', LeadController::class);
 
 Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

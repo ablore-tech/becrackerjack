@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>test 1</title>
-
+    <title>College</title>
+    <link rel="shortcut icon" href="{{ asset('images/favicon.ico')}}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.2/css/all.min.css"
         integrity="sha512-1sCRPdkRXhBV2PBLUdRb4tMg1w2YPf37qatUFeS7zlBy7jJI8Lf4VHwWfZZfpXtYSLy85pkm9GaYVYMfw5BC1A=="
         crossorigin="anonymous" referrerpolicy="no-referrer">
@@ -32,13 +32,13 @@
 
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
-    <link rel="stylesheet" href="style.css">
+    <link href="{{ asset('css/college-index.css')}}" rel="stylesheet" type="text/css" />
 
 
 </head>
 
 
-<body style="background-image:url(images/main\ bg.png); background-repeat: no-repeat;background-size:70%;">
+<body style="background-image:url(images/college/images/main\ bg.png); background-repeat: no-repeat;background-size:70%;">
 
 
 
@@ -47,7 +47,7 @@
 
     <nav class="navbar navbar-expand-lg bg-white">
         <div class="container-fluid ">
-            <img src="images/bcj-logo.png" class="img-fluid" style="max-width:150px; margin-left: 2rem;" alt="">
+            <img src="images/college/images/bcj-logo.png" class="img-fluid" style="max-width:150px; margin-left: 2rem;" alt="">
             <button type="button" class="btn bs-lg-none navbar-btn">Start Learning</button>
 
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
@@ -61,7 +61,7 @@
                         <a class="nav-link active" aria-current="page" href="#">School</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="#">College</a>
+                        <a class="nav-link active" aria-current="page" href="{{route('college.view')}}">College</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="#">Language</a>
@@ -80,7 +80,7 @@
 
 
 
-    <img src="images/college banner.jpg" class="img-fluid w-100" alt="">
+    <img src="images/college/images/college_banner.jpg" class="img-fluid w-100" alt="">
 
     <div class="d-block py-5 gradient_shade">
         <div class="container-fluid my-5">
@@ -96,20 +96,20 @@
             <div class="row">
                 <div class="col-md-4 mb-5 d-flex justify-content-center">
                     <div class="col-md-12 col-8  text-center p-5 key-features-spacing grey-border hover-shadow">
-                        <img src="images\icon 1.png" class="img-fluid mb-3" style="width:70px ;" alt="">
+                        <img src="images/college/images/icon 1.png" class="img-fluid mb-3" style="width:70px ;" alt="">
                         <p>One to one live and interactive sessions</p>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex justify-content-center mb-5 ">
                     <div class="col-md-12 col-8 text-center key-features-spacing p-5 grey-border hover-shadow">
-                        <img src="images\icon 2.png" class="img-fluid mb-3" style="width:70px ;" alt="">
+                        <img src="images/college/images/icon 2.png" class="img-fluid mb-3" style="width:70px ;" alt="">
                         <p>Regular guidance and assistance
                         </p>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex justify-content-center mb-5 ">
                     <div class="col-md-12 col-8 text-center key-features-spacing p-5 grey-border hover-shadow">
-                        <img src="images\icon 3.png" class="img-fluid mb-3" style="width:70px ;" alt="">
+                        <img src="images/college/images/icon 3.png" class="img-fluid mb-3" style="width:70px ;" alt="">
                         <p>Expert educators for domestic and international entrances
                         </p>
                     </div>
@@ -133,28 +133,28 @@
                     <div class="head">
                         <p>Experienced Faculty</p>
                     </div>
-                    <img src="images/slide_b1.jpg" class="" alt="Image">
+                    <img src="images/college/images/slide_b1.jpg" class="" alt="Image">
                 </section>
 
                 <section class="accordion-content">
                     <div class="head">
                         <p>Free Trial Sessions</p>
                     </div>
-                    <img src="images/slide_b2.jpg" class="" alt="Image">
+                    <img src="images/college/images/slide_b2.jpg" class="" alt="Image">
                 </section>
 
                 <section class="accordion-content">
                     <div class="head">
                         <p>Flexible & Customised</p>
                     </div>
-                    <img src="images/slide_b3.jpg" class="" alt="Image">
+                    <img src="images/college/images/slide_b3.jpg" class="" alt="Image">
                 </section>
 
                 <section class="accordion-content">
                     <div class="head">
                         <p>Central Access</p>
                     </div>
-                    <img src="images/slide_b4.jpg" class="" alt="Image">
+                    <img src="images/college/images/slide_b4.jpg" class="" alt="Image">
                 </section>
 
 
@@ -197,295 +197,42 @@
         <div class="tab-pane active" id="classes">
             <div class="container text-center mb-5">
                 <div class="row">
-
-
-
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-
-
-
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-
-                            <div class="col-sm-12 p-5 ">
-
-
-
-                                <img src="images\kid 1.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500;">Nursery</p>
-
-
-                            </div>
-                        </button>
-
-
-
-                    </div>
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-
-                            <div class="col-sm-12 p-5 ">
-
-                                <img src="images\kid 2.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500;">1<sup>st</sup> to 3<sup>rd</sup></p>
-                            </div>
-                        </button>
-
-                    </div>
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-
-                            <div class="col-sm-12 p-5 ">
-
-                                <img src="images\kid 3.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500;">4<sup>th</sup> to 5<sup> th</sup></p>
-                            </div>
-                        </button>
-
-
-                    </div>
-
-
-
-
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-
-                            <div class="col-sm-12 p-5 ">
-
-
-                                <img src="images\kid 4.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">6<sup>th</sup> to 8<sup>th</sup></p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-
-                            <div class="col-sm-12 p-5 ">
-
-                                <img src="images\kid 5.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">9<sup>th</sup> to 10<sup>th</sup></p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-
-                            <div class="col-sm-12 p-5 ">
-
-                                <img src="images\kid 6.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">11<sup>th</sup> to 12<sup>th</sup></p>
-                            </div>
-                        </button>
-                    </div>
-
+                    @foreach($postSubjects as $postSubject)
+                        
+                        <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
+                            <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal1" data-subject-id="{{ $postSubject->id}}">
+                                <div class="col-sm-12 p-5 ">
+                                    <img src="{{ asset('/storage'.$postSubject->image) }}" class="img-fluid mb-3" style="width: 70px;" alt="">
+                                    <p style="font-weight:500;">{{ $postSubject->name}}</p>
+                                </div>
+                            </button>
+                        </div>
+                        
+                    @endforeach
                 </div>
             </div>
         </div>
-
-
 
         <div class="tab-pane" id="subjects">
-
             <div class="container text-center mb-5">
                 <div class="row">
-
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-
-
-                                <img src="images\sub (1).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Science</p>
-                            </div>
-                        </button>
-
-
-                    </div>
-
-
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-                                <img src="images\sub (2).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Economics</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-                                <img src="images\sub (3).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">English</p>
-                            </div>
-                        </button>
-                    </div>
-
-
-
-
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-
-                                <img src="images\sub (4).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Geography</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-                                <img src="images\sub (5).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">History</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-                                <img src="images\sub (6).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Physics</p>
-                            </div>
-                        </button>
-                    </div>
-
-
-
-
-
-
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-
-
-                                <img src="images\sub (7).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Biology</p>
-                            </div>
-                        </button>
-
-
-                    </div>
-
-
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-                                <img src="images\sub (8).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Accounts</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-                                <img src="images\sub (9).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Mathematics</p>
-                            </div>
-                        </button>
-                    </div>
-
-
-
-
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-                                <img src="images\sub (10).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Chemistry</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-                                <img src="images\sub (11).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Business Studies</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-sm-4 col-6 hover-bgcolor-slide">
-                        <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-
-                            <div class="col-sm-12 p-5 ">
-                                <img src="images\sub (12).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Hindi</p>
-                            </div>
-                        </button>
-                    </div>
-
-
+                    @foreach($underSubjects as $underSubject)
+                        
+                        <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
+                            <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal1" data-subject-id="{{ $underSubject->id}}">
+                                <div class="col-sm-12 p-5 ">
+                                    <img src="{{ asset('/storage'.$underSubject->image) }}" class="img-fluid mb-3" style="width: 70px;" alt="">
+                                    <p style="font-weight:500;">{{ $underSubject->name}}</p>
+                                </div>
+                            </button>
+                        </div>
+                    @endforeach
                 </div>
             </div>
-
         </div>
-
-
-
-
     </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -513,225 +260,6 @@
         </div>
 
     </div>
-
-
-
-
-
-
-
-
-
-
-    <div class="tab-content pc-display-none ">
-
-
-        <div class="tab-pane active" id="classesmob">
-            <div class="container px-5 mb-5">
-                <div class="row">
-
-
-                    <div class="col-6 hover-bgcolor-slide grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-                            <div class="col-12">
-
-
-                                <img src="images\kid 1.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Nursery</p>
-                            </div>
-                        </button>
-                    </div>
-
-                    <div class="col-6 hover-bgcolor-slide no-left-grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-                            <div class="col-12">
-                                <img src="images\kid 2.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">1<sup>st</sup> to 3<sup>rd</sup></p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-6 hover-bgcolor-slide no-top-border grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-                            <div class="col-12">
-                                <img src="images\kid 3.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">4<sup>th</sup> to 5<sup>th</sup></p>
-                            </div>
-                        </button>
-                    </div>
-
-
-
-
-                    <div class="col-6 hover-bgcolor-slide no-top-left-grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-                            <div class="col-12">
-                                <img src="images\kid 4.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">6<sup>th</sup> to 8<sup>th</sup></p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-6 hover-bgcolor-slide no-top-border grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-                            <div class="col-12">
-                                <img src="images\kid 5.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">9<sup>th</sup> to 10<sup>th</sup></p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-6 hover-bgcolor-slide no-top-left-grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal1">
-                            <div class="col-12">
-                                <img src="images\kid 6.png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">11<sup>th</sup> to 12<sup>th</sup></p>
-                            </div>
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-
-        <div class="tab-pane " id="subjectsmob">
-            <div class="container px-5 text-center mb-5">
-                <div class="row">
-                    <div class="col-6 hover-bgcolor-slide grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (1).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Science</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-6 hover-bgcolor-slide no-left-grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (2).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Economics</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-6 hover-bgcolor-slide no-top-border grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (3).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">English</p>
-                            </div>
-                        </button>
-                    </div>
-
-
-
-
-                    <div class="col-6 hover-bgcolor-slide no-top-left-grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (4).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Geography</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-6 hover-bgcolor-slide no-top-border grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (5).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">History</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-6 hover-bgcolor-slide no-top-left-grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (6).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Physics</p>
-                            </div>
-                        </button>
-                    </div>
-
-
-
-
-
-                    <div class="col-6 hover-bgcolor-slide no-top-border grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (7).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Biology</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-6 hover-bgcolor-slide no-top-border no-left-grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (8).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Accounts</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-6 hover-bgcolor-slide no-top-border grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (9).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Mathematics</p>
-                            </div>
-                        </button>
-                    </div>
-
-
-
-
-                    <div class="col-6 hover-bgcolor-slide no-top-left-grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (10).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Chemistry</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-6 hover-bgcolor-slide no-top-border grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (11).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Business Studies</p>
-                            </div>
-                        </button>
-                    </div>
-                    <div class="col-6 hover-bgcolor-slide no-top-left-grey-border p-0">
-                        <button type="button" class="btn p-0 border-0" data-bs-toggle="modal"
-                            data-bs-target="#exampleModal">
-                            <div class="col-12 p-2 mt-4">
-                                <img src="images\sub (12).png" class="img-fluid mb-3" style="width: 70px;" alt="">
-                                <p style="font-weight:500">Hindi</p>
-                            </div>
-                        </button>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-
-
-    </div>
-
 
     <div class="container">
         <div class="row">
@@ -1339,639 +867,6 @@
 
 
 
-
-
-
-
-
-
-
-    <div class="container mt-5">
-        <div class="row ">
-            <div class="col-md-12 text-center mt-3">
-                <p class="blue-heading">Popular <span class="pink-heading">Teachers</span> </p>
-            </div>
-        </div>
-    </div>
-
-
-
-
-
-    <div class="container-fluid">
-        <div class="row carousel" data-flickity='{"wrapAround" : true,"autoplay" : true,"pageDots":false}'>
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 mb-5 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </div>
-
-
-
-    </div>
-
-
-
-
-
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-xl modal-dialog-centered">
@@ -2050,7 +945,7 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <img src="images\study kid.png" class="img-fluid" alt="">
+                                <img src="images/college/images/study kid.png" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>
@@ -2073,64 +968,48 @@
             <div class="modal-content"
                 style="background: #FFF url('https://ablore.xyz/bcj-files/images/popup%20bg.jpg') no-repeat center / cover;">
                 <div class="modal-header border-0">
-
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
-
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-
                                 <div class="container">
                                     <div class="row">
-
-
-
                                         <div class="col-md-12">
-
                                             <div class="container">
                                                 <div class="main">
-                                                    <!-- <p
-                                                        style="font-size:18px; font-weight:500; color: rgb(169, 169, 169);">
-                                                        Select
-                                                        Board</p>
-                                                    <select name="">
-                                                        <option value="board-1">Board One</option>
-                                                        <option value="board-2">Board Two</option>
-                                                        <option value="board-3">Board Three</option>
-                                                        <option value="board-4">Board Four</option>
-                                                    </select> -->
-
-                                                    <form>
+                                                <form method="POST" action="{{ route('leads.store') }}">
+                                                        @csrf
+                                                        <input type="hidden" name="college_subject_id" id="college_subject_id" value="" />
+                                                        <input type="hidden" name="vertical_id" id="vertical_id" value="{{ $vertical->id}}" />
                                                         <div class="mb-3">
-                                                            <label for="exampleInputEmail1" class="form-label">Student's
+                                                            <label for="name" class="form-label">Student's
                                                                 Name</label>
-                                                            <input type="email" class="form-control"
-                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                            <input type="text" class="form-control"
+                                                                id="name" name="name" required aria-describedby="emailHelp">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleInputEmail1" class="form-label">Email
+                                                            <label for="email" class="form-label">Email
                                                                 Address</label>
                                                             <input type="email" class="form-control"
-                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                                id="email" name="email" required aria-describedby="emailHelp">
                                                         </div>
                                                         <div class="mb-3">
-                                                            <label for="exampleInputEmail1" class="form-label">Phone
+                                                            <label for="number" class="form-label">Phone
                                                                 Number</label>
-                                                            <input type="email" class="form-control"
-                                                                id="exampleInputEmail1" aria-describedby="emailHelp">
+                                                            <input type="number" class="form-control"
+                                                                id="number" name="number" required max="9999999999" min="1000000000" aria-describedby="emailHelp">
                                                         </div>
 
                                                         <div class="mb-3 form-check">
                                                             <input type="checkbox" class="form-check-input"
-                                                                id="exampleCheck1">
-                                                            <label class="form-check-label" for="exampleCheck1">I am a
+                                                                id="parent" name="parent" value="parent">
+                                                            <label class="form-check-label" for="parent">I am a
                                                                 parent</label>
                                                         </div>
                                                         <p>
-                                                            <button type="button"
+                                                            <button type="submit"
                                                                 class="btn text-right w-100 mt-5 text-light"
                                                                 style="background-color:#2e3863; width: 290px !important;">Proceed
                                                                 &#8594
@@ -2144,12 +1023,11 @@
                                 </div>
                             </div>
                             <div class="col-md-6">
-                                <img src="images\study kid.png" class="img-fluid" alt="">
+                                <img src="images/college/images/study kid.png" class="img-fluid" alt="">
                             </div>
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -2159,7 +1037,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
-                    <img src="images/bcj-logo.png" class="img-fluid" style="width:150px ;" alt="">
+                    <img src="images/college/images/bcj-logo.png" class="img-fluid" style="width:150px ;" alt="">
                     <p style="margin-top: 2rem;">
                         <i class="fa-brands fa-facebook"></i>
                         <i class="fa-brands fa-instagram"></i>
@@ -2184,6 +1062,17 @@
             </div>
         </div>
     </div>
+
+    <script>
+        $('#exampleModal1').on('show.bs.modal', function(e) {
+
+            //get data-id attribute of the clicked element
+            var subjectId = $(e.relatedTarget).data('subject-id');
+
+            //populate the textbox
+            $(e.currentTarget).find('input[name="college_subject_id"]').val(subjectId);
+        });
+    </script>
 
     <script>
         $('.counter').counterUp({

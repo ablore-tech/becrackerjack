@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\CollegeSubject;
+use App\Models\Vertical;
 use Illuminate\Http\Request;
 
 class CollegeController extends Controller
@@ -20,6 +21,8 @@ class CollegeController extends Controller
     {
         $underSubjects = CollegeSubject::where('graduation_type', config('settings.graduation_type.undergraduate'))->get();
         $postSubjects = CollegeSubject::where('graduation_type', config('settings.graduation_type.postgraduate'))->get();
-        return view('college.index', compact(['underSubjects', 'postSubjects']));
+        $vertical = Vertical::where('name', 'College')->first();
+
+        return view('college.index', compact(['underSubjects', 'postSubjects', 'vertical']));
     }
 }

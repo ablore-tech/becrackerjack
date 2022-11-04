@@ -15,8 +15,23 @@ class VerticalSeeder extends Seeder
      */
     public function run()
     {
-        Vertical::create([
-            'name' => 'School'
-        ]);
+        $roles = [
+            [
+               'name' => 'School'
+            ],
+            [
+                'name' => 'College'
+            ],
+            [
+                'name' => 'Advance'
+            ]
+        ];
+
+        foreach($roles as $role)
+        {
+            Vertical::create([
+                'name' => $role['name']
+            ]);
+        }
     }
 }
