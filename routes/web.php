@@ -46,7 +46,7 @@ Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
 Auth::routes(['verify' => true]);
 
 Route::get('college', [CollegeController::class, 'register'])->name('college.view');
-Route::get('school', [SchoolController::class, 'register'])->name('school.view');
+Route::get('school', [SchoolController::class, 'view'])->name('school.view');
 Route::get('language', [LanguageController::class, 'register'])->name('language.view');
 Route::resource('leads', LeadController::class);
 

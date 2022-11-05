@@ -2,16 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Board;
+use App\Models\SchoolClass;
+use App\Models\Subject;
+use App\Models\Vertical;
 use Illuminate\Http\Request;
 
 class SchoolController extends Controller
 {
     public function view()
     {
-        $underSubjects = CollegeSubject::where('graduation_type', config('settings.graduation_type.undergraduate'))->get();
-        $postSubjects = CollegeSubject::where('graduation_type', config('settings.graduation_type.postgraduate'))->get();
-        $vertical = Vertical::where('name', 'College')->first();
+        $boards = Board::all();
+        $schoolClasses = SchoolClass::all();
+        $subjects = Subject::all();
+        $vertical = Vertical::where('name', 'School')->first();
 
-        return view('college.index', compact(['underSubjects', 'postSubjects', 'vertical']));
+        return view('school.index', compact(['boards', 'schoolClasses', 'subjects', 'vertical']));
     }
 }
