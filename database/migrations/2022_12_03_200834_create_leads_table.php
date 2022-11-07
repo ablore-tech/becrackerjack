@@ -22,6 +22,9 @@ return new class extends Migration
             $table->foreignId('vertical_id')->nullable()->references('id')->on('verticals')->onDelete('cascade');
             $table->foreignId('college_subject_id')->nullable()->references('id')->on('college_subjects')->onDelete('cascade');
             $table->foreignId('language_id')->nullable()->references('id')->on('languages')->onDelete('cascade');
+            $table->foreignId('board_id')->nullable()->references('id')->on('boards')->onDelete('cascade');
+            $table->foreignId('subject_id')->nullable()->references('id')->on('subjects')->onDelete('cascade');
+            $table->foreignId('school_class_id')->nullable()->references('id')->on('school_classes')->onDelete('cascade');
             $table->timestamps();
         });
     }

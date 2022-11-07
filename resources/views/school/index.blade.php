@@ -199,7 +199,7 @@
                 <div class="row">
                     <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
                         <button type="button" class="blockbox btn border-0 d-block"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                            data-bs-toggle="modal" data-bs-target="#exampleModal2">
                             <div class="col-sm-12 p-5 ">
                                 <img src="images/college/images/kid 1.png" class="img-fluid mb-3" style="width: 70px;" alt="">
                                 <p style="font-weight:500;">Nursery</p>
@@ -209,7 +209,7 @@
 
                     <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
                         <button type="button" class="blockbox btn border-0 d-block"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                            data-bs-toggle="modal" data-bs-target="#exampleModal2">
                             <div class="col-sm-12 p-5 ">
                                 <img src="images/college/images/kid 2.png" class="img-fluid mb-3" style="width: 70px;" alt="">
                                 <p style="font-weight:500;">1<sup>st</sup> to 3<sup>rd</sup></p>
@@ -219,7 +219,7 @@
 
                     <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
                         <button type="button" class="blockbox btn border-0 d-block"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                            data-bs-toggle="modal" data-bs-target="#exampleModal2">
                             <div class="col-sm-12 p-5 ">
                                 <img src="images/college/images/kid 3.png" class="img-fluid mb-3" style="width: 70px;" alt="">
                                 <p style="font-weight:500;">4<sup>th</sup> to 5<sup> th</sup></p>
@@ -229,7 +229,7 @@
 
                     <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
                         <button type="button" class="blockbox btn border-0 d-block"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                            data-bs-toggle="modal" data-bs-target="#exampleModal2">
                             <div class="col-sm-12 p-5 ">
                                 <img src="images/college/images/kid 4.png" class="img-fluid mb-3" style="width: 70px;" alt="">
                                 <p style="font-weight:500">6<sup>th</sup> to 8<sup>th</sup></p>
@@ -239,7 +239,7 @@
                     
                     <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
                         <button type="button" class="blockbox btn border-0 d-block"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                            data-bs-toggle="modal" data-bs-target="#exampleModal2">
 
                             <div class="col-sm-12 p-5 ">
 
@@ -251,7 +251,7 @@
                     
                     <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
                         <button type="button" class="blockbox btn border-0 d-block"
-                            data-bs-toggle="modal" data-bs-target="#exampleModal1">
+                            data-bs-toggle="modal" data-bs-target="#exampleModal2">
 
                             <div class="col-sm-12 p-5 ">
 
@@ -272,7 +272,7 @@
                         
                         <div class="col-sm-4 col-6 hover-bgcolor-slide mb-4">
                             <button type="button" class="blockbox btn border-0 d-block" data-bs-toggle="modal"
-                                data-bs-target="#exampleModal1" data-subject-id="{{ $subject->id}}">
+                                data-bs-target="#exampleModal" data-subject-id="{{ $subject->id}}">
                                 <div class="col-sm-12 p-5 ">
                                     <img src="{{ asset('/storage'.$subject->image) }}" class="img-fluid mb-3" style="width: 70px;" alt="">
                                     <p style="font-weight:500;">{{ $subject->name}}</p>
@@ -617,293 +617,18 @@
 
 
 
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
 
 
 
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
 
 
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
 
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
 
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
 
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
 
 
 
 
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
 
 
 
@@ -924,73 +649,53 @@
             <div class="modal-content"
                 style="background:#FFF url('https://ablore.xyz/bcj-files/images/popup%20bg.jpg') no-repeat center / cover;">
                 <div class="modal-header border-0">
-
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-
-
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-md-6">
-
                                 <div class="container">
                                     <div class="row">
-
-
-
                                         <div class="col-md-12">
-
                                             <div class="container">
                                                 <div class="main">
                                                     <p
                                                         style="font-size:18px; font-weight:500; color: rgb(169, 169, 169);">
                                                         Select
                                                         Board</p>
-                                                    <select name="">
-                                                        <option value="board-1">Board One</option>
-                                                        <option value="board-2">Board Two</option>
-                                                        <option value="board-3">Board Three</option>
-                                                        <option value="board-4">Board Four</option>
+                                                    <select name="board_id" id="board_id">
+                                                        @foreach($boards as $board)    
+                                                            <option value="{{ $board->id}}">{{ $board->name}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                             </div>
-
                                         </div>
-
                                     </div>
 
 
                                     <div class="row">
-
                                         <div class="col-md-12">
-
                                             <div class="container">
                                                 <div class="main">
                                                     <p
                                                         style="font-size:18px; font-weight:500; color: rgb(169, 169, 169);">
                                                         Select
                                                         Class</p>
-
-
-                                                    <select name="">
-                                                        <option value="school-1">Class One</option>
-                                                        <option value="school-2">Class Two</option>
-                                                        <option value="school-3">Class Three</option>
-                                                        <option value="school-4">Class Four</option>
+                                                    <select name="school_class_id" id="school_class_id">
+                                                        @foreach($schoolClasses as $schoolClass)
+                                                            <option value="{{ $schoolClass->id}}">{{ $schoolClass->name}}</option>
+                                                        @endforeach
                                                     </select>
                                                 </div>
                                                 <p style="padding-left:1rem !important;"> <button type="button"
-                                                        class="btn text-right w-100 mt-5 text-light"
+                                                        class="btn text-right w-100 mt-5 text-light" id="subject-data"
                                                         style="background-color:#2e3863; width: 290px !important;">Proceed
                                                         &#8594
                                                     </button>
                                                 </p>
                                             </div>
-
-
-
-
                                         </div>
                                     </div>
                                 </div>
@@ -1000,18 +705,10 @@
                             </div>
                         </div>
                     </div>
-
-
-
-
                 </div>
-
             </div>
         </div>
     </div>
-
-
-
 
     <!-- Modal 1-->
     <div class="modal fade" id="exampleModal1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -1032,7 +729,9 @@
                                                 <div class="main">
                                                 <form method="POST" action="{{ route('leads.store') }}">
                                                         @csrf
-                                                        <input type="hidden" name="college_subject_id" id="college_subject_id" value="" />
+                                                        <input type="hidden" name="subjectId" id="subjectId" value="" />
+                                                        <input type="hidden" name="boardId" id="boardId" value="" />
+                                                        <input type="hidden" name="schoolClassId" id="schoolClassId" value="" />
                                                         <input type="hidden" name="vertical_id" id="vertical_id" value="{{ $vertical->id}}" />
                                                         <div class="mb-3">
                                                             <label for="name" class="form-label">Student's
@@ -1083,6 +782,69 @@
         </div>
     </div>
 
+    <div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-dialog-centered">
+            <div class="modal-content" style="background: #FFF url('https://ablore.xyz/bcj-files/images/popup%20bg.jpg') no-repeat center / cover;">
+                <div class="modal-header border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="container">
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="container">
+                                                <div class="main">
+                                                    <p
+                                                        style="font-size:18px; font-weight:500; color: rgb(169, 169, 169);">
+                                                        Select
+                                                        Board</p>
+                                                    <select name="board-id" id="board-id">
+                                                        @foreach($boards as $board)
+                                                            <option value="{{ $board->id}}"> {{ $board->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="container">
+                                                <div class="main">
+                                                    <p
+                                                        style="font-size:18px; font-weight:500; color: rgb(169, 169, 169);">
+                                                        Select
+                                                        Subject</p>
+                                                    <select name="subject-id" id="subject-id">
+                                                        @foreach($subjects as $subject)
+                                                            <option value="{{ $subject->id}}">{{ $subject->name}}</option>
+                                                        @endforeach
+                                                    </select>
+                                                </div>
+                                                <p style="padding-left:1rem !important;"> <button type="button"
+                                                        class="btn text-right w-100 mt-5 text-light" id="class-data"
+                                                        style="background-color:#2e3863; width: 290px !important;">Proceed
+                                                        &#8594
+                                                    </button>
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <img src="images/college/images/study kid.png" class="img-fluid" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <div class="before-footer"></div>
     <div class="container-fluid footer">
         <div class="container">
@@ -1115,13 +877,23 @@
     </div>
 
     <script>
-        $('#exampleModal1').on('show.bs.modal', function(e) {
 
-            //get data-id attribute of the clicked element
-            var subjectId = $(e.relatedTarget).data('subject-id');
 
-            //populate the textbox
-            $(e.currentTarget).find('input[name="college_subject_id"]').val(subjectId);
+        $('#subject-data').on('click', function(e) {
+            let board_id = $("#board_id").val();
+            let school_class_id = $("#school_class_id").val();
+            $('#boardId').val(board_id);
+            $('#schoolClassId').val(school_class_id);
+            $('#exampleModal1').modal('show')
+        });
+
+        $('#class-data').on('click', function(e) {
+            let board_id = $("#board-id").val();
+            let subject_id = $("#subject-id").val();
+            $('#boardId').val(board_id);
+            $('#subjectId').val(subject_id);
+            $('exampleModal2').modal('hide');
+            $('#exampleModal1').modal('show')
         });
     </script>
 

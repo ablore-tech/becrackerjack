@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Batch;
 use App\Models\Board;
+use App\Models\Lead;
 use App\Models\SchoolClass;
 use App\Models\Subject;
 use App\Models\Vertical;
@@ -16,6 +18,7 @@ class SchoolController extends Controller
         $schoolClasses = SchoolClass::all();
         $subjects = Subject::all();
         $vertical = Vertical::where('name', 'School')->first();
+        // $batches = Batch::where('vertical_id', 1);
 
         return view('school.index', compact(['boards', 'schoolClasses', 'subjects', 'vertical']));
     }

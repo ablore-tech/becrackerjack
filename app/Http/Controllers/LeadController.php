@@ -43,7 +43,10 @@ class LeadController extends Controller
         $lead->vertical_id = $request->vertical_id;
         $lead->college_subject_id = $request->college_subject_id ? $request->college_subject_id : null;
         $lead->language_id = $request->language_id ? $request->language_id : null;
-        
+        $lead->board_id = $request->boardId ? $request->boardId : null;
+        $lead->school_class_id = $request->schoolClassId ? $request->schoolClassId : null;
+        $lead->subject_id = $request->subjectId ? $request->subjectId : null;
+
         $lead->save();
         
         return back();
