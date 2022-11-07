@@ -444,8 +444,8 @@
                                                                         id="choices-single-default">
                                                                         <option value="">Select Vertical</option>
 
-                                                                        <!-- <option value="Choice2">College</option>
-                                                                        <option value="Choice3">Advance</option> -->
+                                                                        <option value="Choice2">College</option>
+                                                                        <option value="Choice3">Advance</option>
                                                                         <option value="1">School</option>
 
                                                                     </select>
@@ -879,12 +879,12 @@
                 if (value == "1") {
                     $(".c1").show();
                 }
-                // if (value == "Choice2") {
-                //     $(".c2").show();
-                // }
-                // if (value == "Choice3") {
-                //     $(".c3").show();
-                // }
+                if (value == "Choice2") {
+                    $(".c2").show();
+                }
+                if (value == "Choice3") {
+                    $(".c3").show();
+                }
             });
             hidestuff();
         });

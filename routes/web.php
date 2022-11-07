@@ -49,7 +49,7 @@ Auth::routes(['verify' => true]);
 Route::get('college', [CollegeController::class, 'register'])->name('college.view');
 Route::get('school', [SchoolController::class, 'view'])->name('school.view');
 Route::get('language', [LanguageController::class, 'register'])->name('language.view');
-Route::resource('leads', LeadController::class);
+Route::resource('leads', LeadController::class)->only('store');
 
 Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -59,6 +59,7 @@ Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
     Route::resource('teacher', TeacherController::class);
     Route::post('teacher/update-status/{teacher}', [TeacherController::class, 'updateStatus'])->name('update-status');
     Route::get('colleges', [CollegeController::class, 'index'])->name('colleges.index');
+    Route::resource('leads', LeadController::class)->only('index');
     Route::resource('language', LanguageController::class)->only([
         'store', 'update', 'destroy'
     ]);

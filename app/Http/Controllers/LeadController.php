@@ -14,7 +14,9 @@ class LeadController extends Controller
      */
     public function index()
     {
-        //
+        $leads = Lead::all();
+
+        return view('admin.lead', compact('leads'));
     }
 
     /**

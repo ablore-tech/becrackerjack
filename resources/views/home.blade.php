@@ -373,8 +373,8 @@
 
 
                         <li class="nav-item">
-                            <a class="nav-link menu-link" href="student's list.html">
-                                <i class="ri-account-circle-line"></i> <span data-key="t-widgets">Students</span>
+                            <a class="nav-link menu-link" href="{{ route('leads.index')}}">
+                                <i class="ri-account-circle-line"></i> <span data-key="t-widgets">Leads</span>
                             </a>
                         </li>
 
