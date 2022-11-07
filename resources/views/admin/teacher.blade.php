@@ -538,11 +538,12 @@
                                     $teacher_name = '';
                                     $teacher_email = '';
                                     $teacher_phone_number = '';
-                                    if(isset($teacher))
+                                    if(isset($teacher)) {
                                         $teacher_id = $teacher->id;
                                         $teacher_name = $teacher->name;
                                         $teacher_email = $teacher->email;
                                         $teacher_phone_number = $teacher->phone_number;
+                                    }
                                 @endphp
                                 <form method="POST" action="{{ route('teacher.update', $teacher_id) }}">
                                     @csrf
