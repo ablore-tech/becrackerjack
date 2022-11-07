@@ -455,6 +455,7 @@
                                                         <th class="sort" data-sort="customer_name">Name</th>
                                                         <th class="sort" data-sort="email">Email</th>
                                                         <th class="sort" data-sort="phone">Phone</th>
+                                                        <th class="sort" data-sort="phone">Source</th>
                                                         <th class="sort" data-sort="date">Lead Date</th>
                                                         <th class="sort" data-sort="status">Is Parent</th>
                                                         <!-- <th class="sort" data-sort="action">Action</th> -->
@@ -472,6 +473,7 @@
                                                             <td class="customer_name">{{ $lead->name}}</td>
                                                             <td class="email">{{ $lead->email}}</td>
                                                             <td class="phone">{{ $lead->number}}</td>
+                                                            <td class="phone">{{ $lead->vertical->name}}</td>
                                                             <td class="date">{{ date_format($lead->created_at,'d M Y')}}</td>
                                                             <td class="status">{{ $lead->is_parent ? 'Yes' : 'No' }}</td>
                                                             <!-- <td>
