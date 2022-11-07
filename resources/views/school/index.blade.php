@@ -80,14 +80,14 @@
 
 
 
-    <img src="images/college/images/college_banner.jpg" class="img-fluid w-100" alt="">
+    <img src="images/school/images/lp1_banner.jpg" class="img-fluid w-100" alt="">
 
     <div class="d-block py-5 gradient_shade">
         <div class="container-fluid my-5">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p class="blue-heading heading-in-mob">The</p>
-                    <p class="pink-heading heading-in-mob">CrackerJack way</p>
+                    <p class="blue-heading heading-in-mob">Some Amazing</p>
+                    <p class="pink-heading heading-in-mob">Key Features</p>
                 </div>
             </div>
         </div>
@@ -96,21 +96,21 @@
             <div class="row">
                 <div class="col-md-4 mb-5 d-flex justify-content-center">
                     <div class="col-md-12 col-8  text-center p-5 key-features-spacing grey-border hover-shadow">
-                        <img src="images/college/images/icon 1.png" class="img-fluid mb-3" style="width:70px ;" alt="">
-                        <p>One to one live and interactive sessions</p>
+                        <img src="images/school/images/icon 1.png" class="img-fluid mb-3" style="width:70px ;" alt="">
+                        <p>One to one learning</p>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex justify-content-center mb-5 ">
                     <div class="col-md-12 col-8 text-center key-features-spacing p-5 grey-border hover-shadow">
-                        <img src="images/college/images/icon 2.png" class="img-fluid mb-3" style="width:70px ;" alt="">
-                        <p>Regular guidance and assistance
+                        <img src="images/school/images/icon 2.png" class="img-fluid mb-3" style="width:70px ;" alt="">
+                        <p>Live and interactive mentored sessions
                         </p>
                     </div>
                 </div>
                 <div class="col-md-4 d-flex justify-content-center mb-5 ">
                     <div class="col-md-12 col-8 text-center key-features-spacing p-5 grey-border hover-shadow">
-                        <img src="images/college/images/icon 3.png" class="img-fluid mb-3" style="width:70px ;" alt="">
-                        <p>Expert educators for domestic and international entrances
+                        <img src="images/school/images/icon 3.png" class="img-fluid mb-3" style="width:70px ;" alt="">
+                        <p>Personal attention and flexible scheduling
                         </p>
                     </div>
                 </div>
@@ -123,8 +123,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center mt-3">
-                    <p class="blue-heading heading-in-mob">Convenient and</p>
-                    <p class="pink-heading heading-in-mob">Flexible</p>
+                    <p class="blue-heading heading-in-mob">Our Course</p>
+                    <p class="pink-heading heading-in-mob">Workflow</p>
                 </div>
             </div>
 
@@ -133,28 +133,28 @@
                     <div class="head">
                         <p>Experienced Faculty</p>
                     </div>
-                    <img src="images/college/images/slide_b1.jpg" class="" alt="Image">
+                    <img src="images/school/images/slide_b1.jpg" class="" alt="Image">
                 </section>
 
                 <section class="accordion-content">
                     <div class="head">
                         <p>Free Trial Sessions</p>
                     </div>
-                    <img src="images/college/images/slide_b2.jpg" class="" alt="Image">
+                    <img src="images/school/images/slide_b2.jpg" class="" alt="Image">
                 </section>
 
                 <section class="accordion-content">
                     <div class="head">
                         <p>Flexible & Customised</p>
                     </div>
-                    <img src="images/college/images/slide_b3.jpg" class="" alt="Image">
+                    <img src="images/school/images/slide_b3.jpg" class="" alt="Image">
                 </section>
 
                 <section class="accordion-content">
                     <div class="head">
                         <p>Central Access</p>
                     </div>
-                    <img src="images/college/images/slide_b4.jpg" class="" alt="Image">
+                    <img src="images/school/images/slide_b4.jpg" class="" alt="Image">
                 </section>
 
 
@@ -173,8 +173,8 @@
     <div class="container-fluid my-5 pt-5 pb-3 mob-display-none">
         <div class="row pb-3">
             <div class="col-sm-12 text-center">
-                <p class="blue-heading heading-in-mob"> Find your </p>
-                <p class="pink-heading heading-in-mob">Personal Tutor</p>
+                <p class="blue-heading heading-in-mob"> Tutors According To </p>
+                <p class="pink-heading heading-in-mob">Your Needs</p>
             </div>
         </div>
 
@@ -182,7 +182,7 @@
             <div class="col-sm-12">
                 <ul class="nav nav-pills justify-content-center">
                     <li class="nav-item"><a href="#subjects" data-bs-toggle="tab" class="active nav-link ">
-                            <div class="button-style grey-border">Subject</div>
+                            <div class="button-style grey-border">Subjects</div>
                         </a></li>
                     <li class="nav-item"> <a href="#classes" class="nav-link " data-bs-toggle="tab">
                             <div class="button-style grey-border">Classes</div>
