@@ -49,7 +49,7 @@ class LeadController extends Controller
 
         $lead->save();
         
-        return back();
+        return redirect()->route('thank-you');
     }
 
     /**

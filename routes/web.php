@@ -13,6 +13,7 @@ use App\Http\Controllers\Teacher\BatchController;
 use App\Http\Controllers\Teacher\DashboardController;
 use App\Http\Controllers\Teacher\LoginController;
 use App\Http\Controllers\Teacher\TeacherController;
+use App\Http\Controllers\ThankYouController;
 use Illuminate\Support\Facades\Route;
 use Spatie\Permission\Contracts\Role;
 
@@ -63,4 +64,5 @@ Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
     ]);
     Route::resource('college-subject', CollegeSubjectController::class);
     Route::get('advance', [AdvanceController::class, 'index'])->name('advance.index');
+    Route::get('thank-you', [ThankYouController::class, 'index'])->name('thank-you');
 });
