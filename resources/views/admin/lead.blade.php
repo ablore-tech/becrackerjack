@@ -25,6 +25,9 @@
     <!-- custom Css-->
     <link href="{{ asset('css/custom.min.css')}}" rel="stylesheet" type="text/css" />
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -458,6 +461,7 @@
                                                         <th class="sort" data-sort="phone">Source</th>
                                                         <th class="sort" data-sort="date">Lead Date</th>
                                                         <th class="sort" data-sort="status">Is Parent</th>
+                                                        <th class="sort" data-sort="status">View</th>
                                                         <!-- <th class="sort" data-sort="action">Action</th> -->
                                                     </tr>
                                                 </thead>
@@ -476,6 +480,13 @@
                                                             <td class="phone">{{ $lead->vertical->name}}</td>
                                                             <td class="date">{{ date_format($lead->created_at,'d M Y')}}</td>
                                                             <td class="status">{{ $lead->is_parent ? 'Yes' : 'No' }}</td>
+                                                            <td class="view">
+                                                                <div class="view">
+                                                                    <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal"
+                                                                    data-lead="{{ $lead}}"
+                                                                    >View</button>
+                                                                </div>
+                                                            </td>
                                                             <!-- <td>
                                                                 <div class="d-flex gap-2">
                                                                     <div class="edit">
@@ -520,111 +531,78 @@
                     </div>
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                    <div class="modal fade" id="showModalSubject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="showModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header bg-light p-3">
                                     <h5 class="modal-title" id="exampleModalLabel"></h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                                 </div>
-                                <form>
-                                    <div class="modal-body">
-    
-                                        <div class="mb-3" id="modal-id" style="display: none;">
-                                            <label for="id-field" class="form-label">ID</label>
-                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
-                                        </div>
-    
-                                        <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Subject Name</label>
-                                            <input type="text" id="customername-field" class="form-control" placeholder="Enter Subject Name" required />
-                                        </div>
-    
-                                    
-    
-                                      
-    
-                                        
+                                    <div class="modal-body row">
+                                        <table>
+                                            <tr class="row">
+                                                <td class="col font-weight-bold">
+                                                   Vertical 
+                                                </td>
+                                                <td class="col">
+                                                    <span id='vertical' class="vertical"></span>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="row">
+                                                <td class="col font-weight-bold">
+                                                   Board 
+                                                </td>
+                                                <td class="col">
+                                                    <span id='board' class="board"></span>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="row">
+                                                <td class="col font-weight-bold">
+                                                   School Subject 
+                                                </td>
+                                                <td class="col">
+                                                    <span id='subject' class="subject"></span>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr class="row">
+                                                <td class="col font-weight-bold">
+                                                   School Class 
+                                                </td>
+                                                <td class="col">
+                                                    <span id='school-class' class="school-class"></span>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="row">
+                                                <td class="col font-weight-bold">
+                                                   College Subject 
+                                                </td>
+                                                <td class="col">
+                                                    <span id='college-subject' class="college-subject"></span>
+                                                </td>
+                                            </tr>
+
+                                            <tr class="row">
+                                                <td class="col font-weight-bold">
+                                                   Language 
+                                                </td>
+                                                <td class="col">
+                                                    <span id='language' class="language"></span>
+                                                </td>
+                                            </tr>
+                                        </table>
                                     </div>
                                     <div class="modal-footer">
                                         <div class="hstack gap-2 justify-content-end">
                                             <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-success" id="add-btn">Add </button>
-                                            <button type="button" class="btn btn-success" id="edit-btn">Update</button>
                                         </div>
                                     </div>
-                                </form>
                             </div>
                         </div>
                     </div>
-
-
-
-
-
-
-
-
-
-    
-                    <!-- Modal -->
-                    <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mt-2 text-center">
-                                        <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                                        <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                            <h4>Are you Sure ?</h4>
-                                            <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                        <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-
-
-
-
-
-
-
-
-
-
-
                 </div>
                 <!-- container-fluid -->
             </div>
@@ -1283,6 +1261,30 @@
 
 
     <!-- JAVASCRIPT -->
+    <script>
+        $('#showModal').on('show.bs.modal', function(e) {
+            //get data-id attribute of the clicked element
+            var lead = $(e.relatedTarget).data('lead');
+            if(lead['vertical']['name'] === 'School') {
+                $(e.currentTarget).find('span[id="board"]').text(lead['board']['name']);
+                if(lead['subject']) {
+                    $(e.currentTarget).find('span[id="subject"]').text(lead['subject']['name']);
+                }
+                else {
+                    $(e.currentTarget).find('span[id="school-class"]').text(lead['school_class']['name']);
+                }
+            }
+
+            if(lead['vertical']['name'] === 'College') {
+                $(e.currentTarget).find('span[id="college_subject"]').text(lead['college_subject']['name']);
+            }
+
+            if(lead['vertical']['name'] === 'Advance') {
+                $(e.currentTarget).find('span[id="language"]').text(lead['language']['name']);
+            }
+            //populate the textbox
+        });
+    </script>
     <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{ asset('libs/simplebar/simplebar.min.js')}}"></script>
     <script src="{{ asset('libs/node-waves/waves.min.js')}}"></script>

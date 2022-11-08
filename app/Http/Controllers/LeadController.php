@@ -14,7 +14,7 @@ class LeadController extends Controller
      */
     public function index()
     {
-        $leads = Lead::all();
+        $leads = Lead::with(['subject', 'vertical', 'board', 'collegeSubject', 'language', 'schoolClass'])->get();
 
         return view('admin.lead', compact('leads'));
     }
