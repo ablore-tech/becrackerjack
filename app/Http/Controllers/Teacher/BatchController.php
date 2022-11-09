@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Teacher;
 use App\Http\Controllers\Controller;
 use App\Models\Batch;
 use App\Models\Board;
+use App\Models\CollegeSubject;
+use App\Models\Language;
 use App\Models\SchoolClass;
 use App\Models\Subject;
 use Illuminate\Contracts\Foundation\Application;
@@ -36,7 +38,14 @@ class BatchController extends Controller
         $boards = Board::all();
         $schoolClasses = SchoolClass::all();
         $subjects = Subject::all();
-        return view('teacher.batch.add', compact(['boards', 'schoolClasses', 'subjects']));
+        $graduationTypes = config('settings.graduation_type');
+        $languageTypes = config('settings.language_type');
+        $underSubjects = CollegeSubject::where('graduation_type', config('settings.graduation_type.undergraduate'))->get();
+        $postSubjects = CollegeSubject::where('graduation_type', config('settings.graduation_type.postgraduate'))->get();
+        $europeanLanguages = Language::where('language_type', config('settings.language_type.european'))->get();
+        $restLanguages = Language::where('language_type', config('settings.language_type.rest'))->get();
+
+        return view('teacher.batch.add', compact(['boards', 'schoolClasses', 'subjects', 'graduationTypes', 'languageTypes', 'underSubjects', 'postSubjects', 'europeanLanguages', 'restLanguages']));
     }
 
     /**
@@ -50,14 +59,32 @@ class BatchController extends Controller
         $batch = Batch::create([
             'user_id' => Auth::user()->id,
             'vertical_id' => $request->input('vertical'),
-            'board_id' => $request->input('board'),
-            'school_class_id' => $request->input('school_class'),
-            'subject_id' => $request->input('subject'),
             'days' => json_encode($request->input('days')),
             'start_time' => $request->input('from_time'),
             'end_time' => $request->input('to_time'),
             'price' => $request->input('amount')
         ]);
+
+        if($request->vertical = 1) {
+            $batch->board_id = $request->input('board');
+            $batch->school_class_id = $request->input('school_class');
+            $batch->subject_id = $request->input('subject');
+        }
+
+        elseif($request->vertical = 2) {
+            // $batch->graduation_type = $request->input('graduation_type');
+            $batch->college_subject_id = $request->input('post_subject');
+            if($request->under_subject) {
+                $batch->college_subject_id = $request->input('under_subject');
+            }
+        }
+
+        elseif($request->vertical = 3) {
+            $batch->language_id = $request->input('european_language');
+            if($request->rest_language) {
+                $batch->language_id = $request->input('rest_language');
+            }
+        }
 
         return response()->json($batch);
     }

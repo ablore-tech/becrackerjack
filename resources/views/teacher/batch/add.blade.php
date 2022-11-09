@@ -443,10 +443,10 @@
                                                                         name="vertical"
                                                                         id="choices-single-default">
                                                                         <option value="">Select Vertical</option>
-
-                                                                        <option value="Choice2">College</option>
-                                                                        <option value="Choice3">Advance</option>
+                                                                        
                                                                         <option value="1">School</option>
+                                                                        <option value="2">College</option>
+                                                                        <option value="3">Advance</option>
 
                                                                     </select>
 
@@ -509,6 +509,141 @@
                                                                                     @if($subjects)
                                                                                         @foreach($subjects as $subject)
                                                                                             <option value="{{$subject->id}}">{{ $subject->name}}</option>
+                                                                                        @endforeach
+                                                                                    @endif
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <div class="row c2">
+                                                                        <div class="col-md-12">
+                                                                            <div class="mb-3">
+                                                                                <label for="choices-single-default"
+                                                                                    class="form-label text-muted">Please
+                                                                                    Select Graduation Type</label>
+
+                                                                                <select class="form-control"
+                                                                                    data-choices
+                                                                                    name="graduation_type"
+                                                                                    id="choices-single-default">
+                                                                                    <option value="">Select graduation type
+                                                                                    </option>
+                                                                                    @if($graduationTypes)
+                                                                                        @foreach($graduationTypes as $index => $graduationType)
+                                                                                            <option value="{{ $graduationType}}">{{$index}}</option>
+                                                                                        @endforeach
+                                                                                    @endif
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row c21">    
+                                                                        <div class="col-md-12">
+                                                                            <div class="mb-3">
+                                                                                <label
+                                                                                    for="choices-multiple-remove-button"
+                                                                                    class="form-label text-muted">Please
+                                                                                    Select Subject</label>
+                                                                                    <select class="form-control"
+                                                                                    data-choices
+                                                                                    name="under_subject"
+                                                                                    id="choices-single-default">
+                                                                                    <option value="">Select Subject
+                                                                                    </option>
+                                                                                    @if($underSubjects)
+                                                                                        @foreach($underSubjects as $underSubject)
+                                                                                            <option value="{{$underSubject->id}}">{{ $underSubject->name}}</option>
+                                                                                        @endforeach
+                                                                                    @endif
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row c22">    
+                                                                        <div class="col-md-12">
+                                                                            <div class="mb-3">
+                                                                                <label
+                                                                                    for="choices-multiple-remove-button"
+                                                                                    class="form-label text-muted">Please
+                                                                                    Select Subject</label>
+                                                                                    <select class="form-control"
+                                                                                    data-choices
+                                                                                    name="post_subject"
+                                                                                    id="choices-single-default">
+                                                                                    <option value="">Select Subject
+                                                                                    </option>
+                                                                                    @if($postSubjects)
+                                                                                        @foreach($postSubjects as $postSubject)
+                                                                                            <option value="{{$postSubject->id}}">{{ $postSubject->name}}</option>
+                                                                                        @endforeach
+                                                                                    @endif
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+
+
+                                                                    <div class="row c3">
+                                                                        <div class="col-md-12">
+                                                                            <div class="mb-3">
+                                                                                <label for="choices-single-default"
+                                                                                    class="form-label text-muted">Please
+                                                                                    Select Language Type</label>
+
+                                                                                <select class="form-control"
+                                                                                    data-choices
+                                                                                    name="language_type"
+                                                                                    id="choices-single-default">
+                                                                                    <option value="">Select language type
+                                                                                    </option>
+                                                                                    @if($languageTypes)
+                                                                                        @foreach($languageTypes as $index => $languageType)
+                                                                                            <option value="{{ $languageType}}">{{$index}}</option>
+                                                                                        @endforeach
+                                                                                    @endif
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row c31">
+                                                                        <div class="col-md-12">
+                                                                            <div class="mb-3">
+                                                                                <label
+                                                                                    for="choices-multiple-remove-button"
+                                                                                    class="form-label text-muted">Please
+                                                                                    Select language</label>
+                                                                                    <select class="form-control"
+                                                                                    data-choices
+                                                                                    name="european_language"
+                                                                                    id="choices-single-default">
+                                                                                    <option value="">Select language
+                                                                                    </option>
+                                                                                    @if($europeanLanguages)
+                                                                                        @foreach($europeanLanguages as $europeanLanguage)
+                                                                                            <option value="{{$europeanLanguage->id}}">{{ $europeanLanguage->name}}</option>
+                                                                                        @endforeach
+                                                                                    @endif
+                                                                                </select>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                    <div class="row c32">
+                                                                        <div class="col-md-12">
+                                                                            <div class="mb-3">
+                                                                                <label
+                                                                                    for="choices-multiple-remove-button"
+                                                                                    class="form-label text-muted">Please
+                                                                                    Select language</label>
+                                                                                    <select class="form-control"
+                                                                                    data-choices
+                                                                                    name="rest_language"
+                                                                                    id="choices-single-default">
+                                                                                    <option value="">Select language
+                                                                                    </option>
+                                                                                    @if($restLanguages)
+                                                                                        @foreach($restLanguages as $restLanguage)
+                                                                                            <option value="{{$restLanguages->id}}">{{ $restLanguages->name}}</option>
                                                                                         @endforeach
                                                                                     @endif
                                                                                 </select>
@@ -869,7 +1004,10 @@
 
         $(function () {
             var hidestuff = function () {
-                $(".c1,.c2,.c3").hide();
+                $(".c1,.c2,.c3, .c21, .c31, .c22, .c32").hide();
+            }
+            var hidesubstuff = function() {
+                $(".c21, .c31, .c22, .c32").hide();
             }
 
             $("select[name='vertical']").change(function () {
@@ -879,14 +1017,38 @@
                 if (value == "1") {
                     $(".c1").show();
                 }
-                if (value == "Choice2") {
+                if (value == "2") {
                     $(".c2").show();
                 }
-                if (value == "Choice3") {
+                if (value == "3") {
                     $(".c3").show();
                 }
             });
             hidestuff();
+
+            $("select[name='graduation_type']").change(function () {
+                hidesubstuff();
+
+                var value = $(this).val();
+                if (value == "1") {
+                    $(".c21").show();
+                }
+                if (value == "2") {
+                    $(".c22").show();
+                }
+            });
+
+            $("select[name='language_type']").change(function () {
+                hidesubstuff();
+
+                var value = $(this).val();
+                if (value == "1") {
+                    $(".c31").show();
+                }
+                if (value == "2") {
+                    $(".c32").show();
+                }
+            });
         });
 
         $("#from_time").timepicker({
@@ -909,13 +1071,15 @@
             let board = $("select[name=board]").val();
             let school_class = $("select[name=school_class]").val();
             let subject = $("select[name=subject]").val();
-            // let days = $("select[name='days[]']").val();
-            let days=$('input[name="days[]"]:checked').map(function () {
+            let days = $('input[name="days[]"]:checked').map(function () {
                         return this.value; // $(this).val()
                     }).get();
-            // $("input[name='days']:checked").each(function(){
-            //                 days += $(this).val() + ", "
-            //             });
+            let graduation_type = $("select[name=graduation_type]").val();
+            let language_type = $("select[name=language_type]").val();
+            let post_subject = $("select[name=post_subject]").val();
+            let under_subject = $("select[name=under_subject]").val();
+            let european_language = $("select[name=european_language]").val();
+            let rest_language = $("select[name=rest_language]").val();
             let from_time = $("input[name=from_time]").val();
             let to_time = $("input[name=to_time]").val();
             let amount = $("input[name=amount]").val();
@@ -932,6 +1096,12 @@
                     school_class:school_class,
                     subject:subject,
                     days:days,
+                    graduation_type:graduation_type,
+                    language_type:language_type,
+                    post_subject:post_subject,
+                    under_subject:under_subject,
+                    european_language:european_language,
+                    rest_language:rest_language,
                     from_time:from_time,
                     to_time:to_time,
                     amount:amount
