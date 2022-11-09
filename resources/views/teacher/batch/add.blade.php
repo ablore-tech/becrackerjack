@@ -178,9 +178,9 @@
                             </div>
                         </div>
 
-                       
 
-                       
+
+
 
 
                         <div class="ms-1 header-item d-none d-sm-flex">
@@ -197,7 +197,7 @@
                             </button>
                         </div>
 
-                        
+
 
                         <div class="dropdown ms-sm-3 header-item topbar-user">
                             <button type="button" class="btn" id="page-header-user-dropdown" data-bs-toggle="dropdown"
@@ -680,7 +680,7 @@
                                                                                 Time</label>
                                                                             <p class="text-muted">Select Timing For Your
                                                                                 Batch</p>
-                                                                    
+
                                                                                 <input type="text" class="form-control" id="to_time" name="to_time">
                                                                         </div>
                                                                     </div>
@@ -725,7 +725,7 @@
                                                                 <div class="input-group">
                                                                     <span class="input-group-text">₹</span>
                                                                     <input type="text" class="form-control"
-                                                                        aria-label="Amount (to the nearest dollar)" name="amount">
+                                                                        aria-label="Amount (to the nearest dollar)" name="amount" value="0">
                                                                     <span class="input-group-text">/ hour</span>
                                                                 </div>
                                                             </div>
@@ -853,7 +853,7 @@
     <!-- App js -->
     <script src="{{ asset('js/app.js')}}"></script>
 
-    
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
@@ -904,10 +904,9 @@
         $(".btn-add-batch").click(function(e) {
 
             e.preventDefault();
-            debugger;
             // console.log($("input[name='days[]']").val());
             let vertical = $("select[name=vertical]").val();
-            let board = $("select[name=board]").val();            
+            let board = $("select[name=board]").val();
             let school_class = $("select[name=school_class]").val();
             let subject = $("select[name=subject]").val();
             // let days = $("select[name='days[]']").val();
@@ -937,8 +936,8 @@
                     to_time:to_time,
                     amount:amount
                 },
-                success:function(data){
-                    alert(data.success);
+                success:function(){
+                    alert('Batch created successfully');
                 }
             });
         });

@@ -185,7 +185,7 @@
                             </div>
                         </div>
 
-            
+
 
                         <div class="ms-1 header-item d-none d-sm-flex">
                             <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
@@ -221,7 +221,7 @@
                                 <a class="dropdown-item" href="pages-profile.html"><i
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Profile</span></a>
-                              
+
                                 <div class="dropdown-divider"></div>
 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
@@ -368,36 +368,29 @@
     <thead class="table-light ">
         <tr>
             <th scope="col">Id</th>
-            <th scope="col">Name</th>
-            <th scope="col">Job Title</th>
-            <th scope="col">Date</th>
-            <th scope="col">Payment</th>
+            <th scope="col">Vertical</th>
+            <th scope="col">Days per week</th>
+            <th scope="col">Start time</th>
+            <th scope="col">End time</th>
+            <th scope="col">Price</th>
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <th scope="row">1</th>
-            <td>Annette Black</td>
-            <td>Industrial Designer</td>
-            <td>10, Nov 2021</td>
-            <td>$450</td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Bessie Cooper</td>
-            <td>Graphic Designer</td>
-            <td>13, Nov 2021</td>
-            <td>$875</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td>Leslie Alexander</td>
-            <td>Product Manager</td>
-            <td>17, Nov 2021</td>
-            <td>$410</td>
-        </tr>
+        @foreach($batches as $index => $batch)
+            <tr>
+                @php
+                $a = $batch->days;
+                @endphp
+                <th scope="row">{{ ++$index }}</th>
+                <td>{{ $batch->vertical->name }}</td>
+                <td>{{ count(json_decode($a)) }}</td>
+                <td>{{ $batch->start_time }}</td>
+                <td>{{ $batch->end_time }}</td>
+                <td>{{ $batch->price }}</td>
+            </tr>
+        @endforeach
     </tbody>
- 
+
 </table>
 
 

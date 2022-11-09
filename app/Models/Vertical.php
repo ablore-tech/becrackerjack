@@ -15,4 +15,8 @@ class Vertical extends Model
     {
         return $this->hasMany(Lead::class);
     }
+    public function batches()
+    {
+        return $this->hasMany(Batch::class);
+    }
 }

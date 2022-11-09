@@ -7,24 +7,29 @@ use App\Models\Batch;
 use App\Models\Board;
 use App\Models\SchoolClass;
 use App\Models\Subject;
+use Illuminate\Contracts\Foundation\Application;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BatchController extends Controller
 {
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function index()
     {
-        return view('teacher.batch.index');
+        $batches = Batch::where('user_id', Auth::user()->id)->get();
+        return view('teacher.batch.index', compact('batches'));
     }
 
     /**
      * Show the form for creating a new resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Application|Factory|View
      */
     public function create()
     {
@@ -38,11 +43,12 @@ class BatchController extends Controller
      * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\JsonResponse
      */
     public function store(Request $request)
     {
         $batch = Batch::create([
+            'user_id' => Auth::user()->id,
             'vertical_id' => $request->input('vertical'),
             'board_id' => $request->input('board'),
             'school_class_id' => $request->input('school_class'),
