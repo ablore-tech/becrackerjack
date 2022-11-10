@@ -643,7 +643,7 @@
                                                                                     </option>
                                                                                     @if($restLanguages)
                                                                                         @foreach($restLanguages as $restLanguage)
-                                                                                            <option value="{{$restLanguages->id}}">{{ $restLanguages->name}}</option>
+                                                                                            <option value="{{$restLanguage->id}}">{{ $restLanguage->name}}</option>
                                                                                         @endforeach
                                                                                     @endif
                                                                                 </select>
