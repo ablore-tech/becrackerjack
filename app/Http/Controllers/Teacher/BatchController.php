@@ -62,7 +62,8 @@ class BatchController extends Controller
             'days' => json_encode($request->input('days')),
             'start_time' => $request->input('from_time'),
             'end_time' => $request->input('to_time'),
-            'price' => $request->input('amount')
+            'price' => $request->input('amount'),
+            'approval_status' => config('settings.approval_status.pending')
         ]);
 
         if($request->vertical = 1) {
@@ -132,5 +133,21 @@ class BatchController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function approve(Request $request)
+    {
+        $batch = Batch::find($request->input('batch_id'));
+
+        $batch->update(['approval_status' => $request->input('approval_status')]);
+
+        return back();
+    }
+
+    public function list()
+    {
+        $batches = Batch::latest()->get();
+
+        return view('admin.batch', compact('batches'));
     }
 }

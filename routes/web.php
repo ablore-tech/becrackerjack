@@ -66,4 +66,6 @@ Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
     Route::resource('college-subject', CollegeSubjectController::class);
     Route::get('advance', [AdvanceController::class, 'index'])->name('advance.index');
     Route::get('thank-you', [ThankYouController::class, 'index'])->name('thank-you');
+    Route::get('batch-list', [BatchController::class, 'list'])->name('batch.list');
+    Route::post('batch-approval', [BatchController::class, 'approve'])->name('batch.approval');
 });

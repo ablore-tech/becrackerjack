@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('subject_id')->nullable()->references('id')->on('subjects')->onDelete('cascade');
             $table->foreignId('college_subject_id')->nullable()->references('id')->on('college_subjects')->onDelete('cascade');
             $table->foreignId('language_id')->nullable()->references('id')->on('languages')->onDelete('cascade');
+            $table->tinyInteger('approval_status')->nullable();
             $table->json('days')->nullable();
             $table->text('start_time')->nullable();
             $table->text('end_time')->nullable();

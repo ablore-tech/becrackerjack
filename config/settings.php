@@ -27,5 +27,10 @@ return [
     'language_type' => [
         'european' => 1,
         'rest' => 2
+    ],
+    'approval_status' => [
+        'pending' => 1,
+        'approved' => 2,
+        'disapproved' => 3
     ]
 ];

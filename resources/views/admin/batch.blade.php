@@ -5,7 +5,7 @@
 <head>
 
     <meta charset="utf-8" />
-    <title>School</title>
+    <title>Batches</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -24,6 +24,9 @@
     <link href="{{ asset('css/app.min.css')}}" rel="stylesheet" type="text/css" />
     <!-- custom Css-->
     <link href="{{ asset('css/custom.min.css')}}" rel="stylesheet" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
 </head>
 
@@ -49,10 +52,10 @@
 
                             <a href="index.html" class="logo logo-light">
                                 <span class="logo-sm">
-                                    <img src="{{ asset('images/logo-sm.png')}}" alt="">
+                                    <img src="{{ asset('images/logo-sm.png')}}" alt="" height="22">
                                 </span>
                                 <span class="logo-lg">
-                                    <img src="{{ asset('images/logo-light.png')}}" alt="" height="52" >
+                                    <img src="{{ asset('images/logo-light.png')}}" alt="" height="17">
                                 </span>
                             </a>
                         </div>
@@ -184,6 +187,7 @@
                                 </form>
                             </div>
                         </div>
+                     
 
                         <div class="ms-1 header-item d-none d-sm-flex">
                             <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle"
@@ -221,7 +225,7 @@
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Profile</span></a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{ route('logout') }}"
+                                        <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
                                                     document.getElementById('logout-form').submit();">
                                         <i class="mdi mdi-logout text-muted fs-16 align-middle me-1"></i> <span
@@ -289,18 +293,23 @@
                                     <li class="nav-item">
                                         <a href="{{ route('advance.index')}}" class="nav-link" data-key="t-ecommerce"> Advance </a>
                                     </li>
-
+                                    <li class="nav-item">
+                                        <a href="{{ route('batch.list')}}" class="nav-link" data-key="t-ecommerce"> Batches </a>
+                                    </li>
 
                                 </ul>
                             </div>
                         </li> <!-- end Dashboard Menu -->
+
 
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="{{ route('teacher.index')}}">
                                 <i class="ri-honour-line"></i> <span data-key="t-widgets">Teachers</span>
                             </a>
                         </li>
-                        
+
+
+
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="{{ route('leads.index')}}">
                                 <i class="ri-account-circle-line"></i> <span data-key="t-widgets">Leads</span>
@@ -312,6 +321,7 @@
                                 <i class="ri-account-circle-line"></i> <span data-key="t-widgets">Batches</span>
                             </a>
                         </li>
+
                     </ul>
                 </div>
                 <!-- Sidebar -->
@@ -351,463 +361,147 @@
 
 
 
-                    <div class="col-sm-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <p class="text-muted">Add Board, Classes & Subjects</p>
-                                <!-- Nav tabs -->
-                                <ul class="nav nav-tabs mb-3" role="tablist">
-                                    <li class="nav-item">
-                                        <a class="nav-link active" data-bs-toggle="tab" href="#home" role="tab"
-                                            aria-selected="false">
-                                            Board
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link " data-bs-toggle="tab" href="#product1" role="tab"
-                                            aria-selected="false">
-                                            Classes
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" data-bs-toggle="tab" href="#messages" role="tab"
-                                            aria-selected="false">
-                                            Subject
-                                        </a>
-                                    </li>
-                                   
-                                </ul>
-                                <!-- Tab panes -->
-                                <div class="tab-content  text-muted">
-                                    <div class="tab-pane active" id="home" role="tabpanel">
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4 class="card-title mb-0">Boards</h4>
-                                                    </div><!-- end card header -->
-                    
-                                                    <div class="card-body">
-                                                        <div id="customerList">
-                                                            <div class="row g-4 mb-3">
-                                                                <div class="col-sm-auto">
-                                                                    <div>
-                                                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModalBoard"><i class="ri-add-line align-bottom me-1"></i> Add</button>
-                                                                        <!-- <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button> -->
-                                                                    </div>
-                                                                </div>
-                                                                <!-- <div class="col-sm">
-                                                                    <div class="d-flex justify-content-sm-end">
-                                                                        <div class="search-box ms-2">
-                                                                            <input type="text" class="form-control search" placeholder="Search...">
-                                                                            <i class="ri-search-line search-icon"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div> -->
-                                                            </div>
-                    
-                                                            <div class="table-responsive table-card mt-3 mb-1">
-                                                                <table class="table align-middle table-nowrap" id="customerTable">
-                                                                    <thead class="table-light">
-                                                                        <tr>
-                                                                            <!-- <th scope="col" style="width: 50px;">
-                                                                                <div class="form-check">
-                                                                                    <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                                                </div>
-                                                                            </th> -->
-                                                                            <th class="sort" data-sort="customer_name">Board Name</th>
-                                                                         
-                                                                            <th class="sort" data-sort="action">Action</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody class="list form-check-all">
-                                                                        @foreach($boards as $board)
-                                                                            <tr>
-                                                                                <!-- <th scope="row">
-                                                                                    <div class="form-check">
-                                                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                                                    </div>
-                                                                                </th> -->
-                                                                                <!-- <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td> -->
-                                                                                <td class="customer_name">{{ $board->name}}</td>
-                                                                                
-                                                                                <td>
-                                                                                    <div class="d-flex gap-2">
-                                                                                        <div class="edit">
-                                                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-board="{'id': {{$board->id}}, 'name': {{ $board->name}} }" data-bs-target="#editModalBoard">Edit</button>
-                                                                                        </div>
-                                                                                        <div class="remove">
-                                                                                            <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal"
-                                                                                            data-id = "{{ $board->id}}" data-bs-target="#deleteModalBoard">Remove</button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        @endforeach
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="card">
+                                <div class="card-header">
+                                    <h4 class="card-title mb-0">Leads</h4>
+                                </div><!-- end card header -->
 
-                                                                        @if($boards->isEmpty())
-                                                                            <tr>
-                                                                                <td><h5 class="mt-2">Sorry! No Result Found</h5>
-                                                                                </td>
-                                                                            </tr>
-                                                                        @endif
-                                                                    </tbody>
-                                                                </table>
-                                                                <!-- <div class="noresult" style="display: none">
-                                                                    <div class="text-center">
-                                                                        <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
-                                                                        <h5 class="mt-2">Sorry! No Result Found</h5>
-                                                                        <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
-                                                                    </div>
-                                                                </div> -->
-                                                            </div>
-                    
-                                                            <!-- <div class="d-flex justify-content-end">
-                                                                <div class="pagination-wrap hstack gap-2">
-                                                                    <a class="page-item pagination-prev disabled" href="#">
-                                                                        Previous
-                                                                    </a>
-                                                                    <ul class="pagination listjs-pagination mb-0"></ul>
-                                                                    <a class="page-item pagination-next" href="#">
-                                                                        Next
-                                                                    </a>
-                                                                </div>
-                                                            </div> -->
-                                                        </div>
-                                                    </div><!-- end card -->
-                                                </div>
-                                                <!-- end col -->
+                                <div class="card-body">
+                                    <div id="customerList">
+                                        <div class="row g-4 mb-3">
+                                            <div class="col-sm-auto">
+                                                <!-- <div>
+                                                    <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModal"><i class="ri-add-line align-bottom me-1"></i> Add</button>
+                                                    <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button>
+                                                </div> -->
                                             </div>
-                                            <!-- end col -->
-                                        </div>
-
-
-
-
-
-
-
-                                    </div>
-                                    <div class="tab-pane " id="product1" role="tabpanel">
-                                        
-
-
-
-
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4 class="card-title mb-0">Classes</h4>
-                                                    </div><!-- end card header -->
-                    
-                                                    <div class="card-body">
-                                                        <div id="customerList">
-                                                            <div class="row g-4 mb-3">
-                                                                <div class="col-sm-auto">
-                                                                    <div>
-                                                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModalClass"><i class="ri-add-line align-bottom me-1"></i> Add</button>
-                                                                        <!-- <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button> -->
-                                                                    </div>
-                                                                </div>
-                                                                <!-- <div class="col-sm">
-                                                                    <div class="d-flex justify-content-sm-end">
-                                                                        <div class="search-box ms-2">
-                                                                            <input type="text" class="form-control search" placeholder="Search...">
-                                                                            <i class="ri-search-line search-icon"></i>
-                                                                        </div>
-                                                                    </div>
-                                                                </div> -->
-                                                            </div>
-                    
-                                                            <div class="table-responsive table-card mt-3 mb-1">
-                                                                <table class="table align-middle table-nowrap" id="customerTable">
-                                                                    <thead class="table-light">
-                                                                        <tr>
-                                                                            <!-- <th scope="col" style="width: 50px;">
-                                                                                <div class="form-check">
-                                                                                    <input class="form-check-input" type="checkbox" id="checkAll" value="option">
-                                                                                </div>
-                                                                            </th> -->
-                                                                            <th class="sort" data-sort="customer_name">Class Name</th>
-                                                                         
-                                                                            <th class="sort" data-sort="action">Action</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody class="list form-check-all">
-                                                                        @foreach($schoolClasses as $class)
-                                                                            <tr>
-                                                                                <!-- <th scope="row">
-                                                                                    <div class="form-check">
-                                                                                        <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
-                                                                                    </div>
-                                                                                </th>
-                                                                                <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td> -->
-                                                                                <td class="customer_name">{{ $class->name}}</td>
-                                                                                
-                                                                            
-                                                                                <td>
-                                                                                    <div class="d-flex gap-2">
-                                                                                        <div class="edit">
-                                                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-board="{'id': {{$class->id}}, 'name': {{ $class->name}} }" data-bs-target="#editModalClass">Edit</button>
-                                                                                        </div>
-                                                                                        <div class="remove">
-                                                                                            <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal"
-                                                                                            data-id = "{{ $class->id}}" data-bs-target="#deleteModalClass">Remove</button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        @endforeach
-
-                                                                        @if($schoolClasses->isEmpty())
-                                                                            <tr>
-                                                                                <td><h5 class="mt-2">Sorry! No Result Found</h5>
-                                                                                </td>
-                                                                            </tr>
-                                                                        @endif
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                    
-                                                            <!-- <div class="d-flex justify-content-end">
-                                                                <div class="pagination-wrap hstack gap-2">
-                                                                    <a class="page-item pagination-prev disabled" href="#">
-                                                                        Previous
-                                                                    </a>
-                                                                    <ul class="pagination listjs-pagination mb-0"></ul>
-                                                                    <a class="page-item pagination-next" href="#">
-                                                                        Next
-                                                                    </a>
-                                                                </div>
-                                                            </div> -->
-                                                        </div>
-                                                    </div><!-- end card -->
+                                            <!-- <div class="col-sm">
+                                                <div class="d-flex justify-content-sm-end">
+                                                    <div class="search-box ms-2">
+                                                        <input type="text" class="form-control search" placeholder="Search...">
+                                                        <i class="ri-search-line search-icon"></i>
+                                                    </div>
                                                 </div>
-                                                <!-- end col -->
-                                            </div>
-                                            <!-- end col -->
+                                            </div> -->
                                         </div>
 
+                                        <div class="table-responsive table-card mt-3 mb-1">
+                                            <table class="table align-middle table-nowrap" id="customerTable">
+                                                <thead class="table-light">
+                                                    <tr>
+                                                        <!-- <th scope="col" style="width: 50px;">
+                                                            <div class="form-check">
+                                                                <input class="form-check-input" type="checkbox" id="checkAll" value="option">
+                                                            </div>
+                                                        </th> -->
+                                                        <th class="sort" data-sort="customer_name">Teacher Name</th>
+                                                        <th class="sort" data-sort="email">Vertical</th>
+                                                        <th class="sort" data-sort="phone">Days per week</th>
+                                                        <th class="sort" data-sort="date">Created At</th>
+                                                        <th class="sort" data-sort="status">Price</th>
+                                                        <th class="sort" data-sort="phone">Status</th>
+                                                        <th class="sort" data-sort="action">Action</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody class="list form-check-all">
+                                                    @foreach($batches as $batch)
+                                                    @php
+                                                        $a = $batch->days;
+                                                    @endphp
+                                                        <tr>
+                                                            <!-- <th scope="row">
+                                                                <div class="form-check">
+                                                                    <input class="form-check-input" type="checkbox" name="chk_child" value="option1">
+                                                                </div>
+                                                            </th> -->
+                                                            <!-- <td class="id" style="display:none;"><a href="javascript:void(0);" class="fw-medium link-primary">#VZ2101</a></td> -->
+                                                            <td class="customer_name">{{ $batch->user->name}}</td>
+                                                            <td class="email">{{ $batch->vertical->name}}</td>
+                                                            <td class="phone">{{ count(json_decode($a))}}</td>
+                                                            <td class="date">{{ date_format($batch->created_at,'d M Y')}}</td>
+                                                            <td class="status">{{ $batch->price}}</td>
+                                                            <td class="status">{{ $batch->approval_status == '1' ? 'Pending' : ($batch->approval_status == '2' ? 'Approved' : 'Disapproved')}}</td>
+                                                            <td class="view">
+                                                                <div class="d-flex gap-2">
+                                                                    <div class="view">
+                                                                        <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#approveBatchModal"
+                                                                        data-id="{{ $batch->id}}"
+                                                                        >Approve</button>
+                                                                    </div>
 
-
-
-
-
-
-
-
-
-                                    </div>
-                                    <div class="tab-pane" id="messages" role="tabpanel">
-                                      
-
-
-
-
-
-
-
-
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="card">
-                                                    <div class="card-header">
-                                                        <h4 class="card-title mb-0">Subjects</h4>
-                                                    </div><!-- end card header -->
-                    
-                                                    <div class="card-body">
-                                                        <div id="customerList">
-                                                            <div class="row g-4 mb-3">
-                                                                <div class="col-sm-auto">
-                                                                    <div>
-                                                                        <button type="button" class="btn btn-success add-btn" data-bs-toggle="modal" id="create-btn" data-bs-target="#showModalSubject"><i class="ri-add-line align-bottom me-1"></i> Add</button>
-                                                                        <!-- <button class="btn btn-soft-danger" onClick="deleteMultiple()"><i class="ri-delete-bin-2-line"></i></button> -->
+                                                                    <div class="dissable">
+                                                                        <button class="btn btn-sm btn-danger remove-item-btn" 
+                                                                        data-id="{{ $batch->id}}"  data-bs-toggle="modal" data-bs-target="#disapproveBatchModal">Disapprove</button>
                                                                     </div>
                                                                 </div>
-                                                            </div>
-                    
-                                                            <div class="table-responsive table-card mt-3 mb-1">
-                                                                <table class="table align-middle table-nowrap" id="customerTable">
-                                                                    <thead class="table-light">
-                                                                        <tr>
-                                                                            <th class="sort" data-sort="customer_name">Subject Name</th>
-
-                                                                            <th class="sort" data-sort="customer_name">Subject Image</th>
-                                                                         
-                                                                            <th class="sort" data-sort="action">Action</th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    <tbody class="list form-check-all">
-                                                                        @foreach($subjects as $subject)
-                                                                            <tr>
-                                                                                <td class="customer_name">{{ $subject->name}}</td>
-                                                                                <td class="customer_name">
-                                                                                <img src="{{ asset('/storage'.$subject->image) }}" width="40" height="40">
-                                                                                </td>  
-                                                                                <td>
-                                                                                    <div class="d-flex gap-2">
-                                                                                        <div class="edit">
-                                                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal"
-                                                                                            data-subject="{'id': {{$subject->id}}, 'name': {{ $subject->name}} }" 
-                                                                                         
-                                                                                            data-bs-target="#editModalSubject">Edit</button>
-                                                                                        </div>
-                                                                                        <div class="remove">
-                                                                                            <button class="btn btn-sm btn-danger remove-item-btn" data-bs-toggle="modal" 
-                                                                                            data-id = "{{ $subject->id}}"
-                                                                                            data-bs-target="#deleteModalSubject">Remove</button>
-                                                                                        </div>
-                                                                                    </div>
-                                                                                </td>
-                                                                            </tr>
-                                                                        @endforeach
-
-                                                                        @if($subjects->isEmpty())
-                                                                            <tr>
-                                                                                <td><h5 class="mt-2">Sorry! No Result Found</h5>
-                                                                                </td>
-                                                                            </tr>
-                                                                        @endif
-                                                                    </tbody>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div><!-- end card -->
+                                                            </td>
+                                                            <!-- <td>
+                                                                <div class="d-flex gap-2">
+                                                                    <div class="edit">
+                                                                        <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
+                                                                    </div>
+                                                                    <div class="remove">
+                                                                        <button class="btn btn-sm btn-danger remove-item-btn" 
+                                                                        data-id = ""  data-bs-toggle="modal" data-bs-target="#disableTeacherModal"></button>
+                                                                    </div>
+                                                                </div>
+                                                            </td> -->
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            <div class="noresult" style="display: none">
+                                                <div class="text-center">
+                                                    <lord-icon src="https://cdn.lordicon.com/msoeawqm.json" trigger="loop" colors="primary:#121331,secondary:#08a88a" style="width:75px;height:75px"></lord-icon>
+                                                    <h5 class="mt-2">Sorry! No Result Found</h5>
+                                                    <p class="text-muted mb-0">We've searched more than 150+ Orders We did not find any orders for you search.</p>
                                                 </div>
-                                                <!-- end col -->
                                             </div>
-                                            <!-- end col -->
                                         </div>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+                                        <!-- <div class="d-flex justify-content-end">
+                                            <div class="pagination-wrap hstack gap-2">
+                                                <a class="page-item pagination-prev disabled" href="#">
+                                                    Previous
+                                                </a>
+                                                <ul class="pagination listjs-pagination mb-0"></ul>
+                                                <a class="page-item pagination-next" href="#">
+                                                    Next
+                                                </a>
+                                            </div>
+                                        </div> -->
                                     </div>
-                                    <div class="tab-pane" id="settings" role="tabpanel">
-                                        <h6>Settings</h6>
-                                        <p class="mb-0">
-                                            Trust fund seitan letterpress, keytar raw denim keffiyeh etsy
-                                            art party before they sold out master cleanse gluten-free squid
-                                            scenester freegan cosby sweater. Fanny pack portland seitan DIY,
-                                            art party locavore wolf cliche high life echo park Austin. Cred
-                                            vinyl keffiyeh DIY salvia PBR, banh mi before they sold out
-                                            farm-to-table VHS.
-                                        </p>
-                                    </div>
-                                </div>
-                            </div><!-- end card-body -->
-                        </div><!-- end card -->
-                    </div>
-
-                    <div class="modal fade" id="showModalBoard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-light p-3">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                                </div>
-                                <form method="POST" action="{{ route('board.store') }}">
-                                    @csrf
-                                    <div class="modal-body">
-    
-                                        <div class="mb-3" id="modal-id" style="display: none;">
-                                            <label for="id-field" class="form-label">ID</label>
-                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
-                                        </div>
-    
-                                        <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Board Name</label>
-                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Board Name" required />
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="hstack gap-2 justify-content-end">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-success" id="add-btn">Add </button>
-                                        </div>
-                                    </div>
-                                </form>
+                                </div><!-- end card -->
                             </div>
+                            <!-- end col -->
                         </div>
+                        <!-- end col -->
                     </div>
 
-                    <div class="modal fade" id="editModalBoard" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-light p-3">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                                </div>
-                                @php
-                                    $board_id = 0;
-                                    $board_name = '';
-                                    if(isset($board)) {
-                                        $board_id = $board->id;
-                                        $board_name = $board->name;
-                                    }
-                                @endphp
-                                <form method="POST" action="{{ route('board.update', $board_id) }}">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="modal-body">
-    
-                                        <div class="mb-3" id="modal-id" style="display: none;">
-                                            <label for="id-field" class="form-label">ID</label>
-                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
-                                        </div>
-    
-                                        <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Board Name</label>
-                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Board Name" required value="{{ $board_name}}"/>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="hstack gap-2 justify-content-end">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-success" id="add-btn">Update </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="modal fade zoomIn" id="deleteModalBoard" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade zoomIn" id="approveBatchModal" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
                                 </div>
-                                @php
-                                    $test = 0;
-                                    if(isset($board))
-                                        $test = $board->id
-                                @endphp
-                                <form method="POST" action="{{ route('board.destroy', $test) }}">
+                                <form method="POST" action="{{ route('batch.approval') }}">
                                     @csrf
-                                    @method('DELETE')
                                     <div class="modal-body">
+                                        <input type="hidden" name='approval_status' id='status' value="2">
+                                        <input type="hidden" name='batch_id' id='batch_id' value="">
                                         <div class="mt-2 text-center">
                                             <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
                                             <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
                                                 <h4>Are you Sure ?</h4>
-                                                <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
+                                                <p class="text-muted mx-4 mb-0">Are you Sure You want to approve this batch ?</p>
                                             </div>
                                         </div>
                                         <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
                                             <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
+                                            <button type="submit" class="btn w-sm btn-danger " id="delete-record">Yes, Approve It!</button>
                                         </div>
                                     </div>
                                 </form>
@@ -815,270 +509,33 @@
                         </div>
                     </div>
 
-                    <div class="modal fade" id="showModalClass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-light p-3">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                                </div>
-                                <form method="POST" action="{{ route('school-class.store') }}">
-                                    @csrf
-                                    <div class="modal-body">
-    
-                                        <div class="mb-3" id="modal-id" style="display: none;">
-                                            <label for="id-field" class="form-label">ID</label>
-                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
-                                        </div>
-    
-                                        <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Class</label>
-                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Class" required />
-                                        </div>
-    
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="hstack gap-2 justify-content-end">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-success" id="add-btn">Add </button>
-                                            <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="modal fade" id="editModalClass" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-light p-3">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                                </div>
-                                @php
-                                    $class_id = 0;
-                                    $class_name = '';
-                                    if(isset($class)) {
-                                        $class_id = $class->id;
-                                        $class_name = $class->name;
-                                    }
-                                @endphp
-                                <form method="POST" action="{{ route('school-class.update', $class_id) }}">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="modal-body">
-    
-                                        <div class="mb-3" id="modal-id" style="display: none;">
-                                            <label for="id-field" class="form-label">ID</label>
-                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
-                                        </div>
-    
-                                        <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Board Name</label>
-                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Class Name" required value="{{ $class_name}}"/>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="hstack gap-2 justify-content-end">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-success" id="add-btn">Update </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal fade zoomIn" id="deleteModalClass" tabindex="-1" aria-hidden="true">
+                    <div class="modal fade zoomIn" id="disapproveBatchModal" tabindex="-1" aria-hidden="true">
                         <div class="modal-dialog modal-dialog-centered">
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
                                 </div>
-                                @php
-                                    $test = 0;
-                                    if(isset($class))
-                                        $test = $class->id
-                                @endphp
-                                <form method="POST" action="{{ route('school-class.destroy', $test) }}">
+                                <form method="POST" action="{{ route('batch.approval') }}">
                                     @csrf
-                                    @method('DELETE')
                                     <div class="modal-body">
+                                    <input type="hidden" name='approval_status' id='status' value="3">
+                                    <input type="hidden" name='batch_id' id='id' value="">
                                         <div class="mt-2 text-center">
                                             <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
                                             <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
                                                 <h4>Are you Sure ?</h4>
-                                                <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
+                                                <p class="text-muted mx-4 mb-0">Are you Sure You want to disapprove this batch ?</p>
                                             </div>
                                         </div>
                                         <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
                                             <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
+                                            <button type="submit" class="btn w-sm btn-danger " id="delete-record">Yes, Disapprove It!</button>
                                         </div>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-
-
-                    <div class="modal fade" id="showModalSubject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-light p-3">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                                </div>
-                                <form method="POST" action="{{ route('subject.store') }}" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="modal-body">
-    
-                                        <div class="mb-3" id="modal-id" style="display: none;">
-                                            <label for="id-field" class="form-label">ID</label>
-                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
-                                        </div>
-    
-                                        <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Subject Name</label>
-                                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Subject Name" required />
-                                        </div>
-
-                                        <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Subject Image</label>
-                                            <input type="file" id="image" name="image" class="form-control" placeholder="Enter Subject Name" required />
-                                        </div>
-                                        
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="hstack gap-2 justify-content-end">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-success" id="add-btn">Add </button>
-                                            <!-- <button type="button" class="btn btn-success" id="edit-btn">Update</button> -->
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal fade" id="editModalSubject" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header bg-light p-3">
-                                    <h5 class="modal-title" id="exampleModalLabel"></h5>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
-                                </div>
-                                @php
-                                    $subject_id = 0;
-                                    $subject_name = '';
-                                    if(isset($subject)) {
-                                        $subject_id = $subject->id;
-                                        $subject_name = $subject->name;
-                                    }
-                                @endphp
-                                <form method="POST" action="{{ route('subject.update', $subject_id) }}">
-                                    @csrf
-                                    @method('PUT')
-                                    <div class="modal-body">
-    
-                                        <div class="mb-3" id="modal-id" style="display: none;">
-                                            <label for="id-field" class="form-label">ID</label>
-                                            <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
-                                        </div>
-    
-                                        <div class="mb-3">
-                                            <label for="customername-field" class="form-label">Board Name</label>
-                                            <input type="text" id="customername-field" name="name" class="form-control" placeholder="Enter Subject Name" required value="{{ $subject_name}}"/>
-                                        </div>
-                                    </div>
-                                    <div class="modal-footer">
-                                        <div class="hstack gap-2 justify-content-end">
-                                            <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-success" id="add-btn">Update </button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="modal fade zoomIn" id="deleteModalSubject" tabindex="-1" aria-hidden="true">
-
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
-                                </div>
-                                @php
-                                    $test = 0;
-                                    if(isset($subject))
-                                        $test = $subject->id
-                                @endphp
-                                <form method="POST" action="{{ route('subject.destroy', $test) }}">
-                                    @csrf
-                                    @method('DELETE')
-                                    <div class="modal-body">
-                                        <div class="mt-2 text-center">
-                                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                                <h4>Are you Sure ?</h4>
-                                                <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
-                                            </div>
-                                        </div>
-                                        <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                            <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
-                                        </div>
-                                    </div>
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-
-
-
-    
-                    <!-- Modal -->
-                    <div class="modal fade zoomIn" id="deleteRecordModal" tabindex="-1" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <div class="mt-2 text-center">
-                                        <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                                        <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                            <h4>Are you Sure ?</h4>
-                                            <p class="text-muted mx-4 mb-0">Are you Sure You want to Remove this Record ?</p>
-                                        </div>
-                                    </div>
-                                    <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
-                                        <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                                        <button type="button" class="btn w-sm btn-danger " id="delete-record">Yes, Delete It!</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-    
-
-
-
-
-
-
-
-
-
-
-
                 </div>
                 <!-- container-fluid -->
             </div>
@@ -1113,6 +570,15 @@
     <!--end back-to-top-->
 
    
+
+
+
+
+
+
+
+
+
 
 
 
@@ -1712,16 +1178,47 @@
             </div>
         </div>
     </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     <!-- JAVASCRIPT -->
-    <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('libs/simplebar/simplebar.min.js') }}"></script>
-    <script src="{{ asset('libs/node-waves/waves.min.js') }}"></script>
-    <script src="{{ asset('libs/feather-icons/feather.min.js') }}"></script>
-    <script src="{{ asset('js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
-    <script src="{{ asset('js/plugins.js') }}"></script>
+    <script>
+        $('#approveBatchModal').on('show.bs.modal', function(e) {
+            //get data-id attribute of the clicked element
+            var id = $(e.relatedTarget).data('id');
+            debugger
+            $(e.currentTarget).find('input[id="batch_id"]').val(id);
+            //populate the textbox
+        });
+
+        $('#disapproveBatchModal').on('show.bs.modal', function(e) {
+            //get data-id attribute of the clicked element
+            var id = $(e.relatedTarget).data('id');
+                $(e.currentTarget).find('input[id="id"]').val(id);
+            //populate the textbox
+        });
+    </script>
+    <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{ asset('libs/simplebar/simplebar.min.js')}}"></script>
+    <script src="{{ asset('libs/node-waves/waves.min.js')}}"></script>
+    <script src="{{ asset('libs/feather-icons/feather.min.js')}}"></script>
+    <script src="{{ asset('js/pages/plugins/lord-icon-2.1.0.js')}}"></script>
+    <script src="{{ asset('js/plugins.js')}}"></script>
 
     <!-- App js -->
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/app.js')}}"></script>
 </body>
 
 </html>

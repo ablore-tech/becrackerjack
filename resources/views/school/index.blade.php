@@ -748,8 +748,8 @@
                                                         <div class="mb-3">
                                                             <label for="number" class="form-label">Phone
                                                                 Number</label>
-                                                            <input type="number" class="form-control"
-                                                                id="number" name="number" required max="9999999999" min="1000000000" aria-describedby="emailHelp">
+                                                            <input type="text" class="form-control"
+                                                                id="number" name="number" required aria-describedby="emailHelp">
                                                         </div>
 
                                                         <div class="mb-3 form-check">
