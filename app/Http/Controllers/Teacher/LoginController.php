@@ -41,6 +41,26 @@ class LoginController extends Controller
             $user->assignRole(config('settings.roles.teacher'));
         }
         
+        // Account details
+        $apiKey = urlencode('NDM0ZTRiNmYzNDM0NGQ2ZDY4NjE2MjRmNWE0NDQ0MzQ=');
+        // Message details
+        $numbers = array(917417200736);
+        $sender = urlencode('TXTLCL');
+        $message = rawurlencode('This is your message');
+        
+        $numbers = implode(',', $numbers);
+        
+        // Prepare data for POST request
+        $data = array('apikey' => $apiKey, 'numbers' => $numbers, 'sender' => $sender, 'message' => $message);
+        // Send the POST request with cURL
+        $ch = curl_init('https://api.textlocal.in/send/');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        $response = curl_exec($ch);
+        curl_close($ch);
+        // Process your response here
+        dd($response, $message);
 	
         return view('teacher.login', compact('user'));
     }
