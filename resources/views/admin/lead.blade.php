@@ -476,7 +476,7 @@
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                                 </div>
                                     <div class="modal-body row">
-                                        <table>
+                                        <table class="table align-middle table-nowrap table-striped">
                                             <tr class="row">
                                                 <td class="col font-weight-bold">
                                                    Vertical 
@@ -1199,27 +1199,38 @@
 
     <!-- JAVASCRIPT -->
     <script>
-        $('#showModal').on('show.bs.modal', function(e) {
-            //get data-id attribute of the clicked element
-            var lead = $(e.relatedTarget).data('lead');
-            if(lead['vertical']['name'] === 'School') {
-                $(e.currentTarget).find('span[id="board"]').text(lead['board']['name']);
-                if(lead['subject']) {
-                    $(e.currentTarget).find('span[id="subject"]').text(lead['subject']['name']);
+        $(function () {
+            var hidestuff = function (e) {
+                $(e.currentTarget).find('span[id="board"]').text('NA');
+                $(e.currentTarget).find('span[id="subject"]').text('NA');
+                $(e.currentTarget).find('span[id="school-class"]').text('NA');
+                $(e.currentTarget).find('span[id="college-subject"]').text('NA');
+                $(e.currentTarget).find('span[id="language"]').text('NA');
+            }
+            $('#showModal').on('show.bs.modal', function(e) {
+                //get data-id attribute of the clicked element
+                hidestuff(e);
+                var lead = $(e.relatedTarget).data('lead');
+                $(e.currentTarget).find('span[id="vertical"]').text(lead['vertical']['name']);
+                if(lead['vertical']['name'] === 'School') {
+                    $(e.currentTarget).find('span[id="board"]').text(lead['board']['name']);
+                    if(lead['subject']) {
+                        $(e.currentTarget).find('span[id="subject"]').text(lead['subject']['name']);
+                    }
+                    else {
+                        $(e.currentTarget).find('span[id="school-class"]').text(lead['school_class']['name']);
+                    }
                 }
-                else {
-                    $(e.currentTarget).find('span[id="school-class"]').text(lead['school_class']['name']);
+
+                if(lead['vertical']['name'] === 'College') {
+                    $(e.currentTarget).find('span[id="college-subject"]').text(lead['college_subject']['name']);
                 }
-            }
 
-            if(lead['vertical']['name'] === 'College') {
-                $(e.currentTarget).find('span[id="college_subject"]').text(lead['college_subject']['name']);
-            }
-
-            if(lead['vertical']['name'] === 'Advance') {
-                $(e.currentTarget).find('span[id="language"]').text(lead['language']['name']);
-            }
-            //populate the textbox
+                if(lead['vertical']['name'] === 'Advance') {
+                    $(e.currentTarget).find('span[id="language"]').text(lead['language']['name']);
+                }
+                //populate the textbox
+            });
         });
     </script>
     <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
