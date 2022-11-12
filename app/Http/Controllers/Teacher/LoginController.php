@@ -44,9 +44,9 @@ class LoginController extends Controller
         // Account details
         $apiKey = urlencode('NDM0ZTRiNmYzNDM0NGQ2ZDY4NjE2MjRmNWE0NDQ0MzQ=');
         // Message details
-        $numbers = array(917417200736);
-        $sender = urlencode('TXTLCL');
-        $message = rawurlencode('This is your message');
+        $numbers = array('91'.$request->phoneNumber());
+        $sender = urlencode('BECRAC');
+        $message = rawurlencode('OTP to verify your mobile number on Be Crackerjack is '. $otp);
         
         $numbers = implode(',', $numbers);
         
@@ -59,8 +59,6 @@ class LoginController extends Controller
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         $response = curl_exec($ch);
         curl_close($ch);
-        // Process your response here
-        dd($response, $message);
 	
         return view('teacher.login', compact('user'));
     }
@@ -81,6 +79,6 @@ class LoginController extends Controller
             }
             return response()->json(['Otp is expired'], 422);
         }
-		return response()->json(['success' => true,'message' => 'Otp is not verified successfully'], 422);
+		return response()->json(['success' => false,'message' => 'Otp is not verified successfully'], 422);
     }
 }
