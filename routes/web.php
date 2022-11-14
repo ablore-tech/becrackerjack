@@ -28,8 +28,12 @@ use Spatie\Permission\Contracts\Role;
 |
 */
 
-Route::get('/', function () {
+Route::get('/admin', function () {
     return view('auth.login');
+});
+
+Route::get('/', function () {
+    return redirect()->route('teacher.get-otp');
 });
 
 Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
@@ -46,14 +50,14 @@ Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
     });
 });
 
-Auth::routes(['verify' => true]);
+Auth::routes();
 
 Route::get('college', [CollegeController::class, 'register'])->name('college.view');
 Route::get('school', [SchoolController::class, 'view'])->name('school.view');
 Route::get('language', [LanguageController::class, 'register'])->name('language.view');
 Route::resource('leads', LeadController::class)->only('store');
 
-Route::middleware(['auth', 'verified', 'user.admin'])->group(function() {
+Route::middleware(['auth', 'user.admin'])->group(function() {
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
     Route::resource('school-class', SchoolClassController::class);
     Route::resource('board', BoardController::class);
