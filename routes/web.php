@@ -56,6 +56,7 @@ Route::get('college', [CollegeController::class, 'register'])->name('college.vie
 Route::get('school', [SchoolController::class, 'view'])->name('school.view');
 Route::get('language', [LanguageController::class, 'register'])->name('language.view');
 Route::resource('leads', LeadController::class)->only('store');
+Route::get('thank-you', [ThankYouController::class, 'index'])->name('thank-you');
 
 Route::middleware(['auth', 'user.admin'])->group(function() {
     Route::get('home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -71,7 +72,6 @@ Route::middleware(['auth', 'user.admin'])->group(function() {
     ]);
     Route::resource('college-subject', CollegeSubjectController::class);
     Route::get('advance', [AdvanceController::class, 'index'])->name('advance.index');
-    Route::get('thank-you', [ThankYouController::class, 'index'])->name('thank-you');
     Route::get('batch-list', [BatchController::class, 'list'])->name('batch.list');
     Route::post('batch-approval', [BatchController::class, 'approve'])->name('batch.approval');
 });
