@@ -9,6 +9,6 @@ class DashboardController extends Controller
 {
     public function index()
     {
-        return view('teacher.home');
+        return redirect()->route('teacher.batch.index');
     }
 }
