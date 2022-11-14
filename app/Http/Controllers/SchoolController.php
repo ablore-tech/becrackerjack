@@ -18,8 +18,8 @@ class SchoolController extends Controller
         $schoolClasses = SchoolClass::all();
         $subjects = Subject::all();
         $vertical = Vertical::where('name', 'School')->first();
-        // $batches = Batch::where('vertical_id', 1);
+        $batches = Batch::where('vertical_id', config('settings.verticals.school'))->get();
 
-        return view('school.index', compact(['boards', 'schoolClasses', 'subjects', 'vertical']));
+        return view('school.index', compact(['boards', 'schoolClasses', 'subjects', 'vertical', 'batches']));
     }
 }

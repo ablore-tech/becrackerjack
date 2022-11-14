@@ -66,13 +66,13 @@ class BatchController extends Controller
             'approval_status' => config('settings.approval_status.pending')
         ]);
 
-        if($request->vertical = 1) {
+        if($request->vertical == 1) {
             $batch->board_id = $request->input('board');
             $batch->school_class_id = $request->input('school_class');
             $batch->subject_id = $request->input('subject');
         }
 
-        elseif($request->vertical = 2) {
+        elseif($request->vertical == 2) {
             // $batch->graduation_type = $request->input('graduation_type');
             $batch->college_subject_id = $request->input('post_subject');
             if($request->under_subject) {
@@ -80,13 +80,14 @@ class BatchController extends Controller
             }
         }
 
-        elseif($request->vertical = 3) {
+        elseif($request->vertical == 3) {
             $batch->language_id = $request->input('european_language');
             if($request->rest_language) {
                 $batch->language_id = $request->input('rest_language');
             }
         }
 
+        $batch->save();
         return response()->json($batch);
     }
 

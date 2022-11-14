@@ -274,592 +274,98 @@
     <div class="container-fluid">
         <div class="row carousel" data-flickity='{"wrapAround" : true,"autoplay" : true,"pageDots":false}'>
 
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 mb-5 carousel-cell">
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
+            @foreach($batches as $batch) 
+                <div class="col-xl-4 col-md-6 col-sm-12 col-12 mb-5 carousel-cell">
+                    <div class="teacher-card filter DPS class-1 CBSE subject-1">
+                        <div class="teacher-card_background_img">
+                            <span class="selected-card">Selected</span>
+                        </div>
+                        <div class="teacher-card_profile_img ">
                         </div>
 
                         <div class="container-fluid">
-                            <div class="boardbar">
+                            <div class="user_details">
+                                <h3>{{ $batch->user->name ? $batch->user->name : 'Teacher'}}</h3>
+                                <p>{{ $batch->language->name}}</p>
+                            </div>
+
+                            <div class="container-fluid">
+                                <div class="boardbar">
+                                    <div class="row">
+                                        <div class="col-sm-6 d-inline-block">
+                                            <p class="mb-0">Classes</p>
+                                            <p class="mb-0 p-light">  </p>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <p class="mb-0">Board</p>
+                                            <p class="mb-0 p-light"> </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            @php
+                                $a = $batch->days;
+                            @endphp
+                            <div class="container-fluid">
                                 <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
+                                    <div class="col-sm-6 px-">
+                                        <p class="bg-blue text-light rounded"> Sessions / week
+                                            <br>
+                                            {{ count(json_decode($a))}}
+                                        </p>
                                     </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
+                                    <div class="col-sm-6 px-">
+                                        <p class="bg-blue text-light rounded"> Duration /
+                                            session <br>
+                                            3 Hrs </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-6 px-">
+                                        <p class="bg-blue text-light rounded"> Teaching
+                                            Exp.<br>
+                                            3 Years </p>
+                                    </div>
+                                    <div class="col-sm-6 px-">
+                                        <p class="bg-blue text-light rounded"> Starting from
+                                            <br>
+                                            {{ $batch->price}}
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="container-fluid">
+                                <div class="row">
+                                    <div class="col-sm-6 px-">
+                                        <a class="rounded btn border-0 text-light" href="tel:8929142392">
+                                            <i class="fa-solid fa-phone"></i> Call now
+                                        </a>
+                                    </div>
+                                    <div class="col-sm-6 px-">
+                                        <a href="" class="rounded text-light">
+                                            Request Free Trial 3 Hrs
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
 
 
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
                     </div>
-
 
 
                 </div>
-
-
-            </div>
-
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
-
-
-            <div class="col-xl-4 col-md-6 col-sm-12 col-12 carousel-cell">
-
-
-
-                <div class="teacher-card filter DPS class-1 CBSE subject-1">
-                    <div class="teacher-card_background_img">
-
-
-                        <span class="selected-card">Selected</span>
-                    </div>
-                    <div class="teacher-card_profile_img ">
-                    </div>
-
-                    <div class="container-fluid">
-                        <div class="user_details">
-                            <h3>Teacher Name</h3>
-                            <p>Subject</p>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="boardbar">
-                                <div class="row">
-                                    <div class="col-sm-6 d-inline-block">
-                                        <p class="mb-0">Classes</p>
-                                        <p class="mb-0 p-light"> 10<sup>th</sup>, 12<sup>th</sup> </p>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <p class="mb-0">Board</p>
-                                        <p class="mb-0 p-light"> CBSE, ICSE</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Sessions / week
-                                        <br>
-                                        3
-                                    </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Duration /
-                                        session <br>
-                                        3 Hrs </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Teaching
-                                        Exp.<br>
-                                        3 Years </p>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <p class="bg-blue text-light rounded"> Starting from
-                                        <br>
-                                        Rs. 500 per session
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div class="container-fluid">
-                            <div class="row">
-                                <div class="col-sm-6 px-">
-                                    <a class="rounded btn border-0 text-light" href="tel:9876543210">
-                                        <i class="fa-solid fa-phone"></i> Call now
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 px-">
-                                    <a href="" class="rounded text-light">
-                                        Request Free Trial 3 Hrs
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-
-
-                </div>
-
-
-            </div>
-
-
-
+            @endforeach
         </div>
-
-
-
     </div>
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Batch;
 use App\Models\Language;
 use App\Models\Vertical;
 use Illuminate\Http\Request;
@@ -123,7 +124,8 @@ class LanguageController extends Controller
         $europeanLanguages = Language::where('language_type', config('settings.language_type.european'))->get();
         $restLanguages = Language::where('language_type', config('settings.language_type.rest'))->get();
         $vertical = Vertical::where('name', 'Advance')->first();
+        $batches = Batch::where('vertical_id', config('settings.verticals.advance'))->get();
 
-        return view('language.index', compact(['europeanLanguages', 'restLanguages', 'vertical']));
+        return view('language.index', compact(['europeanLanguages', 'restLanguages', 'vertical', 'batches']));
     }
 }

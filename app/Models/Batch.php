@@ -26,14 +26,14 @@ class Batch extends Model
         return $this->belongsTo(User::class);
     }
 
-//    public function collegeSubject()
-//    {
-//        return $this->belongsTo(CollegeSubject::class);
-//    }
-//    public function language()
-//    {
-//        return $this->belongsTo(Language::class);
-//    }
+   public function collegeSubject()
+   {
+       return $this->belongsTo(CollegeSubject::class);
+   }
+   public function language()
+   {
+       return $this->belongsTo(Language::class);
+   }
     public function schoolClass()
     {
         return $this->belongsTo(SchoolClass::class);
