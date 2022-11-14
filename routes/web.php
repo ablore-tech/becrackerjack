@@ -41,6 +41,8 @@ Route::group(['prefix' => 'teacher', 'as' => 'teacher.'], function () {
     Route::middleware(['auth', 'user.teacher'])->group(function() {
         Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
         Route::resource('batch', BatchController::class);
+        Route::get('profile/{user}', [TeacherController::class, 'getProfile'])->name('get-profile');
+        Route::put('profile/{user}', [TeacherController::class, 'updateProfile'])->name('update-profile');
     });
 });
 

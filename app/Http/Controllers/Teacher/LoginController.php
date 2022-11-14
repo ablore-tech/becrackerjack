@@ -37,7 +37,7 @@ class LoginController extends Controller
             $user->otp = $otp;
             $user->otp_expires_time = $otp_expires_time;
             $user->save();
-
+            $user->userDetail()->create(['user_id' => $user->id]);
             $user->assignRole(config('settings.roles.teacher'));
         }
         

@@ -43,4 +43,9 @@ class User extends Authenticatable implements MustVerifyEmail
     {
         return $this->hasMany(Batch::class);
     }
+
+    public function userDetail()
+    {
+        return $this->hasOne(UserDetail::class);
+    }
 }
