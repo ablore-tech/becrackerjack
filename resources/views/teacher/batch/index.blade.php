@@ -373,6 +373,7 @@
             <th scope="col">Start time</th>
             <th scope="col">End time</th>
             <th scope="col">Price</th>
+            <th scope="col">Status</th>
         </tr>
     </thead>
     <tbody>
@@ -387,6 +388,7 @@
                 <td>{{ $batch->start_time }}</td>
                 <td>{{ $batch->end_time }}</td>
                 <td>{{ $batch->price }}</td>
+                <td>{{ $batch->approval_status == '1' ? 'Pending' : ($batch->approval_status == '2' ? 'Approved' : 'Disapproved')}}</td>
             </tr>
         @endforeach
     </tbody>
