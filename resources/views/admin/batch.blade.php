@@ -365,7 +365,7 @@
                         <div class="col-lg-12">
                             <div class="card">
                                 <div class="card-header">
-                                    <h4 class="card-title mb-0">Leads</h4>
+                                    <h4 class="card-title mb-0">New Batches</h4>
                                 </div><!-- end card header -->
 
                                 <div class="card-body">
@@ -425,16 +425,17 @@
                                                             <td class="status">{{ $batch->approval_status == '1' ? 'Pending' : ($batch->approval_status == '2' ? 'Approved' : 'Disapproved')}}</td>
                                                             <td class="view">
                                                                 <div class="d-flex gap-2">
-                                                                    <div class="view">
-                                                                        <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#approveBatchModal"
-                                                                        data-id="{{ $batch->id}}"
-                                                                        >Approve</button>
-                                                                    </div>
-
                                                                     <div class="dissable">
-                                                                        <button class="btn btn-sm btn-danger remove-item-btn" 
-                                                                        data-id="{{ $batch->id}}"  data-bs-toggle="modal" data-bs-target="#disapproveBatchModal">Disapprove</button>
+                                                                        <button class="btn btn-sm btn-primary remove-item-btn" 
+                                                                        data-id="{{ $batch->id}}"  data-bs-toggle="modal" data-bs-target="#disapproveBatchModal">Edit</button>
                                                                     </div>
+                                                                    @if($batch->approval_status == '1')
+                                                                        <div class="view">
+                                                                            <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#approveBatchModal"
+                                                                            data-id="{{ $batch->id}}"
+                                                                            >Approve</button>
+                                                                        </div>
+                                                                    @endif        
                                                                 </div>
                                                             </td>
                                                             <!-- <td>

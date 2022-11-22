@@ -111,6 +111,7 @@ class TeacherController extends Controller
 
     public function updateProfile(UpdateTeacherRequest $request, User $user)
     {
+        $user->update(['name' => $request->input('first_name') . ' ' . $request->input('last_name')]);
         $profileFilePath = $user->userDetail->profile_image;
         $coverFilePath = $user->userDetail->cover_image;
         // Define folder path
