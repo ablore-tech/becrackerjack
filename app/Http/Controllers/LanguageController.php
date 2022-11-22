@@ -124,7 +124,7 @@ class LanguageController extends Controller
         $europeanLanguages = Language::where('language_type', config('settings.language_type.european'))->get();
         $restLanguages = Language::where('language_type', config('settings.language_type.rest'))->get();
         $vertical = Vertical::where('name', 'Advance')->first();
-        $batches = Batch::where('vertical_id', config('settings.verticals.advance'))->get();
+        $batches = Batch::where('vertical_id', config('settings.verticals.advance'))->where('approval_status', config('settings.approval_status.approved'))->get();
 
         return view('language.index', compact(['europeanLanguages', 'restLanguages', 'vertical', 'batches']));
     }

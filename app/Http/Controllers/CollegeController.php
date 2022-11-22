@@ -23,7 +23,7 @@ class CollegeController extends Controller
         $underSubjects = CollegeSubject::where('graduation_type', config('settings.graduation_type.undergraduate'))->get();
         $postSubjects = CollegeSubject::where('graduation_type', config('settings.graduation_type.postgraduate'))->get();
         $vertical = Vertical::where('name', 'College')->first();
-        $batches = Batch::where('vertical_id', config('settings.verticals.college'))->get();
+        $batches = Batch::where('vertical_id', config('settings.verticals.college'))->where('approval_status', config('settings.approval_status.approved'))->get();
 
         return view('college.index', compact(['underSubjects', 'postSubjects', 'vertical', 'batches']));
     }

@@ -18,7 +18,7 @@ class SchoolController extends Controller
         $schoolClasses = SchoolClass::all();
         $subjects = Subject::all();
         $vertical = Vertical::where('name', 'School')->first();
-        $batches = Batch::where('vertical_id', config('settings.verticals.school'))->get();
+        $batches = Batch::where('vertical_id', config('settings.verticals.school'))->where('approval_status', config('settings.approval_status.approved'))->get();
 
         return view('school.index', compact(['boards', 'schoolClasses', 'subjects', 'vertical', 'batches']));
     }
