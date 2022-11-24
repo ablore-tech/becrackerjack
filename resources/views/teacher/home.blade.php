@@ -38,7 +38,7 @@
                     <div class="d-flex">
                         <!-- LOGO -->
                         <div class="navbar-brand-box horizontal-logo">
-                            <a href="index.html" class="logo logo-dark">
+                            <a href="" class="logo logo-dark">
                                 <span class="logo-sm">
                                     <img src="assets/images/logo-sm.png" alt="" height="22">
                                 </span>
@@ -47,7 +47,7 @@
                                 </span>
                             </a>
 
-                            <a href="index.html" class="logo logo-light">
+                            <a href="" class="logo logo-light">
                                 <span class="logo-sm">
                                     <img src="assets/images/logo-sm.png" alt="" height="22">
                                 </span>
@@ -84,9 +84,9 @@
                                     </div>
 
                                     <div class="dropdown-item bg-transparent text-wrap">
-                                        <a href="index.html" class="btn btn-soft-secondary btn-sm btn-rounded">how to
+                                        <a href="" class="btn btn-soft-secondary btn-sm btn-rounded">how to
                                             setup <i class="mdi mdi-magnify ms-1"></i></a>
-                                        <a href="index.html" class="btn btn-soft-secondary btn-sm btn-rounded">buttons
+                                        <a href="" class="btn btn-soft-secondary btn-sm btn-rounded">buttons
                                             <i class="mdi mdi-magnify ms-1"></i></a>
                                     </div>
                                     <!-- item-->
@@ -206,7 +206,7 @@
                                     <img class="rounded-circle header-profile-user"
                                         src="{{asset('images/users/avatar-1.jpg')}}" alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
-                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">Life
+                                        <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ \Auth::user()->name}}
                                         </span>
                                         <span
                                             class="d-none d-xl-block ms-1 fs-12 text-muted user-name-sub-text">Teacher</span>
@@ -215,7 +215,7 @@
                             </button>
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
-                                <h6 class="dropdown-header">Welcome Life!</h6>
+                                <h6 class="dropdown-header">Welcome {{ \Auth::user()->name}}!</h6>
                                 <a class="dropdown-item" href="{{ route('teacher.get-profile', Auth::user()->id) }}"><i
                                         class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
                                         class="align-middle">Profile</span>
@@ -242,7 +242,7 @@
             <!-- LOGO -->
             <div class="navbar-brand-box">
                 <!-- Dark Logo-->
-                <a href="index.html" class="logo logo-dark">
+                <a href="" class="logo logo-dark">
                     <span class="logo-sm">
                         <img src="assets/images/logo-sm.png" alt="" height="22">
                     </span>
@@ -251,7 +251,7 @@
                     </span>
                 </a>
                 <!-- Light Logo-->
-                <a href="index.html" class="logo logo-light">
+                <a href="" class="logo logo-light">
                     <span class="logo-sm">
                         <img src="assets/images/logo-sm.png" alt="" height="22">
                     </span>
