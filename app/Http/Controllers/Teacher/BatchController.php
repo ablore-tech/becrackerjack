@@ -145,6 +145,15 @@ class BatchController extends Controller
         return back();
     }
 
+    public function updatePrice(Request $request)
+    {
+        $batch = Batch::find($request->input('batch_id'));
+
+        $batch->update(['price' => $request->input('batch_price')]);
+
+        return back();
+    }
+
     public function list()
     {
         $batches = Batch::latest()->get();

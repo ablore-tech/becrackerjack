@@ -74,4 +74,5 @@ Route::middleware(['auth', 'user.admin'])->group(function() {
     Route::get('advance', [AdvanceController::class, 'index'])->name('advance.index');
     Route::get('batch-list', [BatchController::class, 'list'])->name('batch.list');
     Route::post('batch-approval', [BatchController::class, 'approve'])->name('batch.approval');
+    Route::post('batch-update-price', [BatchController::class, 'updatePrice'])->name('batch.update.price');
 });

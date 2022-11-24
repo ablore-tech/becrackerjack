@@ -427,7 +427,7 @@
                                                                 <div class="d-flex gap-2">
                                                                     <div class="dissable">
                                                                         <button class="btn btn-sm btn-primary remove-item-btn" 
-                                                                        data-id="{{ $batch->id}}"  data-bs-toggle="modal" data-bs-target="#disapproveBatchModal">Edit</button>
+                                                                        data-id="{{ $batch->id}}" data-price="{{ $batch->price}}" data-bs-toggle="modal" data-bs-target="#disapproveBatchModal">Edit</button>
                                                                     </div>
                                                                     @if($batch->approval_status == '1')
                                                                         <div class="view">
@@ -516,21 +516,15 @@
                                 <div class="modal-header">
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="btn-close"></button>
                                 </div>
-                                <form method="POST" action="{{ route('batch.approval') }}">
+                                <form method="POST" action="{{ route('batch.update.price') }}">
                                     @csrf
                                     <div class="modal-body">
-                                    <input type="hidden" name='approval_status' id='status' value="3">
-                                    <input type="hidden" name='batch_id' id='id' value="">
-                                        <div class="mt-2 text-center">
-                                            <lord-icon src="https://cdn.lordicon.com/gsqxdxog.json" trigger="loop" colors="primary:#f7b84b,secondary:#f06548" style="width:100px;height:100px"></lord-icon>
-                                            <div class="mt-4 pt-2 fs-15 mx-4 mx-sm-5">
-                                                <h4>Are you Sure ?</h4>
-                                                <p class="text-muted mx-4 mb-0">Are you Sure You want to disapprove this batch ?</p>
-                                            </div>
-                                        </div>
+                                        <input type="hidden" name='batch_id' id='id' value="">
+                                        <label for="name" class="form-label">Price</label>
+                                        <input type="text" name='batch_price' class="form-control" id='batch_price' value="" required>
                                         <div class="d-flex gap-2 justify-content-center mt-4 mb-2">
                                             <button type="button" class="btn w-sm btn-light" data-bs-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn w-sm btn-danger " id="delete-record">Yes, Disapprove It!</button>
+                                            <button type="submit" class="btn w-sm btn-danger " id="delete-record">Update</button>
                                         </div>
                                     </div>
                                 </form>
@@ -1199,15 +1193,16 @@
         $('#approveBatchModal').on('show.bs.modal', function(e) {
             //get data-id attribute of the clicked element
             var id = $(e.relatedTarget).data('id');
-            debugger
             $(e.currentTarget).find('input[id="batch_id"]').val(id);
             //populate the textbox
         });
 
         $('#disapproveBatchModal').on('show.bs.modal', function(e) {
             //get data-id attribute of the clicked element
+            var batchPrice=$(e.relatedTarget).data('price');
             var id = $(e.relatedTarget).data('id');
                 $(e.currentTarget).find('input[id="id"]').val(id);
+                $(e.currentTarget).find('input[id="batch_price"]').val(batchPrice);
             //populate the textbox
         });
     </script>
