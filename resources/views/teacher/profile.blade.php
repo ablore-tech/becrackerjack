@@ -212,7 +212,7 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
                                     <img class="rounded-circle header-profile-user"
-                                        src="{{asset('images/users/avatar-1.jpg')}}" alt="Header Avatar">
+                                        src="{{ $user->userDetail->profile_image ? asset('/storage'.$user->userDetail->profile_image) : asset('images/users/avatar-1.jpg')}}" alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
                                         <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ \Auth::user()->name}}
                                         </span>
@@ -224,10 +224,7 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
                                 <h6 class="dropdown-header">Welcome {{ \Auth::user()->name}}!</h6>
-                                <a class="dropdown-item" href="pages-profile.html"><i
-                                        class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Profile</span>
-                                </a>
+                                
                                 
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -280,13 +277,7 @@
                     </div>
                     <ul class="navbar-nav" id="navbar-nav">
                         <li class="menu-title"><span data-key="t-menu">Menu</span></li>
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarDashboards" role="button" aria-expanded="false"
-                                aria-controls="sidebarDashboards">
-                                <i class="ri-dashboard-2-line"></i> <span data-key="t-dashboards">Home</span>
-                            </a>
-
-                        </li>
+                        
                         <li class="nav-item">
                             <a class="nav-link menu-link" href="{{ route('teacher.batch.create')}}" role="button" aria-expanded="false"
                                 aria-controls="sidebarDashboards">
@@ -301,32 +292,7 @@
                             </a>
                         </li>
 
-                        <li class="nav-item">
-                            <a class="nav-link menu-link" href="#sidebarLayouts" data-bs-toggle="collapse" role="button"
-                                aria-expanded="false" aria-controls="sidebarLayouts">
-                                <i class="ri-layout-3-line"></i> <span data-key="t-layouts">Profile</span>
-                            </a>
-                            <div class="collapse menu-dropdown" id="sidebarLayouts">
-                                <ul class="nav nav-sm flex-column">
-                                    <li class="nav-item">
-                                        <a href="layouts-horizontal.html" target="_blank" class="nav-link"
-                                            data-key="t-horizontal">Horizontal</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="layouts-detached.html" target="_blank" class="nav-link"
-                                            data-key="t-detached">Detached</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="layouts-two-column.html" target="_blank" class="nav-link"
-                                            data-key="t-two-column">Two Column</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="layouts-vertical-hovered.html" target="_blank" class="nav-link"
-                                            data-key="t-hovered">Hovered</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li> <!-- end Dashboard Menu -->
+                         <!-- end Dashboard Menu -->
 
                         <li class="menu-title"><i class="ri-more-fill"></i> <span data-key="t-pages">Pages</span></li>
 
@@ -409,7 +375,7 @@
                                                 </label>
                                             </div>
                                         </div>
-                                        <h5 class="fs-16 mb-1">test</h5>
+                                        <h5 class="fs-16 mb-1">{{ Auth::user()->name}}</h5>
                                     </div>
                                 </div>
                             </div>
@@ -480,7 +446,7 @@
                                                                 Address</label>
                                                             <input type="email" class="form-control" id="emailInput"
                                                                 placeholder="Enter your email" name="email"
-                                                                vvalue="{{$user->email}}">
+                                                                value="{{$user->email}}">
                                                         </div>
                                                     </div>
                                                     <!--end col-->

@@ -64,6 +64,7 @@ Route::middleware(['auth', 'user.admin'])->group(function() {
     Route::resource('board', BoardController::class);
     Route::resource('subject', SubjectController::class);
     Route::resource('teacher', TeacherController::class);
+    Route::post('teacher/update-data', [TeacherController::class, 'updateData'])->name('teacher.update.data');
     Route::post('teacher/update-status/{teacher}', [TeacherController::class, 'updateStatus'])->name('update-status');
     Route::get('colleges', [CollegeController::class, 'index'])->name('colleges.index');
     Route::resource('leads', LeadController::class)->only('index');

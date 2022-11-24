@@ -84,6 +84,20 @@ class TeacherController extends Controller
         return back();
     }
 
+    public function updateData(Request $request)
+    {
+        $teacher = User::find($request->id);
+        $teacher->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'phone_number' => $request->phone_number
+        ]);
+
+        $teacher->userDetail()->update([
+            'first_name' => $request->name
+        ]);
+        return back();
+    }
     /**
      * Remove the specified resource from storage.
      *
@@ -111,7 +125,10 @@ class TeacherController extends Controller
 
     public function updateProfile(UpdateTeacherRequest $request, User $user)
     {
-        $user->update(['name' => $request->input('first_name') . ' ' . $request->input('last_name')]);
+        $user->update([
+            'name' => $request->input('first_name') . ' ' . $request->input('last_name'),
+            'email' => $request->input('email')
+        ]);
         $profileFilePath = $user->userDetail->profile_image;
         $coverFilePath = $user->userDetail->cover_image;
         // Define folder path

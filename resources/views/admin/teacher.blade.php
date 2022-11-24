@@ -25,6 +25,9 @@
     <!-- custom Css-->
     <link href="{{ asset('css/custom.min.css')}}" rel="stylesheet" type="text/css" />
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"
+        integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
@@ -217,9 +220,7 @@
                             <div class="dropdown-menu dropdown-menu-end">
                                 <!-- item-->
                                 <h6 class="dropdown-header">Welcome {{ Auth::user()->name }}!</h6>
-                                <a class="dropdown-item" href="pages-profile.html"><i
-                                        class="mdi mdi-account-circle text-muted fs-16 align-middle me-1"></i> <span
-                                        class="align-middle">Profile</span></a>
+                                
                                 <div class="dropdown-divider"></div>
                                         <a class="dropdown-item" href="{{ route('logout') }}"
                                     onclick="event.preventDefault();
@@ -412,7 +413,8 @@
                                                             <td>
                                                                 <div class="d-flex gap-2">
                                                                     <div class="edit">
-                                                                        <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal">Edit</button>
+                                                                        <button class="btn btn-sm btn-success edit-item-btn" data-bs-toggle="modal" data-bs-target="#showModal" 
+                                                                        data-id="{{ $teacher->id}}" data-name="{{ $teacher->name}}" data-email="{{ $teacher->email}}" data-phone="{{ $teacher->phone_number}}">Edit</button>
                                                                     </div>
                                                                     <div class="remove">
                                                                         <button class="btn btn-sm btn-danger remove-item-btn" 
@@ -467,41 +469,28 @@
                                     <h5 class="modal-title" id="exampleModalLabel"></h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" id="close-modal"></button>
                                 </div>
-                                
-                                @php
-                                    $teacher_id = 0;
-                                    $teacher_name = '';
-                                    $teacher_email = '';
-                                    $teacher_phone_number = '';
-                                    if(isset($teacher)) {
-                                        $teacher_id = $teacher->id;
-                                        $teacher_name = $teacher->name;
-                                        $teacher_email = $teacher->email;
-                                        $teacher_phone_number = $teacher->phone_number;
-                                    }
-                                @endphp
-                                <form method="POST" action="{{ route('teacher.update', $teacher_id) }}">
+                                <form method="POST" action="{{ route('teacher.update.data') }}">
                                     @csrf
-                                    @method('PUT')
                                     <div class="modal-body">
                                         <div class="mb-3" id="modal-id" style="display: none;">
                                             <label for="id-field" class="form-label">ID</label>
                                             <input type="text" id="id-field" class="form-control" placeholder="ID" readonly />
+                                            <input type="hidden" id="id" name="id" />
                                         </div>
     
                                         <div class="mb-3">
                                             <label for="customername-field" class="form-label">Teacher's Name</label>
-                                            <input type="text" id="customername-field" name="name" class="form-control" value="{{ $teacher_name}}" placeholder="Enter Name" required/>
+                                            <input type="text" id="name" name="name" class="form-control" placeholder="Enter Name" required/>
                                         </div>
     
                                         <div class="mb-3">
                                             <label for="email-field" class="form-label">Email</label>
-                                            <input type="email" id="email-field" name="email" class="form-control" value="{{ $teacher_email}}" placeholder="Enter Email" />
+                                            <input type="email" id="email" name="email" class="form-control" placeholder="Enter Email" />
                                         </div>
     
                                         <div class="mb-3">
                                             <label for="phone-field" class="form-label">Phone</label>
-                                            <input type="text" id="phone-field" name="phone_number" class="form-control" value="{{ $teacher_phone_number}}" placeholder="Enter Phone no." required />
+                                            <input type="text" id="phone_number" name="phone_number" class="form-control" placeholder="Enter Phone no." required />
                                         </div>
     
                                         <!-- <div class="mb-3">
@@ -1321,6 +1310,20 @@
 
 
     <!-- JAVASCRIPT -->
+    <script>
+        $('#showModal').on('show.bs.modal', function(e) {
+            //get data-id attribute of the clicked element
+            var name= $(e.relatedTarget).data('name');
+            var id = $(e.relatedTarget).data('id');
+            var email = $(e.relatedTarget).data('email');
+            var phoneNumber = $(e.relatedTarget).data('phone');
+                $(e.currentTarget).find('input[id="id"]').val(id);
+                $(e.currentTarget).find('input[id="name"]').val(name);
+                $(e.currentTarget).find('input[id="phone_number"]').val(phoneNumber);
+                $(e.currentTarget).find('input[id="email"]').val(email);
+            //populate the textbox
+        });
+    </script>
     <script src="{{ asset('libs/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
     <script src="{{ asset('libs/simplebar/simplebar.min.js')}}"></script>
     <script src="{{ asset('libs/node-waves/waves.min.js')}}"></script>
