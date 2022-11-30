@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+@include('partials.google-tag.one')
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,7 +42,7 @@
 
 <body style="background-image:url(images/college/images/main\ bg.png); background-repeat: no-repeat;background-size:70%;">
 
-
+@include('partials.google-tag.two')
 
 
     @include('partials.start.header')

@@ -2,7 +2,7 @@
 <html lang="en" data-layout="horizontal" data-layout-style="" data-layout-position="fixed" data-topbar="light">
 
 <head>
-
+@include('partials.google-tag.one')
     <meta charset="utf-8" />
     <title>BCJ Dashboard</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,7 +29,7 @@
 </head>
 
 <body>
-
+@include('partials.google-tag.two')
     <!-- Begin page -->
     <div id="layout-wrapper">
 
