@@ -25,6 +25,7 @@
     <!-- custom Css-->
     <link href="{{ asset('css/custom.min.css') }}" rel="stylesheet" type="text/css" />
 
+    @include('partials.meta-pixel')
 </head>
 
 <body>

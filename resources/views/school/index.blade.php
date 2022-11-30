@@ -33,8 +33,9 @@
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 
     <link href="{{ asset('css/college-index.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('css/header.css')}}" rel="stylesheet" type="text/css" />
 
-
+    @include('partials.meta-pixel')
 </head>
 
 
@@ -43,34 +44,9 @@
 
 
 
+    @include('partials.start.header')
 
-
-    <nav class="navbar navbar-expand-lg bg-white">
-        <div class="container-fluid ">
-            <img src="images/college/images/bcj-logo.png" class="img-fluid" style="max-width:150px; margin-left: 2rem;" alt="">
-            <button type="button" class="btn bs-lg-none navbar-btn">Start Learning</button>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse px-5" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route('school.view')}}">School</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route('college.view')}}">College</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route('language.view')}}">Language</a>
-                    </li>
-                </ul>
-            </div>
-            <button type="button" class="btn bs-sm-none navbar-btn">Start Learning</button>
-        </div>
-    </nav>
+   
 
 
 
@@ -86,8 +62,8 @@
         <div class="container-fluid my-5">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p class="blue-heading heading-in-mob">Some Amazing</p>
-                    <p class="pink-heading heading-in-mob">Key Features</p>
+                    <!-- <p class="blue-heading heading-in-mob">Some Amazing</p> -->
+                    <p class="pink-heading heading-in-mob">Why Be CrackerJack</p>
                 </div>
             </div>
         </div>
@@ -123,8 +99,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center mt-3">
-                    <p class="blue-heading heading-in-mob">Our Course</p>
-                    <p class="pink-heading heading-in-mob">Workflow</p>
+                    <!-- <p class="blue-heading heading-in-mob">Our Course</p> -->
+                    <p class="pink-heading heading-in-mob">How it works</p>
                 </div>
             </div>
 
@@ -173,8 +149,8 @@
     <div class="container-fluid my-5 pt-5 pb-3 mob-display-none">
         <div class="row pb-3">
             <div class="col-sm-12 text-center">
-                <p class="blue-heading heading-in-mob"> Tutors According To </p>
-                <p class="pink-heading heading-in-mob">Your Needs</p>
+                <!-- <p class="blue-heading heading-in-mob"> Tutors According To </p> -->
+                <p class="pink-heading heading-in-mob">An educator for everything, and everyone</p>
             </div>
         </div>
 
@@ -315,7 +291,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center mt-3">
-                <p class="blue-heading heading-in-mob">Latest <span class="pink-heading heading-in-mob"> Teachers</span>
+                <p class="blue-heading heading-in-mob"> <span class="pink-heading heading-in-mob"> Expert Educators</span>
                 </p>
             </div>
         </div>
@@ -641,7 +617,7 @@
                 </div>
                 <div class="col-md-4">
                     <p class="footer-heading">Important Links</p>
-                    <p>Become A Teacher</p>
+                    <p>Become A Educator</p>
                     <p>Contact Us</p>
                     <p>About Us</p>
                 </div>

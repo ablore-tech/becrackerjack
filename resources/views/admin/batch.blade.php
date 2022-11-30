@@ -28,6 +28,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 
+        @include('partials.meta-pixel')
 </head>
 
 <body>
@@ -210,7 +211,7 @@
                                 aria-haspopup="true" aria-expanded="false">
                                 <span class="d-flex align-items-center">
                                     <img class="rounded-circle header-profile-user"
-                                        src="{{ Auth::user()->userDetail->profile_image ? asset('/storage'.Auth::user()->userDetail->profile_image) : asset('images/users/avatar-1.jpg')}}" alt="Header Avatar">
+                                        src="{{ asset('images/users/avatar-1.jpg')}}" alt="Header Avatar">
                                     <span class="text-start ms-xl-2">
                                         <span class="d-none d-xl-inline-block ms-1 fw-medium user-name-text">{{ Auth::user()->name }}</span>
                                         <span

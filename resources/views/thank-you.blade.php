@@ -34,7 +34,7 @@
 
     <link href="{{ asset('css/college-index.css')}}" rel="stylesheet" type="text/css" />
 
-
+    @include('partials.meta-pixel')
 </head>
 
 
@@ -45,32 +45,7 @@
 
 
 
-    <nav class="navbar navbar-expand-lg bg-white">
-        <div class="container-fluid ">
-            <img src="images/college/images/bcj-logo.png" class="img-fluid" style="max-width:150px; margin-left: 2rem;" alt="">
-            <button type="button" class="btn bs-lg-none navbar-btn">Start Learning</button>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-                aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse px-5" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route('school.view')}}">School</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route('college.view')}}">College</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="{{route('language.view')}}">Language</a>
-                    </li>
-                </ul>
-            </div>
-            <button type="button" class="btn bs-sm-none navbar-btn">Start Learning</button>
-        </div>
-    </nav>
+    @include('partials.start.header')
    
 
     <img src="images/thank you 2.png" class="img-fluid d-block w-50" style="margin:0 auto ;" alt="">

@@ -31,6 +31,7 @@
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
+    @include('partials.meta-pixel')
 </head>
 <body>
     <div id="app">
