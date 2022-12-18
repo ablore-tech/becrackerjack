@@ -314,7 +314,7 @@
                         <div class="container-fluid">
                             <div class="user_details">
                                 <h3>{{ $batch->user->name ? $batch->user->name : 'Teacher'}}</h3>
-                                <p>{{ $batch->subject->name}}</p>
+                                <p>{{ $batch->subject ? $batch->subject->name : ''}}</p>
                             </div>
 
                             <div class="container-fluid">

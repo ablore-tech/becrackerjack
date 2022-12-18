@@ -262,7 +262,7 @@
                         <div class="container-fluid">
                             <div class="user_details">
                                 <h3>{{ $batch->user->name ? $batch->user->name : 'Teacher'}}</h3>
-                                <p>{{ $batch->collegeSubject->name}}</p>
+                                <p>{{ $batch->collegeSubject ? $batch->collegeSubject->name : ''}}</p>
                             </div>
 
                             <div class="container-fluid">
