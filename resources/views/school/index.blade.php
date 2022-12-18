@@ -322,11 +322,11 @@
                                     <div class="row">
                                         <div class="col-sm-6 d-inline-block">
                                             <p class="mb-0">Classes</p>
-                                            <p class="mb-0 p-light"> {{ $batch->schoolClass->name}} </p>
+                                            <p class="mb-0 p-light"> {{ $batch->schoolClass ? $batch->schoolClass->name : ''}} </p>
                                         </div>
                                         <div class="col-sm-6">
                                             <p class="mb-0">Board</p>
-                                            <p class="mb-0 p-light"> {{ $batch->board->name}}</p>
+                                            <p class="mb-0 p-light"> {{ $batch->board ? $batch->board->name : ''}}</p>
                                         </div>
                                     </div>
                                 </div>
